@@ -124,7 +124,16 @@ export function mountAwsArchitecture(host, { reducedMotion = false } = {}) {
   };
   const selectButtonNode = event => {
     const nodeId = event?.currentTarget?.dataset?.awsNode;
-    if (nodeId) selectNode(nodeId);
+    const node = NODE_BY_ID[nodeId];
+    if (!node) return;
+    selected = nodeId;
+    nodeButtons.forEach(option => {
+      const active = option.dataset.awsNode === nodeId;
+      option.classList.toggle('active', active);
+      option.setAttribute('aria-pressed', String(active));
+    });
+    nodeGroups.forEach((group, id) => group.traverse(object => { if (object.material?.emissive) object.material.emissiveIntensity = id === nodeId ? 0.45 : 0.13; }));
+    render();
   };
   nodeButtons.forEach(button => button.addEventListener('click', selectButtonNode));
 
