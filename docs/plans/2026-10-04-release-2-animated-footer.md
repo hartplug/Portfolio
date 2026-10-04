@@ -1,4 +1,4 @@
-# Release 2: animated shared footer
+**Status:** Implemented, built, published and live-verified at `https://hartplug.github.io/Portfolio/`.
 
 ## Approved decisions
 - Adapt Sir's GSAP/ScrollTrigger/SplitText/Lenis footer animation prompt to the existing portfolio.
