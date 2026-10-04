@@ -75,6 +75,30 @@ if (globeHost) {
     .catch(error => { globeHost.classList.add('globe-fallback'); globeHost.dataset.globeState = 'fallback'; console.warn('Hero globe unavailable; showing static fallback:', error); });
 }
 
+const homeOrbit = document.querySelector('[data-home-orbit]');
+if (homeOrbit) {
+  import('./home-orbit.js')
+    .then(({ mountHomeOrbit }) => mountHomeOrbit(homeOrbit, { reducedMotion: reduced }))
+    .catch(error => {
+      homeOrbit.dataset.orbitState = 'fallback';
+      homeOrbit.querySelector('[data-orbit-fallback]')?.removeAttribute('hidden');
+      console.warn('Home orbit unavailable; showing static fallback:', error);
+    });
+}
+
+const awsArchitecture = document.querySelector('[data-aws-architecture]');
+if (awsArchitecture) {
+  import('./home-aws-architecture.js')
+    .then(({ mountAwsArchitecture }) => mountAwsArchitecture(awsArchitecture, { reducedMotion: reduced }))
+    .catch(error => {
+      awsArchitecture.dataset.sceneState = 'fallback';
+      awsArchitecture.querySelector('[data-aws-fallback]')?.removeAttribute('hidden');
+      const canvas = awsArchitecture.querySelector('[data-aws-scene]');
+      if (canvas) canvas.hidden = true;
+      console.warn('AWS architecture scene unavailable; showing static fallback:', error);
+    });
+}
+
 const ring = document.querySelector('[data-ring]');
 if (ring && !reduced) {
   import('gsap').then(({ default: gsap }) => import('gsap/ScrollTrigger').then(({ ScrollTrigger }) => {
