@@ -3,15 +3,16 @@
 export function mountFooter({ reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches } = {}) {
   if (document.querySelector('.ascii-footer')) {
     const footer = document.querySelector('.ascii-footer');
-    footer.querySelectorAll('.footer-hand-img').forEach(hand => hand.remove());
-    const markup = `<div class="footer-revealer" aria-hidden="true"></div><div class="footer-content"><nav class="footer-links" aria-label="Footer navigation"><a href="work.html">Work</a><a href="project.html">AWS case study</a><a href="lab.html">Lab</a><a href="contact.html">Contact</a></nav><a class="linkedin-link footer-linkedin" href="https://www.linkedin.com/in/taiwo-philips-3166b140a?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_ios" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">in</span> Connect on LinkedIn ↗</a><div class="footer-text"><p>Cloud infrastructure and workflow automation for business systems. Abuja, Nigeria.</p></div></div><div class="footer-header" aria-label="I AUTOMATE WHAT COSTS YOU TIME"><h1>I AUTOMATE WHAT COSTS YOU TIME</h1></div>`;
-    footer.innerHTML = markup;
+    if (!footer.querySelector('.ascii-hand') || !footer.querySelector('.footer-header h1')) {
+      const markup = `<div class="footer-revealer" aria-hidden="true"></div><div class="footer-images" aria-hidden="true"><div class="footer-hand-img left"><canvas class="ascii-hand" aria-hidden="true"></canvas></div><div class="footer-hand-img right"><canvas class="ascii-hand" aria-hidden="true"></canvas></div></div><div class="footer-content"><nav class="footer-links" aria-label="Footer navigation"><a href="work.html">Work</a><a href="project.html">AWS case study</a><a href="lab.html">Lab</a><a href="contact.html">Contact</a></nav><div class="footer-text"><p>Cloud infrastructure and workflow automation for business systems. Abuja, Nigeria.</p></div></div><div class="footer-header" aria-label="I automate what costs you time"><h1><span>I automate</span><span>what costs you time</span></h1></div>`;
+      footer.innerHTML = markup;
+    }
     enhanceFooter(footer, reducedMotion);
     return;
   }
   const footer = document.createElement('footer');
   footer.className = 'ascii-footer';
-  footer.innerHTML = `<div class="footer-revealer" aria-hidden="true"></div><div class="footer-content"><nav class="footer-links" aria-label="Footer navigation"><a href="work.html">Work</a><a href="project.html">AWS case study</a><a href="lab.html">Lab</a><a href="contact.html">Contact</a></nav><a class="linkedin-link footer-linkedin" href="https://www.linkedin.com/in/taiwo-philips-3166b140a?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_ios" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">in</span> Connect on LinkedIn ↗</a><div class="footer-text"><p>Cloud infrastructure and workflow automation for business systems. Abuja, Nigeria.</p></div></div><div class="footer-header" aria-label="I AUTOMATE WHAT COSTS YOU TIME"><h1>I AUTOMATE WHAT COSTS YOU TIME</h1></div>`;
+  footer.innerHTML = `<div class="footer-revealer" aria-hidden="true"></div><div class="footer-images" aria-hidden="true"><div class="footer-hand-img left"><canvas class="ascii-hand" aria-hidden="true"></canvas></div><div class="footer-hand-img right"><canvas class="ascii-hand" aria-hidden="true"></canvas></div></div><div class="footer-content"><nav class="footer-links" aria-label="Footer navigation"><a href="work.html">Work</a><a href="project.html">AWS case study</a><a href="lab.html">Lab</a><a href="contact.html">Contact</a></nav><div class="footer-text"><p>Cloud infrastructure and workflow automation for business systems. Abuja, Nigeria.</p></div></div><div class="footer-header" aria-label="I automate what costs you time"><h1><span>I automate</span><span>what costs you time</span></h1></div>`;
   document.body.append(footer);
   enhanceFooter(footer, reducedMotion);
 }
