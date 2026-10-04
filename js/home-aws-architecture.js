@@ -110,20 +110,18 @@ export function mountAwsArchitecture(host, { reducedMotion = false } = {}) {
   const raycaster = new THREE.Raycaster(), pointer = new THREE.Vector2();
   const resize = () => { const rect = host.getBoundingClientRect(); renderer.setSize(Math.max(1, rect.width), Math.max(1, rect.height), false); camera.aspect = rect.width / Math.max(1, rect.height); camera.updateProjectionMatrix(); render(); };
   const render = () => { if (!destroyed) renderer.render(scene, camera); };
+  const nodeButtons = [...host.querySelectorAll('.aws-node-list [data-aws-node]')];
   const selectNode = id => {
     const node = NODE_BY_ID[id]; if (!node) return;
     selected = id;
-    if (detailTitle) detailTitle.textContent = node.label;
-    if (detailCopy) detailCopy.textContent = node.detail;
     nodeButtons.forEach(option => {
-      const active = option.dataset.awsNode === node.id;
+      const active = option.dataset.awsNode === id;
       option.classList.toggle('active', active);
       option.setAttribute('aria-pressed', String(active));
     });
     nodeGroups.forEach((group, nodeId) => group.traverse(object => { if (object.material?.emissive) object.material.emissiveIntensity = nodeId === id ? 0.45 : 0.13; }));
     render();
   };
-  const nodeButtons = [...host.querySelectorAll('.aws-node-list [data-aws-node]')];
   const selectButtonNode = event => {
     const nodeId = event?.currentTarget?.dataset?.awsNode;
     if (nodeId) selectNode(nodeId);
