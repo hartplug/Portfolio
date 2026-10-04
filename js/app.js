@@ -35,13 +35,10 @@ if (!reduced && 'IntersectionObserver' in window) {
       observer.unobserve(entry.target);
     }
   }), { threshold: 0.1 });
-  revealEls.forEach(element => {
-    element.classList.add('reveal');
-    observer.observe(element);
-  });
+  revealEls.forEach(element => { element.classList.add('reveal'); observer.observe(element); });
 }
 
-mountFooter();
+mountFooter({ reducedMotion: reduced });
 mountGridIntro();
 mountTransitions();
 
@@ -80,17 +77,15 @@ if (globeHost) {
 
 const ring = document.querySelector('[data-ring]');
 if (ring && !reduced) {
-  import('gsap')
-    .then(({ default: gsap }) => import('gsap/ScrollTrigger').then(({ ScrollTrigger }) => {
-      gsap.registerPlugin(ScrollTrigger);
-      const circle = ring.querySelector('circle');
-      if (!circle) return;
-      const length = circle.getTotalLength();
-      gsap.set(circle, { strokeDasharray: length, strokeDashoffset: length });
-      gsap.to(circle, { strokeDashoffset: 0, scrollTrigger: { trigger: ring, start: 'top bottom', end: 'bottom top', scrub: true } });
-      gsap.to(ring, { scale: 2.5, opacity: 0, scrollTrigger: { trigger: ring, start: 'top bottom', end: 'bottom top', scrub: true } });
-    }))
-    .catch(error => console.warn('Ring animation unavailable:', error));
+  import('gsap').then(({ default: gsap }) => import('gsap/ScrollTrigger').then(({ ScrollTrigger }) => {
+    gsap.registerPlugin(ScrollTrigger);
+    const circle = ring.querySelector('circle');
+    if (!circle) return;
+    const length = circle.getTotalLength();
+    gsap.set(circle, { strokeDasharray: length, strokeDashoffset: length });
+    gsap.to(circle, { strokeDashoffset: 0, scrollTrigger: { trigger: ring, start: 'top bottom', end: 'bottom top', scrub: true } });
+    gsap.to(ring, { scale: 2.5, opacity: 0, scrollTrigger: { trigger: ring, start: 'top bottom', end: 'bottom top', scrub: true } });
+  })).catch(error => console.warn('Ring animation unavailable:', error));
 }
 
 if (document.querySelector('#ai-orb')) {
@@ -102,20 +97,13 @@ if (document.querySelector('#ai-orb')) {
       const buttons = [...document.querySelectorAll('.orb-state')];
       const update = name => {
         orb.setState(name);
-        buttons.forEach(button => {
-          const active = button.dataset.state === name;
-          button.classList.toggle('active', active);
-          button.setAttribute('aria-pressed', String(active));
-        });
+        buttons.forEach(button => { const active = button.dataset.state === name; button.classList.toggle('active', active); button.setAttribute('aria-pressed', String(active)); });
       };
       buttons.forEach(button => button.addEventListener('click', () => update(button.dataset.state)));
       addEventListener('keydown', event => {
         if (event.target.closest('button,input,textarea,select')) return;
         if (/^[1-4]$/.test(event.key)) update(ORB_STATES[Number(event.key) - 1]);
-        else if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
-          const index = ORB_STATES.indexOf(orb.getState());
-          update(ORB_STATES[(index + (event.key === 'ArrowRight' ? 1 : -1) + 4) % 4]);
-        }
+        else if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') { const index = ORB_STATES.indexOf(orb.getState()); update(ORB_STATES[(index + (event.key === 'ArrowRight' ? 1 : -1) + 4) % 4]); }
       });
     } catch (error) {
       canvas.hidden = true;
