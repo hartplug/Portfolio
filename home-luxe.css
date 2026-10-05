@@ -81,6 +81,8 @@
 .theme-home-luxe .architecture-note{display:inline-block;margin-top:18px;color:#c8ab7a;font:8px var(--mono);letter-spacing:.15em}
 .theme-home-luxe .aws-scene-shell{max-width:1120px;width:min(100%,1120px);margin:0 auto;padding:0;background:none;box-shadow:none}
 .theme-home-luxe .aws-scene-stage{position:relative;height:clamp(500px,58vw,700px);overflow:hidden;border:0;border-radius:50%;background:transparent}
+html.theme-home-luxe body .aws-architecture .aws-scene-shell .aws-scene-stage{background:transparent!important;border:0;border-radius:50%;box-shadow:none}
+html.theme-home-luxe body .aws-architecture .aws-scene-stage::before{border-radius:50%}
 .theme-home-luxe .aws-scene-stage canvas{overflow:visible}
 .theme-home-luxe .aws-scene-shell{overflow:visible}
 .theme-home-luxe .aws-scene-stage{isolation:isolate}
