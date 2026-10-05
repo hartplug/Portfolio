@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-editorial theme-home-luxe observatory-document">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Infrastructure Observatory — Philip Taiwo</title>
+<meta name="description" content="Explore an interactive, illustrative AWS infrastructure environment by Philip Taiwo. Not a client deployment diagram.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=DM+Mono:wght@400;500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="/Portfolio/favicon.svg">
+
+  <script type="module" crossorigin src="/Portfolio/assets/app-Cb1aS5G6.js"></script>
+  <link rel="stylesheet" crossorigin href="/Portfolio/assets/app-wZqqGYLN.css">
+  <link rel="stylesheet" crossorigin href="/Portfolio/assets/observatory-B0zVcYPm.css">
+  <link rel="stylesheet" crossorigin href="/Portfolio/assets/home-luxe-CRpb9DI6.css">
+</head>
+<body class="observatory-page">
+<div class="statusbar"><span><i class="dot"></i> INFRASTRUCTURE OBSERVATORY <span class="statusbar-detail">// ILLUSTRATIVE SYSTEM MAP</span></span><span id="clock">ABUJA · WAT</span></div>
+<nav class="nav" aria-label="Primary navigation"><a class="brand" href="./">P<span>.</span>TAIWO</a><div class="navlinks"><a href="./">Home</a><a href="work.html">Work</a><a aria-current="page" href="lab.html">Lab</a><a href="contact.html">Contact</a></div></nav>
+<main class="observatory-main">
+  <header class="observatory-heading wrap">
+    <a class="observatory-back" href="lab.html">← BACK TO LAB</a>
+    <div class="observatory-heading-title"><p class="eyebrow">01 / INFRASTRUCTURE EXPERIMENT</p><h1>Infrastructure <em>Observatory</em></h1><p class="observatory-lead">A representative AWS environment, opened layer by layer.</p></div>
+    <p class="observatory-disclaimer">ILLUSTRATIVE ARCHITECTURE — NOT A CLIENT DEPLOYMENT DIAGRAM</p>
+  </header>
+  <section class="observatory-shell" data-aws-architecture data-scene-state="loading" aria-label="Interactive AWS infrastructure observatory">
+    <div class="observatory-stage-wrap">
+      <div class="observatory-stage">
+        <canvas data-aws-scene aria-label="Interactive 3D AWS infrastructure. Drag to explore. Select a component to inspect." tabindex="0"></canvas>
+        <div class="aws-scene-fallback" data-aws-fallback hidden>
+          <div class="fallback-node">INTERNET</div><div class="fallback-node">ROUTE 53</div><div class="fallback-node">LOAD BALANCER</div>
+          <div class="fallback-node">PUBLIC SUBNET · API</div><div class="fallback-node">PRIVATE SUBNET · COMPUTE</div>
+          <div class="fallback-node">RDS</div><div class="fallback-node">S3</div><div class="fallback-node">IAM · CLOUDWATCH</div>
+          <p>Illustrative AWS infrastructure environment</p>
+        </div>
+        <div class="observatory-cues"><span><i></i> DRAG TO EXPLORE</span><span>SELECT A COMPONENT</span></div>
+        <button class="observatory-reset" type="button" data-aws-reset>RESET VIEW <span aria-hidden="true">↺</span></button>
+        <div class="observatory-scale" aria-hidden="true">NETWORK EDGE <i></i> APPLICATION <i></i> DATA</div>
+      </div>
+    </div>
+    <aside class="observatory-inspector" aria-live="polite" aria-atomic="true">
+      <div class="inspector-topline"><span class="aws-inspector-kicker" data-aws-detail-kicker>COMPUTE / COMPUTE</span><span class="inspector-status"><i></i>ILLUSTRATIVE</span></div>
+      <h2 data-aws-detail-title>COMPUTE</h2>
+      <p data-aws-detail-copy>Application layer · Private subnet · Auto scaling</p>
+      <div class="inspector-meta"><span data-aws-detail-zone>PRIVATE SUBNET</span><span>REPRESENTATIVE SERVICE</span></div>
+    </aside>
+    <div class="observatory-controls">
+      <div class="aws-layer-control" role="group" aria-label="Inspect architecture layer">
+        <span class="aws-layer-label">INSPECT LAYER</span>
+        <div class="aws-layer-options">
+          <button type="button" data-aws-mode="overview" aria-pressed="true">OVERVIEW</button>
+          <button type="button" data-aws-mode="network" aria-pressed="false">NETWORK</button>
+          <button type="button" data-aws-mode="compute" aria-pressed="false">COMPUTE</button>
+          <button type="button" data-aws-mode="data" aria-pressed="false">DATA</button>
+          <button type="button" data-aws-mode="security" aria-pressed="false">SECURITY</button>
+          <button type="button" data-aws-mode="observability" aria-pressed="false">OBSERVABILITY</button>
+        </div>
+      </div>
+      <div class="aws-node-list" role="group" aria-label="Select architecture component">
+        <button type="button" data-aws-node="internet" aria-pressed="false">INTERNET</button>
+        <button type="button" data-aws-node="route53" aria-pressed="false">ROUTE 53</button>
+        <button type="button" data-aws-node="alb" aria-pressed="false">LOAD BALANCER</button>
+        <button type="button" data-aws-node="api" aria-pressed="false">API / INGRESS</button>
+        <button type="button" data-aws-node="compute" aria-pressed="true">COMPUTE</button>
+        <button type="button" data-aws-node="rds" aria-pressed="false">RDS</button>
+        <button type="button" data-aws-node="s3" aria-pressed="false">S3</button>
+        <button type="button" data-aws-node="iam" aria-pressed="false">IAM</button>
+        <button type="button" data-aws-node="cloudwatch" aria-pressed="false">CLOUDWATCH</button>
+        <button type="button" data-aws-node="deploy" aria-pressed="false">DEPLOYMENT</button>
+      </div>
+    </div>
+  </section>
+  <footer class="observatory-foot wrap"><span>INTERNET → DNS → PUBLIC ENTRY → PRIVATE SERVICES</span><a href="lab.html">RETURN TO LAB ↗</a></footer>
+</main>
+</body></html>
