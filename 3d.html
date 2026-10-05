@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cloud in 3D — Philip Taiwo | AWS Cloud &amp; Automation Consultant</title>
-<meta name="description" content="An interactive 3D model of compute, data, edge, security and automation layers.">
+<meta name="description" content="An interactive 3D model of the cloud architecture Philip Taiwo builds — compute, data, edge, security and automation. Drag to explore.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@300;400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -135,12 +135,12 @@
 
 <div class="bar">
   <div><span class="dot"></span><span class="live">RENDERING LIVE</span><span class="sep">//</span><span class="hide-sm">CLOUD ARCHITECTURE MODEL</span></div>
-  <div><a href="index.html" style="color:var(--accent);text-decoration:none;">Back to site</a></div>
+  <div><span class="hide-sm">DRAG · CLICK A NODE ·</span><a href="index.html" style="color:var(--accent);text-decoration:none;">Back to site</a></div>
 </div>
 
 <div class="head">
   <div class="mark">PHILIP TAIWO<span>.</span></div>
-  <div class="sub">AWS architecture layers, in three dimensions</div>
+  <div class="sub">Cloud architecture, in three dimensions</div>
 </div>
 
 <div class="panel" id="panel" role="dialog" aria-live="polite">
@@ -156,7 +156,7 @@
   <button class="ctl" id="btn-reset">Reset view</button>
 </div>
 
-
+<div class="hint" id="hint">Drag to rotate · click a node to inspect it</div>
 
 <!-- Shown only when WebGL is unavailable -->
 <div id="nogl">
@@ -233,6 +233,7 @@
     $('loader').classList.add('hidden');
     var ctl = document.querySelector('.controls');
     if (ctl) ctl.style.display = 'none';
+    $('hint').style.display = 'none';
   }
 
   if (!webglOK() || !window.THREE) { showFlat(); return; }
@@ -255,8 +256,8 @@
 
   var camera = new THREE.PerspectiveCamera(45, 1, 0.1, 200);
   var camDist = small ? 12.6 : 11.2;
-  camera.position.set(0, small ? 0.85 : 1.1, camDist);
-  camera.fov = small ? 51 : 45;
+  camera.position.set(0, 0.85, 13.8);
+  camera.fov = 45;
   camera.updateProjectionMatrix();
 
   var root = new THREE.Group();      /* drag / parallax */
@@ -375,12 +376,9 @@
   function layout() {
     var w = window.innerWidth, h = window.innerHeight;
     camera.aspect = w / h;
-    camera.fov = w / h < 0.72 ? 54 : (w / h < 1.2 ? 49 : 45);
     camera.updateProjectionMatrix();
     renderer.setSize(w, h, false);
-    camDist = w / h > 1.2 ? 11.2 : (w / h < 0.72 ? 11.2 : 12.0);
-    if (typeof zoom !== 'undefined') { zoom = camDist; targetZoom = camDist; }
-    camera.position.set(0, w / h < 0.72 ? 0.72 : 1.1, camDist);
+    camDist = w / h > 1.2 ? 11.2 : 12.8;
   }
   layout();
   window.addEventListener('resize', function () {
@@ -485,6 +483,7 @@
       var li = document.createElement('li'); li.textContent = item; ul.appendChild(li);
     });
     $('panel').classList.add('on');
+    $('hint').style.display = 'none';
     labels.forEach(function (sp, i) { sp.visible = (nodes[i] === node); });
     autoRotate = false; syncRotateBtn();
   }
@@ -549,14 +548,14 @@
     curX += (tRotX - curX) * 0.07;
     curY += (tRotY - curY) * 0.07;
     if (!dragging && autoRotate) tRotY *= 0.993;
-    root.rotation.x = curX + Math.sin(elapsed * 0.48) * 0.025;
+    root.rotation.x = curX;
     root.rotation.y = curY;
 
     /* camera */
     zoom += (targetZoom - zoom) * 0.07;
     camera.position.z = zoom;
     camera.position.x += ((parallaxX * 0.8) - camera.position.x) * 0.05;
-    camera.position.y += ((1.1 + parallaxY + (reduce ? 0 : Math.sin(t * 0.62) * 0.12)) - camera.position.y) * 0.05;
+    camera.position.y += (1.1 + parallaxY - camera.position.y) * 0.05;
     camera.lookAt(0, 0, 0);
 
     renderer.render(scene, camera);
