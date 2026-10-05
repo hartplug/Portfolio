@@ -11,6 +11,12 @@ function paintClock() {
   }).format(new Date()) + ' WAT / ABUJA';
 }
 
+const homePath = location.pathname.replace(/\/+$/, '') || '/';
+document.querySelectorAll('.navlinks a').forEach(link => {
+  const target = new URL(link.href, location.href).pathname.replace(/\/+$/, '') || '/';
+  if (target === homePath) link.setAttribute('aria-current', 'page');
+});
+
 paintClock();
 const clockId = setInterval(paintClock, 1000);
 let lastY = scrollY;
