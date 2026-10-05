@@ -256,7 +256,9 @@
 
   var camera = new THREE.PerspectiveCamera(45, 1, 0.1, 200);
   var camDist = small ? 12.6 : 11.2;
-  camera.position.set(0, 1.1, camDist);
+  camera.position.set(0, 0.85, 13.8);
+  camera.fov = 45;
+  camera.updateProjectionMatrix();
 
   var root = new THREE.Group();      /* drag / parallax */
   var spin = new THREE.Group();      /* auto-rotation */
