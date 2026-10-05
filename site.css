@@ -38,6 +38,7 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:4;opa
 .theme-editorial .globe-static{position:relative;z-index:0;width:min(92%,460px);height:auto;opacity:.92;transition:opacity .25s}
 .theme-editorial .hero-globe.globe-ready .globe-static{opacity:.12}
 .theme-editorial .hero-globe.globe-fallback .globe-static{opacity:.95}
+.theme-editorial .hero-globe.globe-fallback .globe-static{opacity:.95}
 .theme-editorial .globe-caption{position:absolute;right:14px;bottom:13px;z-index:2;color:var(--mute);font:8px var(--mono);letter-spacing:.14em;text-transform:uppercase}
 .theme-editorial .home-hero .location-line{display:none}
 .theme-editorial .ascii-footer{border-top:1px solid rgba(23,24,25,.15)}
