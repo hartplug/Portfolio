@@ -79,7 +79,40 @@
 .theme-home-luxe .about-grid{max-width:900px}
 @media(max-width:620px){.theme-home-luxe .accordion-heading{grid-template-columns:1fr 30px;gap:5px 14px;padding:12px 0}.theme-home-luxe .accordion-heading .eyebrow{grid-column:1;grid-row:1;font-size:8px}.theme-home-luxe .accordion-title{grid-column:1;grid-row:2;font-size:clamp(22px,6vw,30px)}.theme-home-luxe .accordion-icon{grid-column:2;grid-row:1 / span 2}.theme-home-luxe .accordion-section>.wrap{width:100%}.theme-home-luxe .home-cta>.accordion-section{width:calc(100% - 34px)}}
 
-.theme-home-luxe .aws-architecture-head{max-width:850px;margin:0 auto 30px;text-align:center}
+/* Home FAQ refinement: compact masthead, single-open ruled list, quiet flock animation. */
+.theme-home-luxe .home-faq-section{position:relative;isolation:isolate;overflow:hidden;min-height:0;padding:clamp(58px,7vw,92px) 24px clamp(64px,8vw,100px);border-top:1px solid rgba(211,189,138,.15);background:#0b0c0c}
+.theme-home-luxe .home-faq-inner{position:relative;z-index:2;width:min(100%,1120px);margin:0 auto;display:grid;grid-template-columns:minmax(240px,.78fr) minmax(0,1.22fr);column-gap:clamp(36px,8vw,112px);align-items:start}
+.theme-home-luxe .home-faq-head{position:sticky;top:112px}
+.theme-home-luxe .home-faq-head>.eyebrow{margin:0 0 12px;color:#c9b47d;font:9px var(--mono);letter-spacing:.16em}
+.theme-home-luxe .home-faq-display{margin:0 0 14px;color:#eee9df;font:600 clamp(62px,8vw,102px)/.76 var(--display);letter-spacing:.24em;text-indent:-.035em}
+.theme-home-luxe .home-faq-display span{color:#d3bd8a}
+.theme-home-luxe .home-faq-head h2{margin:0;color:#d4cfc4;font:400 clamp(15px,1.5vw,18px)/1.35 var(--sans);letter-spacing:.005em}
+.theme-home-luxe .home-faq-intro{max-width:30ch;margin:9px 0 0;color:#8e8980;font:12px/1.65 var(--sans)}
+.theme-home-luxe .home-faq-list{min-width:0;border-top:1px solid rgba(211,189,138,.24)}
+.theme-home-luxe .home-faq-item{margin:0;border-bottom:1px solid rgba(211,189,138,.2)}
+.theme-home-luxe .home-faq-item>summary{list-style:none;display:grid;grid-template-columns:36px minmax(0,1fr) 28px;align-items:center;gap:16px;width:100%;min-height:72px;padding:16px 0;cursor:pointer;text-align:left}
+.theme-home-luxe .home-faq-item>summary::-webkit-details-marker{display:none}
+.theme-home-luxe .home-faq-item>summary::marker{content:""}
+.theme-home-luxe .home-faq-number{color:#bda977;font:9px var(--mono);letter-spacing:.08em}
+.theme-home-luxe .home-faq-question{min-width:0;color:#e8e2d7;font:500 clamp(10px,1vw,12px)/1.45 var(--mono);letter-spacing:.075em}
+.theme-home-luxe .home-faq-toggle{position:relative;display:block;width:24px;height:24px;justify-self:end;color:#d3bd8a}
+.theme-home-luxe .home-faq-toggle::before,.theme-home-luxe .home-faq-toggle::after{content:"";position:absolute;left:50%;top:50%;width:11px;height:1px;background:currentColor;transform:translate(-50%,-50%);transition:transform .2s ease,opacity .2s ease}
+.theme-home-luxe .home-faq-toggle::after{transform:translate(-50%,-50%) rotate(90deg)}
+.theme-home-luxe .home-faq-item[open] .home-faq-toggle::after{transform:translate(-50%,-50%) rotate(90deg) scaleX(0);opacity:0}
+.theme-home-luxe .home-faq-item>summary:hover .home-faq-question,.theme-home-luxe .home-faq-item>summary:focus-visible .home-faq-question{color:#d3bd8a}
+.theme-home-luxe .home-faq-item>summary:focus-visible{outline:1px solid rgba(211,189,138,.7);outline-offset:5px}
+.theme-home-luxe .home-faq-answer{display:grid;grid-template-rows:0fr;transition:grid-template-rows .24s ease}
+.theme-home-luxe .home-faq-item[open] .home-faq-answer{grid-template-rows:1fr}
+.theme-home-luxe .home-faq-answer>p{min-height:0;max-width:48ch;overflow:hidden;margin:0 44px 0 52px;padding:0 0 0;color:#9d988e;font:12px/1.7 var(--sans);opacity:0;transform:translateY(-4px);transition:opacity .2s ease,transform .2s ease,padding .22s ease}
+.theme-home-luxe .home-faq-item[open] .home-faq-answer>p{padding-bottom:18px;opacity:1;transform:none}
+.theme-home-luxe .home-faq-flock{position:absolute;z-index:1;inset:0;width:100%;height:100%;pointer-events:none;overflow:hidden}
+.theme-home-luxe .home-faq-flock svg{position:absolute;left:0;top:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.theme-home-luxe .home-faq-flock path{fill:none;stroke:#d3bd8a;stroke-width:1.05;stroke-linecap:round;stroke-linejoin:round;opacity:.105;vector-effect:non-scaling-stroke}
+@media(max-width:760px){.theme-home-luxe .home-faq-section{padding:54px 24px 70px}.theme-home-luxe .home-faq-inner{grid-template-columns:minmax(0,1fr);row-gap:24px}.theme-home-luxe .home-faq-head{position:static}.theme-home-luxe .home-faq-head>.eyebrow{margin-bottom:10px}.theme-home-luxe .home-faq-display{font-size:clamp(60px,17vw,82px);margin-bottom:11px;letter-spacing:.2em}.theme-home-luxe .home-faq-head h2{font-size:16px}.theme-home-luxe .home-faq-intro{margin-top:5px;font-size:11px}.theme-home-luxe .home-faq-item>summary{min-height:64px;grid-template-columns:30px minmax(0,1fr) 28px;gap:12px;padding:14px 0}.theme-home-luxe .home-faq-question{font-size:clamp(9px,2.4vw,11px);letter-spacing:.045em}.theme-home-luxe .home-faq-answer>p{max-width:46ch;margin-left:42px;margin-right:34px;font-size:12px}}
+@media(max-width:380px){.theme-home-luxe .home-faq-section{padding-inline:18px}.theme-home-luxe .home-faq-item>summary{grid-template-columns:25px minmax(0,1fr) 24px;gap:9px}.theme-home-luxe .home-faq-question{font-size:9px;letter-spacing:.025em}.theme-home-luxe .home-faq-answer>p{margin-left:34px;margin-right:24px}}
+@media(prefers-reduced-motion:reduce){.theme-home-luxe .home-faq-answer,.theme-home-luxe .home-faq-answer>p,.theme-home-luxe .home-faq-toggle::before,.theme-home-luxe .home-faq-toggle::after{transition:none}.theme-home-luxe .home-faq-flock{display:none}}
+
+
 .theme-home-luxe .aws-architecture-head h2{font:700 clamp(42px,7vw,78px)/.94 var(--display);letter-spacing:-.025em;color:#ede8de;margin:0 0 18px}
 .theme-home-luxe .aws-architecture-head h2 em{color:#d3bd8a;font-style:normal}
 .theme-home-luxe .aws-architecture-intro{max-width:58ch;margin:0 auto;color:#b6b0a4;font-size:14px;line-height:1.7}
