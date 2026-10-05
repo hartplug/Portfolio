@@ -112,6 +112,51 @@ if (ring && !reduced) {
   })).catch(error => console.warn('Ring animation unavailable:', error));
 }
 
+const faqItems = [...document.querySelectorAll('.home-faq-item')];
+const faq = document.querySelector('.home-faq-display');
+if (faq) faq.setAttribute('aria-label', faq.textContent.split('').join(' '));
+faqItems.forEach(item => {
+  item.addEventListener('toggle', () => {
+    if (!item.open) return;
+    faqItems.forEach(other => { if (other !== item) other.open = false; });
+  });
+});
+
+const flock = document.querySelector('[data-home-faq-flock]');
+const faqSection = document.querySelector('.home-faq-section');
+if (flock && faqSection && !reduced) {
+  const paths = [...flock.querySelectorAll('path')];
+  let raf = 0, start = 0, lastFrame = 0, visible = false;
+  const drawFlock = time => {
+    raf = 0;
+    if (!visible || document.hidden) return;
+    if (time - lastFrame < 55) { raf = requestAnimationFrame(drawFlock); return; }
+    lastFrame = time;
+    if (!start) start = time;
+    const t = (time - start) / 1000;
+    paths.forEach((path, i) => {
+      const phase = t * (0.12 + (i % 3) * 0.018) + i * 1.73;
+      const x = Math.sin(phase) * (5 + (i % 3) * 2) + Math.sin(phase * .37) * 2;
+      const y = Math.sin(phase * .63 + i) * (2.3 + (i % 2)) + Math.cos(phase * .22) * 1.2;
+      const drift = ((t * (1.3 + (i % 3) * .2) + i * 18) % 126) - 13;
+      path.style.transform = `translate3d(${drift}%, ${y}%, 0) translate(${x}px, 0)`;
+      path.style.opacity = String(.055 + (Math.sin(phase * .6 + i) + 1) * .035);
+    });
+    raf = requestAnimationFrame(drawFlock);
+  };
+  const observer = new IntersectionObserver(entries => {
+    visible = entries.some(entry => entry.isIntersecting);
+    if (visible && !raf) raf = requestAnimationFrame(drawFlock);
+    else if (!visible && raf) { cancelAnimationFrame(raf); raf = 0; }
+  }, { threshold: 0 });
+  observer.observe(faqSection);
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden && raf) { cancelAnimationFrame(raf); raf = 0; }
+    else if (!document.hidden && visible && !raf) raf = requestAnimationFrame(drawFlock);
+  });
+  addEventListener('pagehide', () => { if (raf) cancelAnimationFrame(raf); observer.disconnect(); }, { once: true });
+}
+
 if (document.querySelector('#ai-orb') && document.querySelector('.orb-state')) {
   import('./ai-status-orb.js').then(({ createAIStatusOrb, ORB_STATES }) => {
     const canvas = document.querySelector('#ai-orb');
