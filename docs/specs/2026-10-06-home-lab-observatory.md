@@ -10,6 +10,7 @@ Use the current portfolio's near-black, restrained champagne/gold visual languag
 - Do not autoplay the orb state carousel. When a visitor selects `Done`, it must stay selected until they choose another state.
 - In `ai-status-orb.js`, only rotate the completion-check particles as specified by the Done form; do not rotate the whole Done mark, which makes the check appear upside down.
 - For WebGL fallback, test whether the orb module loaded and whether its canvas is hidden; don't judge from the initially off-screen orb before scrolling down the Lab page.
+- Orb layout: copy and state buttons on the left, square Orb visual centered in the right column on desktop; stack and center the Orb under the copy on mobile, fully visible with no cropping. Do not alter copy, typography, colors, or controls.
 
 ## Information architecture
 - Home: personal brand, capabilities, work, credibility, and contact. Remove the entire Live Model/3D infrastructure experience and its mount from Home; do not replace it with another large canvas. Keep Home's hero and existing consulting content.
