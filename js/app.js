@@ -116,7 +116,7 @@ if (document.querySelector('#ai-orb') && document.querySelector('.orb-state')) {
   import('./ai-status-orb.js').then(({ createAIStatusOrb, ORB_STATES }) => {
     const canvas = document.querySelector('#ai-orb');
     try {
-      const orb = createAIStatusOrb(canvas, { particles: innerWidth < 650 ? 3000 : 5500, autoplay: false, maxDpr: 1.5 });
+      const orb = createAIStatusOrb(canvas, { particles: innerWidth < 650 ? 4200 : 7000, autoplay: false, maxDpr: 1.5 });
       window.orb = orb;
       const buttons = [...document.querySelectorAll('.orb-state')];
       const update = name => {
