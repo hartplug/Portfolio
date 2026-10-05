@@ -74,14 +74,7 @@ export function mountAwsArchitecture(host, { reducedMotion = false } = {}) {
   renderer.setPixelRatio(Math.min(devicePixelRatio || 1, innerWidth < 620 ? 1.15 : 1.45));
   renderer.setClearColor(0, 0);
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(40, 1, 0.1, 80); camera.position.set(0, 4.4, 15.2); camera.lookAt(0, 0, 0);
-  const fitCamera = () => {
-    const width = host.clientWidth || 1, height = host.clientHeight || 1, aspect = width / height;
-    camera.aspect = aspect;
-    camera.position.set(0, aspect < 1 ? 3.5 : 4.1, aspect < 1 ? 13.2 : 13.8);
-    camera.lookAt(0, 0, 0); camera.updateProjectionMatrix();
-  };
-
+  const camera = new THREE.PerspectiveCamera(32, 1, 0.1, 40); camera.position.set(0, 2.9, 7.8);
   const root = new THREE.Group(); scene.add(root);
   scene.add(new THREE.HemisphereLight(0xb5c8c7, 0x151313, 1.3));
   const keyLight = new THREE.PointLight(0xd3bd8a, 9, 12); keyLight.position.set(-3, 4, 4); scene.add(keyLight);
@@ -113,12 +106,11 @@ export function mountAwsArchitecture(host, { reducedMotion = false } = {}) {
     }
   }
 
-  let raf = 0, visible = false, destroyed = false, selected = null, elapsed = 0, touching = false, downX = 0, downY = 0;
+  let raf = 0, visible = false, destroyed = false, selected = null, elapsed = 0;
   const raycaster = new THREE.Raycaster(), pointer = new THREE.Vector2();
-  const resize = () => { const rect = host.getBoundingClientRect(); renderer.setSize(Math.max(1, rect.width), Math.max(1, rect.height), false); fitCamera(); render(); };
+  const resize = () => { const rect = host.getBoundingClientRect(); renderer.setSize(Math.max(1, rect.width), Math.max(1, rect.height), false); camera.aspect = rect.width / Math.max(1, rect.height); camera.updateProjectionMatrix(); render(); };
   const render = () => { if (!destroyed) renderer.render(scene, camera); };
   const nodeButtons = [...host.querySelectorAll('.aws-node-list [data-aws-node]')];
-  const introOverlay = document.querySelector('.grid-intro');
   const selectNode = id => {
     const node = NODE_BY_ID[id]; if (!node) return;
     selected = id;
@@ -147,6 +139,7 @@ export function mountAwsArchitecture(host, { reducedMotion = false } = {}) {
 
 
 
+  const introOverlay = document.querySelector('.grid-intro');
   if (introOverlay) {
     host.querySelectorAll('.aws-node-list [data-aws-node]').forEach(button => {
       button.addEventListener('click', () => introOverlay.querySelector('.intro-skip, .button')?.click(), { once: true });
@@ -174,9 +167,6 @@ export function mountAwsArchitecture(host, { reducedMotion = false } = {}) {
     else if (event.key === 'ArrowLeft') { selectNode(NODES[(current - 1 + NODES.length) % NODES.length].id); event.preventDefault(); }
   };
   canvas.addEventListener('keydown', onKey);
-  const touchStart=e=>{if(e.touches.length!==1)return;touching=true;downX=e.touches[0].clientX;downY=e.touches[0].clientY;};
-  const touchEnd=e=>{if(!touching)return;touching=false;const p=e.changedTouches[0],dx=p.clientX-downX,dy=p.clientY-downY;if(Math.abs(dx)+Math.abs(dy)>18){root.rotation.y+=dx*.005;root.rotation.x=THREE.MathUtils.clamp(root.rotation.x+dy*.004,-.55,.55);render();}};
-  host.addEventListener('touchstart',touchStart,{passive:true});host.addEventListener('touchend',touchEnd,{passive:true});
 
   const frame = now => {
     raf = 0; if (destroyed || !visible || document.hidden || reducedMotion) return;
@@ -198,7 +188,7 @@ export function mountAwsArchitecture(host, { reducedMotion = false } = {}) {
   if (reducedMotion) render(); else start();
   const destroy = () => {
     if (destroyed) return; destroyed = true; stop(); observer.disconnect(); resizeObserver.disconnect(); document.removeEventListener('visibilitychange', visibility);
-    canvas.removeEventListener('click', onPick); canvas.removeEventListener('keydown', onKey); nodeButtons.forEach(button => button.removeEventListener('click', selectButtonNode)); host.removeEventListener('touchstart',touchStart);host.removeEventListener('touchend',touchEnd);
+    canvas.removeEventListener('click', onPick); canvas.removeEventListener('keydown', onKey); nodeButtons.forEach(button => button.removeEventListener('click', selectButtonNode));
     nodeGroups.forEach(group => group.traverse(object => { object.geometry?.dispose?.(); if (Array.isArray(object.material)) object.material.forEach(m => m.dispose()); else object.material?.dispose?.(); }));
     routes.forEach(route => { route.geometry.dispose(); route.material.dispose(); }); pulseMeshes.forEach(pulse => { pulse.mesh.geometry.dispose(); pulse.mesh.material.dispose(); });
     floor.geometry.dispose(); floor.material.dispose(); renderer.dispose();

@@ -15,7 +15,7 @@ export function mountHomeOrbit(host, { reducedMotion = false } = {}) {
   if (!canvas) return { destroy() {} };
   let renderer;
   try {
-    renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: innerWidth >= 700, powerPreference: 'default' });
+    renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: innerWidth >= 700, powerPreference: 'low-power' });
   } catch {
     host.dataset.orbitState = 'fallback';
     fallback?.removeAttribute('hidden');
@@ -25,31 +25,14 @@ export function mountHomeOrbit(host, { reducedMotion = false } = {}) {
   renderer.setPixelRatio(Math.min(devicePixelRatio || 1, innerWidth < 620 ? 1.25 : 1.6));
   renderer.setClearColor(0x000000, 0);
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(30, 1, 0.1, 30);
-  camera.position.set(0, 0.05, 6.25); camera.lookAt(0, 0, 0);
+  const camera = new THREE.PerspectiveCamera(34, 1, 0.1, 30);
+  camera.position.set(0, 0, 7.2);
   const root = new THREE.Group(); scene.add(root);
   const core = new THREE.Group(); root.add(core);
   const globe = new THREE.Mesh(new THREE.SphereGeometry(1.2, 32, 24), new THREE.MeshBasicMaterial({ color: 0xcbb278, wireframe: true, transparent: true, opacity: 0.28 }));
   core.add(globe);
-let seed = 42;
-const rand = () => { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; };
-const roots = [new THREE.Vector3(0, 0.02, 0.9), new THREE.Vector3(0, 0.02, -0.9)];
-  const particleData = [];
-  roots.forEach((origin, hemisphere) => {
-    for (let i = 0; i < 210; i++) {
-      const t = (i / 210) * Math.PI * 2;
-      const ring = Math.sqrt(i / 210) * 1.12;
-      const x = Math.cos(t) * ring, y = Math.sin(t) * ring;
-      const z = (hemisphere === 0 ? 1 : -1) * (0.22 * (1 - ring) + 0.025 * Math.sin(t * 3));
-      particleData.push({x,y,z,phase:rand()*Math.PI*2,speed:.35+rand()*.55,origin:hemisphere});
-    }
-  });
-  const particleGeometry = new THREE.BufferGeometry();
-  const particlePositions = new Float32Array(particleData.length*3);
-  particleData.forEach((p,i)=>{particlePositions[i*3]=p.x;particlePositions[i*3+1]=p.y;particlePositions[i*3+2]=p.z;});
-  particleGeometry.setAttribute('position',new THREE.BufferAttribute(particlePositions,3));
-  const particleMaterial = new THREE.PointsMaterial({color:0xd4c08c,size:.018,transparent:true,opacity:.82,sizeAttenuation:true,depthWrite:false});
-  const particles = new THREE.Points(particleGeometry,particleMaterial); core.add(particles);
+  const inner = new THREE.Mesh(new THREE.SphereGeometry(1.12, 20, 14), new THREE.MeshBasicMaterial({ color: 0x8db9bd, transparent: true, opacity: 0.1, side: THREE.BackSide }));
+  core.add(inner);
   const halo = new THREE.Mesh(new THREE.SphereGeometry(0.38, 20, 16), new THREE.MeshBasicMaterial({ color: 0xdcc38e, transparent: true, opacity: 0.13 }));
   core.add(halo);
 
@@ -69,16 +52,17 @@ const roots = [new THREE.Vector3(0, 0.02, 0.9), new THREE.Vector3(0, 0.02, -0.9)
     orbitObjects.push({ item, node, light, angle: [0.22, 2.28, 4.56][i], speed: [0.12, -0.09, 0.075][i], tilt });
   });
 
-  const starPositions = new Float32Array(240 * 3);
+  const starPositions = new Float32Array(240 * 3); let seed = 42;
+  const rand = () => { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; };
   for (let i = 0; i < starPositions.length; i += 3) { const a = rand() * Math.PI * 2, r = 2.15 + rand() * 1.9; starPositions[i] = Math.cos(a) * r; starPositions[i + 1] = (rand() - 0.5) * 3.5; starPositions[i + 2] = (rand() - 0.5) * 1.5; }
   const starsGeo = new THREE.BufferGeometry(); starsGeo.setAttribute('position', new THREE.BufferAttribute(starPositions, 3));
   const starsMat = new THREE.PointsMaterial({ color: 0xd7c9a7, size: 0.012, transparent: true, opacity: 0.52, sizeAttenuation: true });
   const stars = new THREE.Points(starsGeo, starsMat); root.add(stars);
 
-  let raf = 0, visible = false, destroyed = false, dragging = false, moved = false, pointerId = null, downX = 0, downY = 0, detailTimer = 0, frameCount = 0;
+  let raf = 0, visible = false, destroyed = false, dragging = false, moved = false, pointerId = null, downX = 0, downY = 0, detailTimer = 0;
   let targetRotX = -0.12, targetRotY = 0;
   const raycaster = new THREE.Raycaster(), pointer = new THREE.Vector2();
-  const resize = () => { const rect = host.getBoundingClientRect(); const fit = rect.width / Math.max(1, rect.height) < 0.9 ? 0.84 : 1; camera.position.z = fit === 0.84 ? 7.0 : 6.25; camera.fov = fit === 0.84 ? 34 : 30; camera.aspect = rect.width / Math.max(1, rect.height); camera.updateProjectionMatrix(); renderer.setSize(Math.max(1, rect.width), Math.max(1, rect.height), false); render(); };
+  const resize = () => { const rect = host.getBoundingClientRect(); renderer.setSize(Math.max(1, rect.width), Math.max(1, rect.height), false); camera.aspect = rect.width / Math.max(1, rect.height); camera.updateProjectionMatrix(); render(); };
   const render = () => { if (!destroyed) renderer.render(scene, camera); };
   const showDetail = item => {
     if (!detail) return;
@@ -104,21 +88,10 @@ const roots = [new THREE.Vector3(0, 0.02, 0.9), new THREE.Vector3(0, 0.02, -0.9)
   if (!reducedMotion) { canvas.addEventListener('pointerdown', down); canvas.addEventListener('pointermove', move); canvas.addEventListener('pointerup', up); canvas.addEventListener('pointercancel', cancel); }
   canvas.addEventListener('click', pick);
 
-  let touchStartX=0,touchStartY=0,touching=false;
-  const touchStart=event=>{if(event.touches.length!==1)return;touching=true;touchStartX=event.touches[0].clientX;touchStartY=event.touches[0].clientY;};
-  const touchEnd=event=>{if(!touching)return;touching=false;const touch=event.changedTouches[0],dx=touch.clientX-touchStartX,dy=touch.clientY-touchStartY;if(Math.abs(dx)+Math.abs(dy)>18){targetRotY+=dx*.006;targetRotX=THREE.MathUtils.clamp(targetRotX+dy*.004,-.7,.7);render();if(visible&&!reducedMotion)start();}};
-  host.addEventListener('touchstart',touchStart,{passive:true});host.addEventListener('touchend',touchEnd,{passive:true});
-
   const frame = now => {
     raf = 0; if (destroyed || !visible || document.hidden || reducedMotion || dragging) return;
     const t = now * 0.001; root.rotation.x += (targetRotX - root.rotation.x) * 0.045; root.rotation.y += (targetRotY - root.rotation.y) * 0.045;
-    core.position.y = Math.sin(t * .78) * .065; core.rotation.y = t * 0.11; core.rotation.x = Math.sin(t * 0.15) * 0.018;
-    frameCount++;
-    if (frameCount % 3 === 0) {
-      const pos = particleGeometry.attributes.position;
-      particleData.forEach((p,i)=>{pos.array[i*3]=p.x;pos.array[i*3+1]=p.y+Math.sin(t*p.speed+p.phase)*.018;pos.array[i*3+2]=p.z+Math.cos(t*p.speed+p.phase)*.018;}); pos.needsUpdate=true;
-    }
-    halo.scale.setScalar(1 + Math.sin(t * 0.8) * 0.06);
+    core.rotation.y = t * 0.11; core.rotation.x = Math.sin(t * 0.15) * 0.018; halo.scale.setScalar(1 + Math.sin(t * 0.8) * 0.06);
     rings.forEach(([, mat], i) => { mat.opacity = 0.17 + 0.07 * (0.5 + 0.5 * Math.sin(t * 0.72 + i * 2)); });
     orbitObjects.forEach(o => { o.angle += o.speed * 0.016; const pos = point(o.angle, orbitRadius, o.tilt); o.node.position.copy(pos); o.light.position.copy(pos); o.light.scale.setScalar(1 + Math.sin(t * 1.3 + o.angle) * 0.13); });
     stars.rotation.z = Math.sin(t * 0.045) * 0.018; render(); raf = requestAnimationFrame(frame);
@@ -133,9 +106,9 @@ const roots = [new THREE.Vector3(0, 0.02, 0.9), new THREE.Vector3(0, 0.02, -0.9)
   host.dataset.orbitState = reducedMotion ? 'static' : 'ready';
   const destroy = () => {
     if (destroyed) return; destroyed = true; stop(); clearTimeout(detailTimer); observer.disconnect(); resizeObserver.disconnect(); document.removeEventListener('visibilitychange', visibilityChange);
-    canvas.removeEventListener('pointerdown', down); canvas.removeEventListener('pointermove', move); canvas.removeEventListener('pointerup', up); canvas.removeEventListener('pointercancel', cancel); canvas.removeEventListener('click', pick); host.removeEventListener('touchstart',touchStart);host.removeEventListener('touchend',touchEnd);
+    canvas.removeEventListener('pointerdown', down); canvas.removeEventListener('pointermove', move); canvas.removeEventListener('pointerup', up); canvas.removeEventListener('pointercancel', cancel); canvas.removeEventListener('click', pick);
     host.querySelectorAll('[data-orbit-control]').forEach(button => button.removeEventListener('click', activate));
-    globe.geometry.dispose(); globe.material.dispose(); particleGeometry.dispose(); particleMaterial.dispose(); halo.geometry.dispose(); halo.material.dispose(); rings.forEach(([g, m]) => { g.dispose(); m.dispose(); });
+    globe.geometry.dispose(); globe.material.dispose(); inner.geometry.dispose(); inner.material.dispose(); halo.geometry.dispose(); halo.material.dispose(); rings.forEach(([g, m]) => { g.dispose(); m.dispose(); });
     orbitObjects.forEach(o => { o.node.geometry.dispose(); o.node.material.dispose(); o.light.geometry.dispose(); o.light.material.dispose(); }); starsGeo.dispose(); starsMat.dispose(); renderer.dispose();
   };
   addEventListener('pagehide', destroy, { once: true });
