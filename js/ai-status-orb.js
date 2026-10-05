@@ -91,11 +91,12 @@ export function createAIStatusOrb(canvas, options = {}) {
     } else {
       const breathing = 1 + .015 * Math.sin(t * 1.6), ring = a < .5;
       if (ring) { const phi = b * Math.PI * 2, r = .86 + (c - .5) * .035; x = Math.cos(phi) * r; y = Math.sin(phi) * r; z = (d - .5) * .035; }
+      /* In screen-space, positive Y points down: negate to keep the Done mark upright. */
       else {
         const q = b * 2, p0 = q < 1 ? [-.38, .02] : [-.11, -.26], p1 = q < 1 ? [-.11, -.26] : [.42, .30], u = c;
-        x = mix(p0[0], p1[0], u) + (d - .5) * .07; y = mix(p0[1], p1[1], u) + (a - .5) * .07; z = (rndFor(i) - .5) * .035;
+        x = mix(p0[0], p1[0], u) + (d - .5) * .07; y = -(mix(p0[1], p1[1], u) + (a - .5) * .07); z = (rndFor(i) - .5) * .035;
       }
-      /* Keep the completion check upright instead of rotating it with the orb. */
+      /* The ring may breathe and turn subtly; keep the inner completion mark upright. */
       if (ring) [x, y, z] = rotate(x * breathing, y * breathing, z, 0, Math.sin(t * .6) * .2);
       brightness = .7 + .25 * d;
     }
