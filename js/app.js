@@ -87,17 +87,17 @@ if (homeOrbit) {
 }
 
   const awsArchitecture = document.querySelector('[data-aws-architecture]');
-  if (awsArchitecture) {
-    import('./home-aws-architecture.js')
-      .then(({ mountAwsArchitecture }) => mountAwsArchitecture(awsArchitecture, { reducedMotion: reduced }))
-      .catch(error => {
-        awsArchitecture.dataset.sceneState = 'fallback';
-        awsArchitecture.querySelector('[data-aws-fallback]')?.removeAttribute('hidden');
-        const canvas = awsArchitecture.querySelector('[data-aws-scene]');
-        if (canvas) canvas.hidden = true;
-        console.warn('AWS architecture scene unavailable; showing static fallback:', error);
-      });
-  }
+  if (awsArchitecture && !awsArchitecture.closest('main.home-main')) {
+  import('./home-aws-architecture.js')
+    .then(({ mountAwsArchitecture }) => mountAwsArchitecture(awsArchitecture, { reducedMotion: reduced }))
+    .catch(error => {
+      awsArchitecture.dataset.sceneState = 'fallback';
+      awsArchitecture.querySelector('[data-aws-fallback]')?.removeAttribute('hidden');
+      const canvas = awsArchitecture.querySelector('[data-aws-scene]');
+      if (canvas) canvas.hidden = true;
+      console.warn('AWS architecture scene unavailable; showing static fallback:', error);
+    });
+}
 
 const ring = document.querySelector('[data-ring]');
 if (ring && !reduced) {
@@ -112,7 +112,7 @@ if (ring && !reduced) {
   })).catch(error => console.warn('Ring animation unavailable:', error));
 }
 
-if (document.querySelector('#ai-orb')) {
+if (document.querySelector('#ai-orb') && document.querySelector('.orb-state')) {
   import('./ai-status-orb.js').then(({ createAIStatusOrb, ORB_STATES }) => {
     const canvas = document.querySelector('#ai-orb');
     try {
