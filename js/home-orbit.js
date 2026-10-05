@@ -29,8 +29,14 @@ export function mountHomeOrbit(host, { reducedMotion = false } = {}) {
   camera.position.set(0, 0.05, 6.25); camera.lookAt(0, 0, 0);
   const root = new THREE.Group(); scene.add(root);
   const core = new THREE.Group(); root.add(core);
-  const globe = new THREE.Mesh(new THREE.SphereGeometry(1.2, 32, 24), new THREE.MeshBasicMaterial({ color: 0xcbb278, wireframe: true, transparent: true, opacity: 0.28 }));
+  const globe = new THREE.Mesh(new THREE.SphereGeometry(1.2, 48, 40), new THREE.MeshBasicMaterial({ color: 0x172022, transparent: true, opacity: 0.2 }));
   core.add(globe);
+  const inner = new THREE.Mesh(new THREE.SphereGeometry(1.18, 48, 36), new THREE.MeshBasicMaterial({ color: 0x091011, transparent: true, opacity: 0.58, side: THREE.BackSide }));
+  core.add(inner);
+  const shellGeo = new THREE.SphereGeometry(1.215, 40, 32);
+  const shellMat = new THREE.MeshBasicMaterial({ color: 0xd3bd8a, wireframe: true, transparent: true, opacity: 0.1 });
+  const shell = new THREE.Mesh(shellGeo, shellMat); core.add(shell);
+  const atmosphere = new THREE.Mesh(new THREE.SphereGeometry(1.27, 32, 24), new THREE.MeshBasicMaterial({ color: 0x8e7854, wireframe: true, transparent: true, opacity: 0.035 })); core.add(atmosphere);
 let seed = 42;
 const rand = () => { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; };
 const roots = [new THREE.Vector3(0, 0.02, 0.9), new THREE.Vector3(0, 0.02, -0.9)];
@@ -53,13 +59,13 @@ const roots = [new THREE.Vector3(0, 0.02, 0.9), new THREE.Vector3(0, 0.02, -0.9)
   const halo = new THREE.Mesh(new THREE.SphereGeometry(0.38, 20, 16), new THREE.MeshBasicMaterial({ color: 0xdcc38e, transparent: true, opacity: 0.13 }));
   core.add(halo);
 
-  const rings = [], orbitObjects = [], orbitRadius = 1.72;
+  const rings = [], orbitObjects = [], orbitRadius = 1.86;
   ORBIT_CONTENT.forEach((item, i) => {
     const tilt = [0.34, -0.55, 0.88][i];
     const curve = new THREE.EllipseCurve(0, 0, orbitRadius, orbitRadius * (0.73 + i * 0.035), 0, Math.PI * 2, false, 0);
     const pts = curve.getPoints(128).map(p => new THREE.Vector3(p.x, p.y * Math.cos(tilt), p.y * Math.sin(tilt)));
     const ringGeom = new THREE.BufferGeometry().setFromPoints(pts);
-    const ringMat = new THREE.LineBasicMaterial({ color: item.color, transparent: true, opacity: 0.23 });
+    const ringMat = new THREE.LineBasicMaterial({ color: item.color, transparent: true, opacity: [0.12, 0.2, 0.15][i], depthWrite: false });
     const ring = new THREE.LineLoop(ringGeom, ringMat);
     ring.rotation.set([0.25, -0.3, 0.12][i], [0.2, 0.82, -0.68][i], 0.12 * i);
     root.add(ring); rings.push([ringGeom, ringMat]);
@@ -69,16 +75,22 @@ const roots = [new THREE.Vector3(0, 0.02, 0.9), new THREE.Vector3(0, 0.02, -0.9)
     orbitObjects.push({ item, node, light, angle: [0.22, 2.28, 4.56][i], speed: [0.12, -0.09, 0.075][i], tilt });
   });
 
-  const starPositions = new Float32Array(240 * 3);
+    const coreGlow = new THREE.Mesh(new THREE.SphereGeometry(1.42, 32, 24), new THREE.MeshBasicMaterial({ color: 0xd3bd8a, transparent: true, opacity: 0.028, side: THREE.BackSide }));
+    core.add(coreGlow);
+    const starPositions = new Float32Array(240 * 3);
   for (let i = 0; i < starPositions.length; i += 3) { const a = rand() * Math.PI * 2, r = 2.15 + rand() * 1.9; starPositions[i] = Math.cos(a) * r; starPositions[i + 1] = (rand() - 0.5) * 3.5; starPositions[i + 2] = (rand() - 0.5) * 1.5; }
   const starsGeo = new THREE.BufferGeometry(); starsGeo.setAttribute('position', new THREE.BufferAttribute(starPositions, 3));
   const starsMat = new THREE.PointsMaterial({ color: 0xd7c9a7, size: 0.012, transparent: true, opacity: 0.52, sizeAttenuation: true });
   const stars = new THREE.Points(starsGeo, starsMat); root.add(stars);
 
-  let raf = 0, visible = false, destroyed = false, dragging = false, moved = false, pointerId = null, downX = 0, downY = 0, detailTimer = 0, frameCount = 0;
+  let raf = 0, visible = false, destroyed = false, dragging = false, moved = false, pointerId = null, downX = 0, downY = 0, detailTimer = 0, frameCount = 0, elapsed = 0;
   let targetRotX = -0.12, targetRotY = 0;
   const raycaster = new THREE.Raycaster(), pointer = new THREE.Vector2();
-  const resize = () => { const rect = host.getBoundingClientRect(); const fit = rect.width / Math.max(1, rect.height) < 0.9 ? 0.84 : 1; camera.position.z = fit === 0.84 ? 7.0 : 6.25; camera.fov = fit === 0.84 ? 34 : 30; camera.aspect = rect.width / Math.max(1, rect.height); camera.updateProjectionMatrix(); renderer.setSize(Math.max(1, rect.width), Math.max(1, rect.height), false); render(); };
+  const resize = () => { const rect = host.getBoundingClientRect(); const rootScale = host.clientWidth < 620 ? 1.2 : 1.25;
+    root.scale.setScalar(rootScale);
+    camera.position.set(0, 0.05, host.clientWidth < 620 ? 6.65 : 6.15);
+    camera.fov = host.clientWidth < 620 ? 34 : 30;
+    camera.aspect = rect.width / Math.max(1, rect.height); camera.updateProjectionMatrix(); renderer.setSize(Math.max(1, rect.width), Math.max(1, rect.height), false); render(); };
   const render = () => { if (!destroyed) renderer.render(scene, camera); };
   const showDetail = item => {
     if (!detail) return;
@@ -111,15 +123,17 @@ const roots = [new THREE.Vector3(0, 0.02, 0.9), new THREE.Vector3(0, 0.02, -0.9)
 
   const frame = now => {
     raf = 0; if (destroyed || !visible || document.hidden || reducedMotion || dragging) return;
-    const t = now * 0.001; root.rotation.x += (targetRotX - root.rotation.x) * 0.045; root.rotation.y += (targetRotY - root.rotation.y) * 0.045;
-    core.position.y = Math.sin(t * .78) * .065; core.rotation.y = t * 0.11; core.rotation.x = Math.sin(t * 0.15) * 0.018;
+    const t = now * 0.001; elapsed = t; root.rotation.x += (targetRotX - root.rotation.x) * 0.045; root.rotation.y += (targetRotY - root.rotation.y) * 0.045;
+    core.position.y = Math.sin(t * .32) * .025; core.rotation.y = t * 0.075; core.rotation.x = Math.sin(t * 0.12) * 0.012;
     frameCount++;
     if (frameCount % 3 === 0) {
       const pos = particleGeometry.attributes.position;
       particleData.forEach((p,i)=>{pos.array[i*3]=p.x;pos.array[i*3+1]=p.y+Math.sin(t*p.speed+p.phase)*.018;pos.array[i*3+2]=p.z+Math.cos(t*p.speed+p.phase)*.018;}); pos.needsUpdate=true;
     }
-    halo.scale.setScalar(1 + Math.sin(t * 0.8) * 0.06);
-    rings.forEach(([, mat], i) => { mat.opacity = 0.17 + 0.07 * (0.5 + 0.5 * Math.sin(t * 0.72 + i * 2)); });
+    shellMat.opacity = 0.075 + Math.sin(t * 0.42) * 0.015;
+    atmosphere.material.opacity = 0.026 + Math.sin(t * 0.31) * 0.006;
+    halo.scale.setScalar(1 + Math.sin(t * 0.5) * 0.035);
+    rings.forEach(([, mat], i) => { mat.opacity = [0.095, 0.16, 0.12][i] + 0.035 * (0.5 + 0.5 * Math.sin(t * 0.32 + i * 2)); });
     orbitObjects.forEach(o => { o.angle += o.speed * 0.016; const pos = point(o.angle, orbitRadius, o.tilt); o.node.position.copy(pos); o.light.position.copy(pos); o.light.scale.setScalar(1 + Math.sin(t * 1.3 + o.angle) * 0.13); });
     stars.rotation.z = Math.sin(t * 0.045) * 0.018; render(); raf = requestAnimationFrame(frame);
   };
@@ -135,7 +149,7 @@ const roots = [new THREE.Vector3(0, 0.02, 0.9), new THREE.Vector3(0, 0.02, -0.9)
     if (destroyed) return; destroyed = true; stop(); clearTimeout(detailTimer); observer.disconnect(); resizeObserver.disconnect(); document.removeEventListener('visibilitychange', visibilityChange);
     canvas.removeEventListener('pointerdown', down); canvas.removeEventListener('pointermove', move); canvas.removeEventListener('pointerup', up); canvas.removeEventListener('pointercancel', cancel); canvas.removeEventListener('click', pick); host.removeEventListener('touchstart',touchStart);host.removeEventListener('touchend',touchEnd);
     host.querySelectorAll('[data-orbit-control]').forEach(button => button.removeEventListener('click', activate));
-    globe.geometry.dispose(); globe.material.dispose(); particleGeometry.dispose(); particleMaterial.dispose(); halo.geometry.dispose(); halo.material.dispose(); rings.forEach(([g, m]) => { g.dispose(); m.dispose(); });
+    globe.geometry.dispose(); globe.material.dispose(); inner.geometry.dispose(); inner.material.dispose(); shellGeo.dispose(); shellMat.dispose(); atmosphere.geometry.dispose(); atmosphere.material.dispose(); coreGlow.geometry.dispose(); coreGlow.material.dispose(); particleGeometry.dispose(); particleMaterial.dispose(); halo.geometry.dispose(); halo.material.dispose(); rings.forEach(([g, m]) => { g.dispose(); m.dispose(); });
     orbitObjects.forEach(o => { o.node.geometry.dispose(); o.node.material.dispose(); o.light.geometry.dispose(); o.light.material.dispose(); }); starsGeo.dispose(); starsMat.dispose(); renderer.dispose();
   };
   addEventListener('pagehide', destroy, { once: true });
