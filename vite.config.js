@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 
 const base = process.env.GITHUB_PAGES === 'true' ? '/Portfolio/' : '/';
-const rootPaths = ['favicon.svg','site.css','home-luxe.css','aws-observatory.css','js/app.js','js/shared.js','js/ai-status-orb.js','js/home-aws-architecture.js'];
+const rootPaths = ['favicon.svg','site.css','home-luxe.css','aws-observatory.css','lab-editorial.css','js/app.js','js/shared.js','js/ai-status-orb.js','js/home-aws-architecture.js'];
 
 export default defineConfig({
   appType: 'mpa',
@@ -23,7 +23,7 @@ export default defineConfig({
         project: 'project.html',
         lab: 'lab.html',
         contact: 'contact.html',
-        architecture: '3d.html',
+        observatory: 'observatory.html',
       },
     },
   },
