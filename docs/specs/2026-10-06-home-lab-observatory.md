@@ -1,7 +1,15 @@
 # Home → Lab → Infrastructure Observatory — Design Spec
 
 ## Approved direction
-Use the current portfolio's near-black, restrained champagne/gold visual language with cool accents sparingly. Do not add the older red/cyan treatment. Preserve the shared site navigation/footer and do not publish yet.
+Use the current portfolio's near-black, restrained champagne/gold visual language with cool accents sparingly. Do not add the older red/cyan treatment. Preserve the shared site navigation/footer. The owner has explicitly authorized publishing this slice and follow-up fixes that address the listed acceptance criteria.
+
+## Update needed for current feedback
+- The Infrastructure Observatory is intended as a separate destination from the Lab index. It is not a replacement for the AI Status Orb or other Lab experiments.
+- Keep the Observatory feature prominent on Lab, but secondary experiments such as AI Status Orb remain visible below it.
+- The Lab page's `<html>` must include `class="theme-editorial"`; its scoped editorial styles depend on that class. Without it the responsive grid collapses, the orb section loses its intended layout, and mobile styling appears broken.
+- Do not autoplay the orb state carousel. When a visitor selects `Done`, it must stay selected until they choose another state.
+- In `ai-status-orb.js`, only rotate the completion-check particles as specified by the Done form; do not rotate the whole Done mark, which makes the check appear upside down.
+- For WebGL fallback, test whether the orb module loaded and whether its canvas is hidden; don't judge from the initially off-screen orb before scrolling down the Lab page.
 
 ## Information architecture
 - Home: personal brand, capabilities, work, credibility, and contact. Remove the entire Live Model/3D infrastructure experience and its mount from Home; do not replace it with another large canvas. Keep Home's hero and existing consulting content.
