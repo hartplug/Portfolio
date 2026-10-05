@@ -80,13 +80,13 @@
 .theme-home-luxe .aws-architecture-intro{max-width:58ch;margin:0 auto;color:#b6b0a4;font-size:14px;line-height:1.7}
 .theme-home-luxe .architecture-note{display:inline-block;margin-top:18px;color:#c8ab7a;font:8px var(--mono);letter-spacing:.15em}
 .theme-home-luxe .aws-scene-shell{max-width:1120px;width:min(100%,1120px);margin:0 auto;padding:0;background:none;box-shadow:none}
-.theme-home-luxe .aws-scene-stage{position:relative;height:clamp(500px,58vw,700px);overflow:hidden;border:0;border-radius:0;background:radial-gradient(ellipse at 50% 48%,rgba(190,162,111,.16),transparent 52%),linear-gradient(135deg,#121312,#0b0c0c 65%,#101111)}
+.theme-home-luxe .aws-scene-stage{position:relative;height:clamp(500px,58vw,700px);overflow:hidden;border:0;border-radius:50%;background:transparent}
 .theme-home-luxe .aws-scene-stage canvas{overflow:visible}
 .theme-home-luxe .aws-scene-shell{overflow:visible}
 .theme-home-luxe .aws-scene-stage{isolation:isolate}
 .theme-home-luxe .aws-node-list{position:relative;z-index:5}
 
-.theme-home-luxe .aws-scene-stage::before{content:"";position:absolute;z-index:0;inset:0;pointer-events:none;opacity:.32;background-image:linear-gradient(rgba(211,189,138,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(211,189,138,.06) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(ellipse at center,#000 10%,transparent 75%)}
+.theme-home-luxe .aws-scene-stage::before{content:"";position:absolute;z-index:0;inset:0;border-radius:50%;pointer-events:none;opacity:.32;background-image:linear-gradient(rgba(211,189,138,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(211,189,138,.06) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(ellipse at center,#000 10%,transparent 75%)}
 .theme-home-luxe .aws-scene-stage canvas{position:absolute;z-index:1;inset:0;width:100%;height:100%;touch-action:pan-y;outline:none;pointer-events:auto}
 .theme-home-luxe .aws-scene-stamp{z-index:3}
 .theme-home-luxe .aws-node-list,.theme-home-luxe .aws-node-list button{z-index:5!important;pointer-events:auto!important}
@@ -106,5 +106,5 @@
 .theme-home-luxe .aws-scene-fallback[hidden]{display:none}
 .theme-home-luxe .fallback-node{padding:12px 16px;border:1px solid rgba(211,189,138,.36);background:#141514;color:#e1d0a6;font:10px var(--mono)}
 .theme-home-luxe .aws-scene-fallback p{width:100%;text-align:center;color:#a99c7e;font:8px var(--mono);letter-spacing:.14em;text-transform:uppercase}
-@media(max-width:620px){.theme-home-luxe .aws-architecture{padding-block:66px}.theme-home-luxe .aws-architecture-head{margin-bottom:18px}.theme-home-luxe .aws-architecture-head h2{font-size:clamp(34px,9vw,44px)}.theme-home-luxe .aws-architecture-intro{font-size:12px}.theme-home-luxe .architecture-note{font-size:7px;line-height:1.6}.theme-home-luxe .aws-scene-shell{width:100%;margin-inline:auto}.theme-home-luxe .aws-scene-stage{height:430px}.theme-home-luxe .aws-scene-stamp{left:12px;top:12px;font-size:7px}.theme-home-luxe .aws-detail{align-items:flex-start;flex-direction:column;gap:6px;padding:14px}.theme-home-luxe .aws-detail p{text-align:left;font-size:11px}.theme-home-luxe .aws-node-list{gap:7px;margin-top:14px}.theme-home-luxe .aws-node-list button{min-height:38px;padding:0 12px;font-size:8px}}
+@media(max-width:620px){.theme-home-luxe .aws-architecture{padding-block:66px}.theme-home-luxe .aws-architecture-head{margin-bottom:18px}.theme-home-luxe .aws-architecture-head h2{font-size:clamp(34px,9vw,44px)}.theme-home-luxe .aws-architecture-intro{font-size:12px}.theme-home-luxe .architecture-note{font-size:7px;line-height:1.6}.theme-home-luxe .aws-scene-shell{width:100%;margin-inline:auto}.theme-home-luxe .aws-scene-stage{height:430px;border-radius:50%}.theme-home-luxe .aws-scene-stamp{left:12px;top:12px;font-size:7px}.theme-home-luxe .aws-detail{align-items:flex-start;flex-direction:column;gap:6px;padding:14px}.theme-home-luxe .aws-detail p{text-align:left;font-size:11px}.theme-home-luxe .aws-node-list{gap:7px;margin-top:14px}.theme-home-luxe .aws-node-list button{min-height:38px;padding:0 12px;font-size:8px}}
 @media(prefers-reduced-motion:reduce){.theme-home-luxe body::before{animation:none!important}.theme-home-luxe .orbit-labels button{animation:none!important}.theme-home-luxe .home-orbit{cursor:default}}
