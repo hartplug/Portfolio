@@ -1,0 +1,48 @@
+<section class="aws-architecture" aria-labelledby="aws-architecture-title">
+  <div class="aws-architecture-head wrap">
+    <p class="eyebrow">ILLUSTRATIVE / AWS SYSTEM MAP</p>
+    <h2 id="aws-architecture-title">Infrastructure, <em>made visible.</em></h2>
+    <p class="aws-architecture-intro">Explore a representative cloud environment—from network edge to application, data, security, and observability.</p>
+    <span class="architecture-note">ILLUSTRATIVE ARCHITECTURE — NOT A CLIENT DEPLOYMENT DIAGRAM</span>
+  </div>
+  <div class="aws-observatory" data-aws-architecture data-scene-state="loading" aria-label="Interactive AWS infrastructure model">
+    <div class="aws-model-stage">
+      <canvas data-aws-scene aria-label="Interactive 3D AWS infrastructure. Select a component to inspect; drag to rotate." tabindex="0"></canvas>
+      <div class="aws-scene-fallback" data-aws-fallback hidden>
+        <div class="fallback-node">INTERNET</div><div class="fallback-node">ROUTE 53</div><div class="fallback-node">LOAD BALANCER</div>
+        <div class="fallback-node">PUBLIC SUBNET · API</div><div class="fallback-node">PRIVATE SUBNET · COMPUTE</div>
+        <div class="fallback-node">RDS</div><div class="fallback-node">S3</div><div class="fallback-node">IAM · CLOUDWATCH</div>
+      </div>
+      <div class="aws-model-hint" aria-hidden="true">DRAG TO ORBIT <i></i> SELECT A COMPONENT</div>
+    </div>
+    <aside class="aws-inspector" aria-live="polite" aria-atomic="true">
+      <span class="aws-inspector-kicker" data-aws-detail-kicker>COMPONENT / COMPUTE</span>
+      <h3 data-aws-detail-title>COMPUTE</h3>
+      <p data-aws-detail-copy>Application layer · Private subnet · Auto scaling</p>
+      <div class="aws-inspector-meta"><span data-aws-detail-zone>PRIVATE SUBNET</span><span class="aws-inspector-status"><i></i>IN SERVICE</span></div>
+    </aside>
+    <div class="aws-layer-control" role="group" aria-label="Inspect infrastructure layer">
+      <span class="aws-layer-label">INSPECT LAYER</span>
+      <div class="aws-layer-options">
+        <button type="button" data-aws-mode="overview" aria-pressed="true">OVERVIEW</button>
+        <button type="button" data-aws-mode="network" aria-pressed="false">NETWORK</button>
+        <button type="button" data-aws-mode="compute" aria-pressed="false">COMPUTE</button>
+        <button type="button" data-aws-mode="data" aria-pressed="false">DATA</button>
+        <button type="button" data-aws-mode="security" aria-pressed="false">SECURITY</button>
+        <button type="button" data-aws-mode="observability" aria-pressed="false">OBSERVABILITY</button>
+      </div>
+    </div>
+    <div class="aws-node-list" role="group" aria-label="Select infrastructure component">
+      <button type="button" data-aws-node="internet" aria-pressed="false">INTERNET</button>
+      <button type="button" data-aws-node="route53" aria-pressed="false">ROUTE 53</button>
+      <button type="button" data-aws-node="alb" aria-pressed="false">LOAD BALANCER</button>
+      <button type="button" data-aws-node="api" aria-pressed="false">API</button>
+      <button type="button" data-aws-node="compute" aria-pressed="true">COMPUTE</button>
+      <button type="button" data-aws-node="rds" aria-pressed="false">RDS</button>
+      <button type="button" data-aws-node="s3" aria-pressed="false">S3</button>
+      <button type="button" data-aws-node="iam" aria-pressed="false">IAM</button>
+      <button type="button" data-aws-node="cloudwatch" aria-pressed="false">CLOUDWATCH</button>
+      <button type="button" data-aws-node="deploy" aria-pressed="false">DEPLOYMENT</button>
+    </div>
+  </div>
+</section>
