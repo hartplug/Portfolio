@@ -113,8 +113,6 @@ if (ring && !reduced) {
 }
 
 const faqItems = [...document.querySelectorAll('.home-faq-item')];
-const faq = document.querySelector('.home-faq-display');
-if (faq) faq.setAttribute('aria-label', faq.textContent.split('').join(' '));
 faqItems.forEach(item => {
   item.addEventListener('toggle', () => {
     if (!item.open) return;
