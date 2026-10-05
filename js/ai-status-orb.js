@@ -95,7 +95,8 @@ export function createAIStatusOrb(canvas, options = {}) {
         const q = b * 2, p0 = q < 1 ? [-.38, .02] : [-.11, -.26], p1 = q < 1 ? [-.11, -.26] : [.42, .30], u = c;
         x = mix(p0[0], p1[0], u) + (d - .5) * .07; y = mix(p0[1], p1[1], u) + (a - .5) * .07; z = (rndFor(i) - .5) * .035;
       }
-      [x, y, z] = rotate(x * breathing, y * breathing, z, 0, Math.sin(t * .6) * .2);
+      /* Keep the completion check upright instead of rotating it with the orb. */
+      if (ring) [x, y, z] = rotate(x * breathing, y * breathing, z, 0, Math.sin(t * .6) * .2);
       brightness = .7 + .25 * d;
     }
     if (d > .965) brightness += .25;
@@ -173,7 +174,7 @@ const canvas = document.querySelector('#ai-orb');
 if (canvas && !window.__orbInitialized) {
   window.__orbInitialized = true;
   try {
-    const orb = createAIStatusOrb(canvas, { particles: matchMedia('(max-width: 600px)').matches ? 3500 : 6500, autoplay: true });
+    const orb = createAIStatusOrb(canvas, { particles: matchMedia('(max-width: 600px)').matches ? 3500 : 6500, autoplay: false });
     window.orb = orb;
     const controls = [...document.querySelectorAll('.orb-state')];
     const choose = name => { orb.setState(name); controls.forEach(btn => { const active = btn.dataset.state === name; btn.classList.toggle('active', active); btn.setAttribute('aria-pressed', String(active)); }); };
