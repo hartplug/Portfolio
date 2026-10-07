@@ -1,0 +1,181 @@
+{
+  "label": "PRESENTATION-BUILD-2026-10-07",
+  "source": "Approved CHECKPOINT-2C Home + Orb + prior Lab without the Observatory promotion",
+  "excluded": [
+    "observatory.html",
+    "observatory-view.css",
+    "js/serverless-observatory.js",
+    "js/home-aws-architecture.js",
+    "aws-observatory.css",
+    "Observatory Lab card/preview"
+  ],
+  "ai_status_orb_sha256": "e81a856c477a7a856b78e6e77a76b402b4f8b78a42dc3862b35b6e1d0d73b4cf",
+  "home_orbit_sha256": "c27a4b70ca70dcf3cd4b7987c27ce6b1794f99f813148097af864c036f7b4261",
+  "files": [
+    {
+      "path": "source/3d.html",
+      "bytes": 24037,
+      "sha256": "276504ed62de3c12855be2933062b7c271433905fe7b03b25dbd514496ad0381"
+    },
+    {
+      "path": "source/contact.html",
+      "bytes": 2647,
+      "sha256": "2d744beca36d7594a27a92ccdb62a81c4a24a13d2f96f6b28a255e62701bdcdc"
+    },
+    {
+      "path": "source/favicon.svg",
+      "bytes": 223,
+      "sha256": "b6a6b3a5a52fe6c73bb1b7fef0066be6cfe1316b7a4f8898b3fffe87455b7fba"
+    },
+    {
+      "path": "source/home-luxe.css",
+      "bytes": 71589,
+      "sha256": "7a3b1c5bbad709ecf4670714a1ee3f98819e203dff1baee6a1cc1c5577302ddf"
+    },
+    {
+      "path": "source/images/hand-left.jpg",
+      "bytes": 75233,
+      "sha256": "b5f5ef886c8efa159e6cb45db52d01b9b09be49c9fc52df5d8735a6206140445"
+    },
+    {
+      "path": "source/images/hand-right.jpg",
+      "bytes": 75197,
+      "sha256": "2284517c44e773e62e8d43df41f49a51231d054004047826169488227128fd4c"
+    },
+    {
+      "path": "source/index.html",
+      "bytes": 12663,
+      "sha256": "bd7927e0aa2616578a7f76dbe958510055b50089cd77e39a77badc6628934f61"
+    },
+    {
+      "path": "source/js/ai-status-orb.js",
+      "bytes": 12970,
+      "sha256": "e81a856c477a7a856b78e6e77a76b402b4f8b78a42dc3862b35b6e1d0d73b4cf"
+    },
+    {
+      "path": "source/js/app.js",
+      "bytes": 9096,
+      "sha256": "6c97d8a92ede5762799a38e35735b951f7468b9506f6b54a1a734239207972c0"
+    },
+    {
+      "path": "source/js/home-command-scene.js",
+      "bytes": 14353,
+      "sha256": "c27a4b70ca70dcf3cd4b7987c27ce6b1794f99f813148097af864c036f7b4261"
+    },
+    {
+      "path": "source/js/shared.js",
+      "bytes": 16894,
+      "sha256": "a8c30215c5cbcc5a5971df6c47d241d8bebb20980516f799d6f35b70bb8e8130"
+    },
+    {
+      "path": "source/lab-editorial.css",
+      "bytes": 17879,
+      "sha256": "c917fd8aabf34cc700ad862ba7e4003a570ef684465e864d9366a2dad3a13799"
+    },
+    {
+      "path": "source/lab.html",
+      "bytes": 4428,
+      "sha256": "a0b448631226810a5c4a591e68aac6b2b90171c26dbf7130cee380d159c9de3a"
+    },
+    {
+      "path": "source/package-lock.json",
+      "bytes": 36354,
+      "sha256": "c3c000089e1d042cbf57dec84f522915f4873f0695729d187a9cb08e60ef1642"
+    },
+    {
+      "path": "source/package.json",
+      "bytes": 370,
+      "sha256": "6e80453d39958e1d112d13bf5dc24c126ae940371e4d60de5c4f4f7eb2c63b2f"
+    },
+    {
+      "path": "source/project.html",
+      "bytes": 3242,
+      "sha256": "54a28b34856b4b943527c4258c2e216d13bd5ef372af99b4c0f22f1284718bf2"
+    },
+    {
+      "path": "source/public/Taiwo_Philip_Executive_Resume.pdf",
+      "bytes": 89779,
+      "sha256": "484596f494c81f1df47c5ab75344692c4a639499dc57fa3e761c315d3cb4acba"
+    },
+    {
+      "path": "source/public/favicon.svg",
+      "bytes": 223,
+      "sha256": "b6a6b3a5a52fe6c73bb1b7fef0066be6cfe1316b7a4f8898b3fffe87455b7fba"
+    },
+    {
+      "path": "source/public/images/hand-left.jpg",
+      "bytes": 75233,
+      "sha256": "b5f5ef886c8efa159e6cb45db52d01b9b09be49c9fc52df5d8735a6206140445"
+    },
+    {
+      "path": "source/public/images/hand-right.jpg",
+      "bytes": 75197,
+      "sha256": "2284517c44e773e62e8d43df41f49a51231d054004047826169488227128fd4c"
+    },
+    {
+      "path": "source/public/images/philip-taiwo.jpg",
+      "bytes": 202057,
+      "sha256": "ed5f09cfb970d835b35958bd656a41a90c04ba76f44fb32f8a90a2243ef7b915"
+    },
+    {
+      "path": "source/scripts/publish.py",
+      "bytes": 7172,
+      "sha256": "f935082d432aad49d531025bd076bb2c8288b2c2f7d47a19dc1e122564af6501"
+    },
+    {
+      "path": "source/site.css",
+      "bytes": 25144,
+      "sha256": "35a8680dcf4261b48cd0f0720ef6896d573405fdfac577790e7a5306a71516f0"
+    },
+    {
+      "path": "source/vite.config.js",
+      "bytes": 860,
+      "sha256": "6da644601b1dd17c76807c1181c9274e7063a5198ce3891a6475efcf3a7811bc"
+    },
+    {
+      "path": "source/work.html",
+      "bytes": 3420,
+      "sha256": "6cab213e3521db9a0ca50c5ceba843d75db8698d5b2373d86a344fcf363948b3"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 36354,
+      "sha256": "c3c000089e1d042cbf57dec84f522915f4873f0695729d187a9cb08e60ef1642"
+    },
+    {
+      "path": "package.json",
+      "bytes": 370,
+      "sha256": "6e80453d39958e1d112d13bf5dc24c126ae940371e4d60de5c4f4f7eb2c63b2f"
+    },
+    {
+      "path": "runtime-verification.json",
+      "bytes": 4424,
+      "sha256": "cfd510aa1d74e440633a4d9510fa3edab19a801ecaa8ba0aa6e23b5689f27f21"
+    },
+    {
+      "path": "screenshots/approved-home-1440.png",
+      "bytes": 787717,
+      "sha256": "77f838ff0aa963401c5f41999d1901ec7c170128e7fc32dd44f97ce4dab772ef"
+    },
+    {
+      "path": "screenshots/approved-home-390.png",
+      "bytes": 393573,
+      "sha256": "2d38f991048e47ff4de2fb05a12662852123d37c7793d230beed3eb23bbd0d3c"
+    },
+    {
+      "path": "screenshots/presentation-home-1440.png",
+      "bytes": 1021648,
+      "sha256": "e4945109f3fb4f3621edef09d04957e01bdf3ccf7c26d88860099ede0f0945d4"
+    },
+    {
+      "path": "screenshots/presentation-home-390.png",
+      "bytes": 394257,
+      "sha256": "ea6aa47d3f11aeba513205d4c5443f58ec58a8b13f9c58a7de61348c00a75600"
+    },
+    {
+      "path": "scripts_publish.py",
+      "bytes": 7172,
+      "sha256": "f935082d432aad49d531025bd076bb2c8288b2c2f7d47a19dc1e122564af6501"
+    }
+  ]
+}
