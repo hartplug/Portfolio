@@ -1,76 +1,183 @@
 {
-  "result": {
+  "live": {
     "390": {
       "title": "Philip Taiwo \u2014 AWS Cloud & IT Solutions",
       "overflow": 0,
-      "orbit": "ready",
-      "canvas": [
-        390,
-        421
-      ],
+      "orbit": "loading",
       "about": true,
       "what": true,
+      "services": 3,
       "faq": "FAQ",
-      "serviceRows": 3,
       "nav": [
-        "HOME",
-        "WORK",
-        "LAB",
-        "CONTACT"
+        "Home",
+        "Work",
+        "Lab",
+        "Contact"
       ],
-      "major_routes": {
+      "routes": {
         "work.html": 200,
         "project.html": 200,
         "lab.html": 200,
-        "contact.html": 200,
-        "3d.html": 404
+        "contact.html": 200
+      }
+    },
+    "414": {
+      "title": "Philip Taiwo \u2014 AWS Cloud & IT Solutions",
+      "overflow": 0,
+      "orbit": "loading",
+      "about": true,
+      "what": true,
+      "services": 3,
+      "faq": "FAQ",
+      "nav": [
+        "Home",
+        "Work",
+        "Lab",
+        "Contact"
+      ],
+      "routes": {
+        "work.html": 200,
+        "project.html": 200,
+        "lab.html": 200,
+        "contact.html": 200
+      }
+    },
+    "768": {
+      "title": "Philip Taiwo \u2014 AWS Cloud & IT Solutions",
+      "overflow": 0,
+      "orbit": "loading",
+      "about": true,
+      "what": true,
+      "services": 3,
+      "faq": "FAQ",
+      "nav": [
+        "Home",
+        "Work",
+        "Lab",
+        "Contact"
+      ],
+      "routes": {
+        "work.html": 200,
+        "project.html": 200,
+        "lab.html": 200,
+        "contact.html": 200
+      }
+    },
+    "1024": {
+      "title": "Philip Taiwo \u2014 AWS Cloud & IT Solutions",
+      "overflow": 0,
+      "orbit": "loading",
+      "about": true,
+      "what": true,
+      "services": 3,
+      "faq": "FAQ",
+      "nav": [
+        "Home",
+        "Work",
+        "Lab",
+        "Contact"
+      ],
+      "routes": {
+        "work.html": 200,
+        "project.html": 200,
+        "lab.html": 200,
+        "contact.html": 200
       }
     },
     "1440": {
       "title": "Philip Taiwo \u2014 AWS Cloud & IT Solutions",
       "overflow": 0,
-      "orbit": "ready",
-      "canvas": [
-        641,
-        700
-      ],
+      "orbit": "loading",
       "about": true,
       "what": true,
+      "services": 3,
       "faq": "FAQ",
-      "serviceRows": 3,
       "nav": [
-        "HOME",
-        "WORK",
-        "LAB",
-        "CONTACT"
+        "Home",
+        "Work",
+        "Lab",
+        "Contact"
       ],
-      "major_routes": {
+      "routes": {
         "work.html": 200,
         "project.html": 200,
         "lab.html": 200,
-        "contact.html": 200,
-        "3d.html": 404
+        "contact.html": 200
       },
       "faq_open": true
     },
-    "lab_before": {
-      "orbReady": true,
-      "state": "listening",
+    "lab_pre": {
+      "orb": false,
+      "state": null,
       "controls": [
         "listening",
         "reasoning",
         "searching",
         "done"
       ],
-      "obs": false,
-      "serverless": false,
-      "personal": true
+      "observatory": false,
+      "serverlessModule": false,
+      "personalLab": true,
+      "overflow": 0
     },
-    "lab_after": {
-      "state": "reasoning",
-      "pressed": "true"
+    "lab_post": {
+      "state": null,
+      "pressed": "false"
     }
   },
-  "errors": [],
-  "http_errors": []
+  "errors": [
+    "390 Failed to load resource: the server responded with a status of 404 ()",
+    "390 Failed to load resource: the server responded with a status of 404 ()",
+    "390 Failed to load resource: the server responded with a status of 404 ()",
+    "414 Failed to load resource: the server responded with a status of 404 ()",
+    "414 Failed to load resource: the server responded with a status of 404 ()",
+    "414 Failed to load resource: the server responded with a status of 404 ()",
+    "768 Failed to load resource: the server responded with a status of 404 ()",
+    "768 Failed to load resource: the server responded with a status of 404 ()",
+    "768 Failed to load resource: the server responded with a status of 404 ()",
+    "1024 Failed to load resource: the server responded with a status of 404 ()",
+    "1024 Failed to load resource: the server responded with a status of 404 ()",
+    "1024 Failed to load resource: the server responded with a status of 404 ()",
+    "1440 Failed to load resource: the server responded with a status of 404 ()",
+    "1440 Failed to load resource: the server responded with a status of 404 ()",
+    "1440 Failed to load resource: the server responded with a status of 404 ()",
+    "lab Failed to load resource: the server responded with a status of 404 ()",
+    "lab Failed to load resource: the server responded with a status of 404 ()",
+    "lab Failed to load resource: the server responded with a status of 404 ()"
+  ],
+  "http": [
+    "390 404 https://hartplug.github.io/Portfolio/assets/index-_3MU4uob.css",
+    "390 failed https://hartplug.github.io/Portfolio/assets/index-_3MU4uob.css",
+    "390 404 https://hartplug.github.io/Portfolio/assets/app-373Av80c.css",
+    "390 failed https://hartplug.github.io/Portfolio/assets/app-373Av80c.css",
+    "390 404 https://hartplug.github.io/Portfolio/assets/app--HSjeBQ_.js",
+    "390 failed https://hartplug.github.io/Portfolio/assets/app--HSjeBQ_.js",
+    "414 404 https://hartplug.github.io/Portfolio/assets/app-373Av80c.css",
+    "414 failed https://hartplug.github.io/Portfolio/assets/app-373Av80c.css",
+    "414 404 https://hartplug.github.io/Portfolio/assets/app--HSjeBQ_.js",
+    "414 failed https://hartplug.github.io/Portfolio/assets/app--HSjeBQ_.js",
+    "414 404 https://hartplug.github.io/Portfolio/assets/index-_3MU4uob.css",
+    "414 failed https://hartplug.github.io/Portfolio/assets/index-_3MU4uob.css",
+    "768 404 https://hartplug.github.io/Portfolio/assets/app-373Av80c.css",
+    "768 failed https://hartplug.github.io/Portfolio/assets/app-373Av80c.css",
+    "768 404 https://hartplug.github.io/Portfolio/assets/index-_3MU4uob.css",
+    "768 failed https://hartplug.github.io/Portfolio/assets/index-_3MU4uob.css",
+    "768 404 https://hartplug.github.io/Portfolio/assets/app--HSjeBQ_.js",
+    "768 failed https://hartplug.github.io/Portfolio/assets/app--HSjeBQ_.js",
+    "1024 404 https://hartplug.github.io/Portfolio/assets/app-373Av80c.css",
+    "1024 failed https://hartplug.github.io/Portfolio/assets/app-373Av80c.css",
+    "1024 404 https://hartplug.github.io/Portfolio/assets/index-_3MU4uob.css",
+    "1024 failed https://hartplug.github.io/Portfolio/assets/index-_3MU4uob.css",
+    "1024 404 https://hartplug.github.io/Portfolio/assets/app--HSjeBQ_.js",
+    "1024 failed https://hartplug.github.io/Portfolio/assets/app--HSjeBQ_.js",
+    "1440 404 https://hartplug.github.io/Portfolio/assets/index-_3MU4uob.css",
+    "1440 failed https://hartplug.github.io/Portfolio/assets/index-_3MU4uob.css",
+    "1440 404 https://hartplug.github.io/Portfolio/assets/app--HSjeBQ_.js",
+    "1440 failed https://hartplug.github.io/Portfolio/assets/app--HSjeBQ_.js",
+    "1440 404 https://hartplug.github.io/Portfolio/assets/app-373Av80c.css",
+    "1440 failed https://hartplug.github.io/Portfolio/assets/app-373Av80c.css",
+    "lab 404 https://hartplug.github.io/Portfolio/assets/app-373Av80c.css",
+    "lab 404 https://hartplug.github.io/Portfolio/assets/lab-BYuiA7m9.css",
+    "lab 404 https://hartplug.github.io/Portfolio/assets/app--HSjeBQ_.js"
+  ]
 }
