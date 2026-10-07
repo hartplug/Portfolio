@@ -1,0 +1,65 @@
+{
+  "390": {
+    "camera_fixed": true,
+    "stage_fixed": true,
+    "globe_scale_fixed": true,
+    "globe_position_fixed": true,
+    "ring_geometry_fixed": true,
+    "overflow": 0,
+    "motion_frames": 107,
+    "stage": {
+      "x": 0,
+      "y": 511.53125,
+      "width": 390,
+      "height": 421.1875
+    },
+    "cam": {
+      "p": [
+        0,
+        0.42,
+        11.2
+      ],
+      "fov": 42,
+      "q": [
+        -0.01874012127521209,
+        0,
+        0,
+        0.999824388507597
+      ],
+      "near": 0.01,
+      "far": 40
+    }
+  },
+  "1440": {
+    "camera_fixed": true,
+    "stage_fixed": true,
+    "globe_scale_fixed": true,
+    "globe_position_fixed": true,
+    "ring_geometry_fixed": true,
+    "overflow": 0,
+    "motion_frames": 41,
+    "stage": {
+      "x": 714.515625,
+      "y": 176,
+      "width": 641.484375,
+      "height": 700
+    },
+    "cam": {
+      "p": [
+        0,
+        0.713363482696995,
+        8.392511561141117
+      ],
+      "fov": 46,
+      "q": [
+        -0.04238538595182565,
+        0,
+        0,
+        0.9991013357301223
+      ],
+      "near": 0.01,
+      "far": 12.566863711104496
+    }
+  },
+  "errors": []
+}
