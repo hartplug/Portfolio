@@ -1,0 +1,78 @@
+{
+  "viewports": {
+    "360": {
+      "scene": "ready",
+      "overflow": 0,
+      "faq": "FAQ",
+      "services": 3,
+      "what_i_do_head": "THE WORK, IN\nTHREE PARTS.",
+      "about_intro_font": "Inter, system-ui, sans-serif"
+    },
+    "390": {
+      "scene": "ready",
+      "overflow": 0,
+      "faq": "FAQ",
+      "services": 3,
+      "what_i_do_head": "THE WORK, IN\nTHREE PARTS.",
+      "about_intro_font": "Inter, system-ui, sans-serif"
+    },
+    "414": {
+      "scene": "ready",
+      "overflow": 0,
+      "faq": "FAQ",
+      "services": 3,
+      "what_i_do_head": "THE WORK, IN\nTHREE PARTS.",
+      "about_intro_font": "Inter, system-ui, sans-serif"
+    },
+    "768": {
+      "scene": "ready",
+      "overflow": 0,
+      "faq": "FAQ",
+      "services": 3,
+      "what_i_do_head": "THE WORK, IN\nTHREE PARTS.",
+      "about_intro_font": "Inter, system-ui, sans-serif"
+    },
+    "1024": {
+      "scene": "ready",
+      "overflow": 0,
+      "faq": "FAQ",
+      "services": 3,
+      "what_i_do_head": "THE WORK, IN\nTHREE PARTS.",
+      "about_intro_font": "Inter, system-ui, sans-serif"
+    },
+    "1280": {
+      "scene": "ready",
+      "overflow": 0,
+      "faq": "FAQ",
+      "services": 3,
+      "what_i_do_head": "THE WORK, IN\nTHREE PARTS.",
+      "about_intro_font": "Inter, system-ui, sans-serif"
+    },
+    "1440": {
+      "scene": "ready",
+      "overflow": 0,
+      "faq": "FAQ",
+      "services": 3,
+      "what_i_do_head": "THE WORK, IN\nTHREE PARTS.",
+      "about_intro_font": "Inter, system-ui, sans-serif"
+    }
+  },
+  "browser_errors": [],
+  "http_errors": [],
+  "checkpoint_local_smoke": {
+    "390": {
+      "scene": "fallback",
+      "faq": "FAQ",
+      "services": 3,
+      "overflow": 0
+    },
+    "1440": {
+      "scene": "fallback",
+      "faq": "FAQ",
+      "services": 3,
+      "overflow": 0
+    },
+    "browser_errors": [],
+    "http_errors": []
+  }
+}
