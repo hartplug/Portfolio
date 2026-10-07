@@ -1,0 +1,76 @@
+{
+  "result": {
+    "390": {
+      "title": "Philip Taiwo \u2014 AWS Cloud & IT Solutions",
+      "overflow": 0,
+      "orbit": "ready",
+      "canvas": [
+        390,
+        421
+      ],
+      "about": true,
+      "what": true,
+      "faq": "FAQ",
+      "serviceRows": 3,
+      "nav": [
+        "HOME",
+        "WORK",
+        "LAB",
+        "CONTACT"
+      ],
+      "major_routes": {
+        "work.html": 200,
+        "project.html": 200,
+        "lab.html": 200,
+        "contact.html": 200,
+        "3d.html": 404
+      }
+    },
+    "1440": {
+      "title": "Philip Taiwo \u2014 AWS Cloud & IT Solutions",
+      "overflow": 0,
+      "orbit": "ready",
+      "canvas": [
+        641,
+        700
+      ],
+      "about": true,
+      "what": true,
+      "faq": "FAQ",
+      "serviceRows": 3,
+      "nav": [
+        "HOME",
+        "WORK",
+        "LAB",
+        "CONTACT"
+      ],
+      "major_routes": {
+        "work.html": 200,
+        "project.html": 200,
+        "lab.html": 200,
+        "contact.html": 200,
+        "3d.html": 404
+      },
+      "faq_open": true
+    },
+    "lab_before": {
+      "orbReady": true,
+      "state": "listening",
+      "controls": [
+        "listening",
+        "reasoning",
+        "searching",
+        "done"
+      ],
+      "obs": false,
+      "serverless": false,
+      "personal": true
+    },
+    "lab_after": {
+      "state": "reasoning",
+      "pressed": "true"
+    }
+  },
+  "errors": [],
+  "http_errors": []
+}
