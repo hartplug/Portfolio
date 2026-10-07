@@ -1,0 +1,216 @@
+{
+  "results": {
+    "390": {
+      "title": "Philip Taiwo \u2014 AWS Cloud & IT Solutions",
+      "overflow": 0,
+      "nav": [
+        {
+          "t": "HOME",
+          "h": "./"
+        },
+        {
+          "t": "WORK",
+          "h": "work.html"
+        },
+        {
+          "t": "LAB",
+          "h": "lab.html"
+        },
+        {
+          "t": "CONTACT",
+          "h": "contact.html"
+        }
+      ],
+      "about": true,
+      "services": 3,
+      "faq": "FAQ",
+      "orbitState": "ready",
+      "orbitCanvas": [
+        390,
+        421
+      ],
+      "fallbackHidden": true,
+      "homeH1": "TAIWO\nPHILIPS",
+      "homeName": "TAIWO\nPHILIPS",
+      "routes": {
+        "work.html": 200,
+        "project.html": 200,
+        "lab.html": 200,
+        "contact.html": 200,
+        "3d.html": 200
+      }
+    },
+    "414": {
+      "title": "Philip Taiwo \u2014 AWS Cloud & IT Solutions",
+      "overflow": 0,
+      "nav": [
+        {
+          "t": "HOME",
+          "h": "./"
+        },
+        {
+          "t": "WORK",
+          "h": "work.html"
+        },
+        {
+          "t": "LAB",
+          "h": "lab.html"
+        },
+        {
+          "t": "CONTACT",
+          "h": "contact.html"
+        }
+      ],
+      "about": true,
+      "services": 3,
+      "faq": "FAQ",
+      "orbitState": "ready",
+      "orbitCanvas": [
+        414,
+        447
+      ],
+      "fallbackHidden": true,
+      "homeH1": "TAIWO\nPHILIPS",
+      "homeName": "TAIWO\nPHILIPS",
+      "routes": {
+        "work.html": 200,
+        "project.html": 200,
+        "lab.html": 200,
+        "contact.html": 200,
+        "3d.html": 200
+      }
+    },
+    "768": {
+      "title": "Philip Taiwo \u2014 AWS Cloud & IT Solutions",
+      "overflow": 0,
+      "nav": [
+        {
+          "t": "HOME",
+          "h": "./"
+        },
+        {
+          "t": "WORK",
+          "h": "work.html"
+        },
+        {
+          "t": "LAB",
+          "h": "lab.html"
+        },
+        {
+          "t": "CONTACT",
+          "h": "contact.html"
+        }
+      ],
+      "about": true,
+      "services": 3,
+      "faq": "FAQ",
+      "orbitState": "ready",
+      "orbitCanvas": [
+        704,
+        550
+      ],
+      "fallbackHidden": true,
+      "homeH1": "TAIWO\nPHILIPS",
+      "homeName": "TAIWO\nPHILIPS",
+      "routes": {
+        "work.html": 200,
+        "project.html": 200,
+        "lab.html": 200,
+        "contact.html": 200,
+        "3d.html": 200
+      }
+    },
+    "1024": {
+      "title": "Philip Taiwo \u2014 AWS Cloud & IT Solutions",
+      "overflow": 0,
+      "nav": [
+        {
+          "t": "HOME",
+          "h": "./"
+        },
+        {
+          "t": "WORK",
+          "h": "work.html"
+        },
+        {
+          "t": "LAB",
+          "h": "lab.html"
+        },
+        {
+          "t": "CONTACT",
+          "h": "contact.html"
+        }
+      ],
+      "about": true,
+      "services": 3,
+      "faq": "FAQ",
+      "orbitState": "ready",
+      "orbitCanvas": [
+        500,
+        560
+      ],
+      "fallbackHidden": true,
+      "homeH1": "TAIWO\nPHILIPS",
+      "homeName": "TAIWO\nPHILIPS",
+      "routes": {
+        "work.html": 200,
+        "project.html": 200,
+        "lab.html": 200,
+        "contact.html": 200,
+        "3d.html": 200
+      }
+    },
+    "1440": {
+      "title": "Philip Taiwo \u2014 AWS Cloud & IT Solutions",
+      "overflow": 0,
+      "nav": [
+        {
+          "t": "HOME",
+          "h": "./"
+        },
+        {
+          "t": "WORK",
+          "h": "work.html"
+        },
+        {
+          "t": "LAB",
+          "h": "lab.html"
+        },
+        {
+          "t": "CONTACT",
+          "h": "contact.html"
+        }
+      ],
+      "about": true,
+      "services": 3,
+      "faq": "FAQ",
+      "orbitState": "ready",
+      "orbitCanvas": [
+        641,
+        700
+      ],
+      "fallbackHidden": true,
+      "homeH1": "TAIWO\nPHILIPS",
+      "homeName": "TAIWO\nPHILIPS",
+      "routes": {
+        "work.html": 200,
+        "project.html": 200,
+        "lab.html": 200,
+        "contact.html": 200,
+        "3d.html": 200
+      }
+    },
+    "lab": {
+      "title": "Lab \u2014 Philip Taiwo | Experiments in infrastructure",
+      "orbReady": true,
+      "orbState": "reasoning",
+      "reasoningPressed": "true",
+      "orbOptions": 4,
+      "personalAwsNote": true,
+      "observatoryMarketing": false,
+      "overflow": 0
+    }
+  },
+  "errors": [],
+  "http_errors": []
+}
