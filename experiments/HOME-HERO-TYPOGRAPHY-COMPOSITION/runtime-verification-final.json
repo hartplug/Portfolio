@@ -1,0 +1,244 @@
+{
+  "viewports": {
+    "390": {
+      "duration_seconds": 20.0,
+      "scene_ready": true,
+      "fixed_camera_and_geometry": true,
+      "approved_globe_radius": true,
+      "approved_rings": true,
+      "approved_atmosphere": true,
+      "motion_advances": true,
+      "zero_horizontal_overflow": true,
+      "stage": [
+        0,
+        422.53125,
+        390,
+        421.1875
+      ],
+      "camera": [
+        0,
+        0.42,
+        11.2,
+        42,
+        -0.01874012127521209,
+        0,
+        0,
+        0.999824388507597,
+        0.01,
+        40
+      ],
+      "globe": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "radius": 2.350000119011946,
+        "rotation": [
+          -0.2385269440367839,
+          0.18093360000000003,
+          -0.07923941622944931,
+          "XYZ"
+        ]
+      },
+      "rings": [
+        {
+          "geometryRadius": 2.726000094036285,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "rotation": [
+            0.8825697498266755,
+            0.12297900577043666,
+            0.08304222144385448,
+            "XYZ"
+          ]
+        },
+        {
+          "geometryRadius": 2.796500126515805,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "rotation": [
+            -0.8227942467225067,
+            0.4373251928134738,
+            -0.28086305648731846,
+            "XYZ"
+          ]
+        },
+        {
+          "geometryRadius": 2.867000102996826,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "rotation": [
+            0.18289245135419732,
+            -0.6587169012039032,
+            0.47776263497009586,
+            "XYZ"
+          ]
+        }
+      ],
+      "atmosphere": {
+        "structuralShellRadius": 2.2936,
+        "structuralShellOpacity": 0.14,
+        "atmosphereShellRadius": 2.4205,
+        "atmosphereShellOpacity": 0.058,
+        "atmosphereShellSide": 1,
+        "rimRadius": 2.3641,
+        "rimOpacity": 0.05,
+        "rimSide": 0,
+        "rimBlending": 2
+      },
+      "frames_delta": 201,
+      "samples": 9
+    },
+    "1440": {
+      "duration_seconds": 20.1,
+      "scene_ready": true,
+      "fixed_camera_and_geometry": true,
+      "approved_globe_radius": true,
+      "approved_rings": true,
+      "approved_atmosphere": true,
+      "motion_advances": true,
+      "zero_horizontal_overflow": true,
+      "stage": [
+        714.515625,
+        176,
+        641.484375,
+        700
+      ],
+      "camera": [
+        0,
+        0.713363482696995,
+        8.392511561141117,
+        46,
+        -0.04238538595182565,
+        0,
+        0,
+        0.9991013357301223,
+        0.01,
+        12.566863711104496
+      ],
+      "globe": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "radius": 2.350000119011946,
+        "rotation": [
+          -0.23776406933031058,
+          0.18333280000000007,
+          -0.07884417211961761,
+          "XYZ"
+        ]
+      },
+      "rings": [
+        {
+          "geometryRadius": 2.726000094036285,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "rotation": [
+            1.2907663361905295,
+            0.15561511432639866,
+            0.1162322493182941,
+            "XYZ"
+          ]
+        },
+        {
+          "geometryRadius": 2.796500126515805,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "rotation": [
+            -1.1733618680348594,
+            0.40785809494007025,
+            -0.2903509750919395,
+            "XYZ"
+          ]
+        },
+        {
+          "geometryRadius": 2.867000102996826,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "rotation": [
+            0.25465905130551675,
+            -0.9044314485050129,
+            0.453105141917585,
+            "XYZ"
+          ]
+        }
+      ],
+      "atmosphere": {
+        "structuralShellRadius": 2.2936,
+        "structuralShellOpacity": 0.14,
+        "atmosphereShellRadius": 2.4205,
+        "atmosphereShellOpacity": 0.058,
+        "atmosphereShellSide": 1,
+        "rimRadius": 2.3641,
+        "rimOpacity": 0.05,
+        "rimSide": 0,
+        "rimBlending": 2
+      },
+      "frames_delta": 51,
+      "samples": 9
+    }
+  },
+  "browser_errors": [],
+  "http_resource_errors": []
+}
