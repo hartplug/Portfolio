@@ -1,0 +1,66 @@
+{
+  "label": "CHECKPOINT-1R-APPROVED",
+  "created_utc": "2026-10-07T05:17:10.061461+00:00",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 1106,
+      "sha256": "e1d79d367954d80a5117c66e0078080a0c3065cc1b5420828c059d2b0f3fc54e"
+    },
+    {
+      "path": "build.log",
+      "bytes": 1918,
+      "sha256": "7ce227d84f43fac7390648e0a25114d7dd8c245156b630ad40ad3742dacfd79b"
+    },
+    {
+      "path": "node_check.log",
+      "bytes": 29,
+      "sha256": "2357381bbc3b76fa2ca53dcc7d53300e9c71411950d6537363c7f7dee4c671da"
+    },
+    {
+      "path": "runtime-capture.log",
+      "bytes": 29,
+      "sha256": "2357381bbc3b76fa2ca53dcc7d53300e9c71411950d6537363c7f7dee4c671da"
+    },
+    {
+      "path": "runtime.json",
+      "bytes": 3948,
+      "sha256": "1ae751fe0fefb4024213f51b755a06b89dcfabfd17a91ee4679d09b61a827ea0"
+    },
+    {
+      "path": "screenshots/desktop-1440.png",
+      "bytes": 796286,
+      "sha256": "43552a0d1dd324e124f3d4d85d0e2e8d5a969342c912b385f4746b9ef7581efa"
+    },
+    {
+      "path": "screenshots/mobile-390-full-hero.png",
+      "bytes": 298006,
+      "sha256": "fde7076eff4b0517c95fd26d77d98ca8ef6a264b052c89f729088404ce75e964"
+    },
+    {
+      "path": "source/home-luxe.css",
+      "bytes": 59861,
+      "sha256": "d357c03a8ec9c2b7bb2cebcdb80229f1edac24ddf272e99e34984aed11eb890f"
+    },
+    {
+      "path": "source/index.html",
+      "bytes": 8912,
+      "sha256": "be6f38512982cd4781a4ab70a7715c4416b0d038a963de838778d014e9d8e816"
+    },
+    {
+      "path": "source/js/app.js",
+      "bytes": 9768,
+      "sha256": "7e84250da0ccb75db7f01825c16e821ff621327b4f66fd4afa0c687a326bb704"
+    },
+    {
+      "path": "source/js/home-command-scene.js",
+      "bytes": 13956,
+      "sha256": "1ae8f7d431c23b086ae85419d5c9a1c73beebcb2c606f2ea07771ccd619b33d3"
+    },
+    {
+      "path": "source/js/shared.js",
+      "bytes": 16894,
+      "sha256": "a8c30215c5cbcc5a5971df6c47d241d8bebb20980516f799d6f35b70bb8e8130"
+    }
+  ]
+}
