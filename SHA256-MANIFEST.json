@@ -19,6 +19,131 @@
   "home_orbit_sha256": "c27a4b70ca70dcf3cd4b7987c27ce6b1794f99f813148097af864c036f7b4261",
   "files": [
     {
+      "path": "dist/Taiwo_Philip_Executive_Resume.pdf",
+      "bytes": 89779,
+      "sha256": "484596f494c81f1df47c5ab75344692c4a639499dc57fa3e761c315d3cb4acba"
+    },
+    {
+      "path": "dist/assets/ScrollTrigger-BrDuEirF.js",
+      "bytes": 43547,
+      "sha256": "873b6d349c436877cd1273ead35533511d547061840e0d7fc3d00f5440bee2c5"
+    },
+    {
+      "path": "dist/assets/SplitText-Bz_5hqgE.js",
+      "bytes": 7148,
+      "sha256": "6d5798d5f93cd3dcd788fca0a876e000ffffb40c768dc191d478bf2886791e08"
+    },
+    {
+      "path": "dist/assets/ai-status-orb-Cb8TvqmJ.js",
+      "bytes": 7893,
+      "sha256": "c5a8fef0c0caca8e3ab85a8aa216364cf88d9b59933511a0dfba4893efe0f293"
+    },
+    {
+      "path": "dist/assets/app--HSjeBQ_.js",
+      "bytes": 19817,
+      "sha256": "7192fa355deeffc163a08e30aca1c1eb73368fe7bbd6df9c80ba4cf75cc66870"
+    },
+    {
+      "path": "dist/assets/app-373Av80c.css",
+      "bytes": 24316,
+      "sha256": "b2a883380024f11b319695a273c8e9ee7134691ba5c26a659bf896705342a16a"
+    },
+    {
+      "path": "dist/assets/home-command-scene-B0yfOlVA.js",
+      "bytes": 7990,
+      "sha256": "8ac8e0be01bb53e9be0497ebb13d28c714e72a5147c705ef52911661f48072e5"
+    },
+    {
+      "path": "dist/assets/index-D4-8ALNT.js",
+      "bytes": 70426,
+      "sha256": "86e1aee306e610f5e211c6e3b7a2348050782e9e700a8797a2db42afb451be49"
+    },
+    {
+      "path": "dist/assets/index-_3MU4uob.css",
+      "bytes": 53973,
+      "sha256": "e8ede73181fdb6f4a39d7085bf3f4433becf8aa9e10757ad8a33d6e3b7af1db5"
+    },
+    {
+      "path": "dist/assets/lab-BYuiA7m9.css",
+      "bytes": 16503,
+      "sha256": "1b367f354583e3e5fc5b722aa747195d335f1e23293d0df49ad212ff4ca096af"
+    },
+    {
+      "path": "dist/assets/lenis-BBml_0t9.js",
+      "bytes": 18714,
+      "sha256": "80044a6ace17ab81a9088ec92bc4a8d5b348a69bade3276d558f7048131b625f"
+    },
+    {
+      "path": "dist/assets/three.module-DD7u3Ffr.js",
+      "bytes": 467759,
+      "sha256": "895d4815ae097cd7ec6c24083dab9b2e68767e1d312ad188901114936a8d4388"
+    },
+    {
+      "path": "dist/contact.html",
+      "bytes": 2733,
+      "sha256": "cce53da116d03cd0999895c997524d51064f9d1c3aac5685fbae2e2f20207618"
+    },
+    {
+      "path": "dist/favicon.svg",
+      "bytes": 223,
+      "sha256": "b6a6b3a5a52fe6c73bb1b7fef0066be6cfe1316b7a4f8898b3fffe87455b7fba"
+    },
+    {
+      "path": "dist/images/hand-left.jpg",
+      "bytes": 75233,
+      "sha256": "b5f5ef886c8efa159e6cb45db52d01b9b09be49c9fc52df5d8735a6206140445"
+    },
+    {
+      "path": "dist/images/hand-right.jpg",
+      "bytes": 75197,
+      "sha256": "2284517c44e773e62e8d43df41f49a51231d054004047826169488227128fd4c"
+    },
+    {
+      "path": "dist/images/philip-taiwo.jpg",
+      "bytes": 202057,
+      "sha256": "ed5f09cfb970d835b35958bd656a41a90c04ba76f44fb32f8a90a2243ef7b915"
+    },
+    {
+      "path": "dist/index.html",
+      "bytes": 12786,
+      "sha256": "cf840e8d9dbe887b8d5a7e8a8f02c6f148d712ebae074816650bbc70961d76d8"
+    },
+    {
+      "path": "dist/lab.html",
+      "bytes": 4545,
+      "sha256": "c59a0a0048e70b0f5a5fcb8ce13e3234dd262deacf4d6c04f7b0b596dec42b39"
+    },
+    {
+      "path": "dist/project.html",
+      "bytes": 3328,
+      "sha256": "5f309b7ebbc197d79a1a374a98396e52d7c66194eca51762487e280d3dbb8b08"
+    },
+    {
+      "path": "dist/work.html",
+      "bytes": 3506,
+      "sha256": "2bc346e3774cf488fea7326b1daa207716d9d5849844a65a2e27f23fd5a419d8"
+    },
+    {
+      "path": "live-verification.json",
+      "bytes": 2609,
+      "sha256": "33770fc7203af2ee77722bd4cf8b208b18a2a3e284379c2fbb91cec57bc864c2"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 36354,
+      "sha256": "c3c000089e1d042cbf57dec84f522915f4873f0695729d187a9cb08e60ef1642"
+    },
+    {
+      "path": "package.json",
+      "bytes": 370,
+      "sha256": "6e80453d39958e1d112d13bf5dc24c126ae940371e4d60de5c4f4f7eb2c63b2f"
+    },
+    {
+      "path": "scripts_publish.py",
+      "bytes": 7244,
+      "sha256": "80349097edf91628281f12501feaf11fb403a86b14bdccebbedae15f350f619b"
+    },
+    {
       "path": "source/3d.html",
       "bytes": 24037,
       "sha256": "276504ed62de3c12855be2933062b7c271433905fe7b03b25dbd514496ad0381"
@@ -142,126 +267,6 @@
       "path": "source/work.html",
       "bytes": 3420,
       "sha256": "6cab213e3521db9a0ca50c5ceba843d75db8698d5b2373d86a344fcf363948b3"
-    },
-    {
-      "path": "dist/Taiwo_Philip_Executive_Resume.pdf",
-      "bytes": 89779,
-      "sha256": "484596f494c81f1df47c5ab75344692c4a639499dc57fa3e761c315d3cb4acba"
-    },
-    {
-      "path": "dist/assets/ScrollTrigger-BrDuEirF.js",
-      "bytes": 43547,
-      "sha256": "873b6d349c436877cd1273ead35533511d547061840e0d7fc3d00f5440bee2c5"
-    },
-    {
-      "path": "dist/assets/SplitText-Bz_5hqgE.js",
-      "bytes": 7148,
-      "sha256": "6d5798d5f93cd3dcd788fca0a876e000ffffb40c768dc191d478bf2886791e08"
-    },
-    {
-      "path": "dist/assets/ai-status-orb-Cb8TvqmJ.js",
-      "bytes": 7893,
-      "sha256": "c5a8fef0c0caca8e3ab85a8aa216364cf88d9b59933511a0dfba4893efe0f293"
-    },
-    {
-      "path": "dist/assets/app--HSjeBQ_.js",
-      "bytes": 19817,
-      "sha256": "7192fa355deeffc163a08e30aca1c1eb73368fe7bbd6df9c80ba4cf75cc66870"
-    },
-    {
-      "path": "dist/assets/app-373Av80c.css",
-      "bytes": 24316,
-      "sha256": "b2a883380024f11b319695a273c8e9ee7134691ba5c26a659bf896705342a16a"
-    },
-    {
-      "path": "dist/assets/home-command-scene-B0yfOlVA.js",
-      "bytes": 7990,
-      "sha256": "8ac8e0be01bb53e9be0497ebb13d28c714e72a5147c705ef52911661f48072e5"
-    },
-    {
-      "path": "dist/assets/index-D4-8ALNT.js",
-      "bytes": 70426,
-      "sha256": "86e1aee306e610f5e211c6e3b7a2348050782e9e700a8797a2db42afb451be49"
-    },
-    {
-      "path": "dist/assets/index-_3MU4uob.css",
-      "bytes": 53973,
-      "sha256": "e8ede73181fdb6f4a39d7085bf3f4433becf8aa9e10757ad8a33d6e3b7af1db5"
-    },
-    {
-      "path": "dist/assets/lab-BYuiA7m9.css",
-      "bytes": 16503,
-      "sha256": "1b367f354583e3e5fc5b722aa747195d335f1e23293d0df49ad212ff4ca096af"
-    },
-    {
-      "path": "dist/assets/lenis-BBml_0t9.js",
-      "bytes": 18714,
-      "sha256": "80044a6ace17ab81a9088ec92bc4a8d5b348a69bade3276d558f7048131b625f"
-    },
-    {
-      "path": "dist/assets/three.module-DD7u3Ffr.js",
-      "bytes": 467759,
-      "sha256": "895d4815ae097cd7ec6c24083dab9b2e68767e1d312ad188901114936a8d4388"
-    },
-    {
-      "path": "dist/contact.html",
-      "bytes": 2733,
-      "sha256": "cce53da116d03cd0999895c997524d51064f9d1c3aac5685fbae2e2f20207618"
-    },
-    {
-      "path": "dist/favicon.svg",
-      "bytes": 223,
-      "sha256": "b6a6b3a5a52fe6c73bb1b7fef0066be6cfe1316b7a4f8898b3fffe87455b7fba"
-    },
-    {
-      "path": "dist/images/hand-left.jpg",
-      "bytes": 75233,
-      "sha256": "b5f5ef886c8efa159e6cb45db52d01b9b09be49c9fc52df5d8735a6206140445"
-    },
-    {
-      "path": "dist/images/hand-right.jpg",
-      "bytes": 75197,
-      "sha256": "2284517c44e773e62e8d43df41f49a51231d054004047826169488227128fd4c"
-    },
-    {
-      "path": "dist/images/philip-taiwo.jpg",
-      "bytes": 202057,
-      "sha256": "ed5f09cfb970d835b35958bd656a41a90c04ba76f44fb32f8a90a2243ef7b915"
-    },
-    {
-      "path": "dist/index.html",
-      "bytes": 12786,
-      "sha256": "cf840e8d9dbe887b8d5a7e8a8f02c6f148d712ebae074816650bbc70961d76d8"
-    },
-    {
-      "path": "dist/lab.html",
-      "bytes": 4545,
-      "sha256": "c59a0a0048e70b0f5a5fcb8ce13e3234dd262deacf4d6c04f7b0b596dec42b39"
-    },
-    {
-      "path": "dist/project.html",
-      "bytes": 3328,
-      "sha256": "5f309b7ebbc197d79a1a374a98396e52d7c66194eca51762487e280d3dbb8b08"
-    },
-    {
-      "path": "dist/work.html",
-      "bytes": 3506,
-      "sha256": "2bc346e3774cf488fea7326b1daa207716d9d5849844a65a2e27f23fd5a419d8"
-    },
-    {
-      "path": "scripts_publish.py",
-      "bytes": 7262,
-      "sha256": "8b18116e6910b494e12fd889e4df950f4fe2464b15fecb86de8d88665e7eeb32"
-    },
-    {
-      "path": "package.json",
-      "bytes": 370,
-      "sha256": "6e80453d39958e1d112d13bf5dc24c126ae940371e4d60de5c4f4f7eb2c63b2f"
-    },
-    {
-      "path": "package-lock.json",
-      "bytes": 36354,
-      "sha256": "c3c000089e1d042cbf57dec84f522915f4873f0695729d187a9cb08e60ef1642"
     }
   ]
 }
