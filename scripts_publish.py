@@ -76,7 +76,7 @@ if code != 200:
 print("authenticated as:", me.get("login"))
 
 # ---- 1. push changed source to main ----
-SKIP_DIRS = {"node_modules", "dist", ".git", "assets", "review", "snapshots"}
+SKIP_DIRS = {"node_modules", "dist", ".git", "assets", "review", "snapshots", "source", "public", "screenshots"}
 SKIP_FILES = {"DEPLOY.md", "DEPLOY_GUIDE.md", "PORTFOLIO_PROMPT_AND_FILES.md", "orb-repro.html"}
 SKIP_PREFIX = {"scripts/", ".github/"}
 
@@ -118,6 +118,7 @@ print("build: OK (base /Portfolio/)")
 # ---- 3. deploy dist to gh-pages ----
 entries = []
 for root, dirs, files in os.walk(DIST):
+    dirs[:] = [d for d in dirs if d not in SKIP_DIRS]
     for fn in files:
         full = os.path.join(root, fn)
         rel = os.path.relpath(full, DIST)
