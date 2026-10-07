@@ -74,34 +74,18 @@ else if (city && !reduced) {
   }).catch(error => console.warn('Cityscape unavailable:', error));
 }
 
-const globeHost = document.querySelector('[data-hero-globe]');
-if (globeHost) {
-  import('./hero-globe.js')
-    .then(({ mountHeroGlobe }) => mountHeroGlobe(globeHost, { reducedMotion: reduced }))
-    .catch(error => { globeHost.classList.add('globe-fallback'); globeHost.dataset.globeState = 'fallback'; console.warn('Hero globe unavailable; showing static fallback:', error); });
-}
-
-const homeOrbit = document.querySelector('[data-home-orbit]');
-if (homeOrbit) {
-  import('./home-orbit.js')
-    .then(({ mountHomeOrbit }) => mountHomeOrbit(homeOrbit, { reducedMotion: reduced }))
+const observatory = document.querySelector('[data-hero-globe]');
+if (observatory) {
+  import('./home-command-scene.js')
+    .then(({ mountHomeCommandScene }) => mountHomeCommandScene(observatory, { reducedMotion: reduced }))
     .catch(error => {
-      homeOrbit.dataset.orbitState = 'fallback';
-      homeOrbit.querySelector('[data-orbit-fallback]')?.removeAttribute('hidden');
-      console.warn('Home orbit unavailable; showing static fallback:', error);
-    });
-}
-
-  const awsArchitecture = document.querySelector('[data-aws-architecture]');
-  if (awsArchitecture && !awsArchitecture.closest('main.home-main')) {
-  import('./home-aws-architecture.js')
-    .then(({ mountAwsArchitecture }) => mountAwsArchitecture(awsArchitecture, { reducedMotion: reduced }))
-    .catch(error => {
-      awsArchitecture.dataset.sceneState = 'fallback';
-      awsArchitecture.querySelector('[data-aws-fallback]')?.removeAttribute('hidden');
-      const canvas = awsArchitecture.querySelector('[data-aws-scene]');
-      if (canvas) canvas.hidden = true;
-      console.warn('AWS architecture scene unavailable; showing static fallback:', error);
+    observatory.dataset.sceneState = 'fallback';
+    observatory.querySelector('[data-command-fallback]')?.removeAttribute('hidden');
+    const canvas = observatory.querySelector('[data-command-canvas]');
+    const overlays = observatory.querySelector('[data-command-overlays]');
+    if (canvas) canvas.hidden = true;
+    if (overlays) overlays.hidden = true;
+    console.warn('Home infrastructure scene unavailable; showing illustrative fallback:', error);
     });
 }
 
