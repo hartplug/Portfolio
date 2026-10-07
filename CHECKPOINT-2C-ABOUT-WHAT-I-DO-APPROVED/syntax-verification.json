@@ -1,0 +1,7 @@
+{
+  "checks": [
+    "node --check js/home-command-scene.js",
+    "node --check js/app.js"
+  ],
+  "result": "PASS"
+}
