@@ -1,0 +1,72 @@
+{
+  "label": "CHECKPOINT-2B-HERO-TYPE-APPROVED",
+  "created_utc": "2026-10-07T13:36:53.462470+00:00",
+  "orbit_source": "CHECKPOINT-2A-FINAL-LOCK/source/js/home-command-scene.js (byte-identical)",
+  "files": [
+    {
+      "path": "CHECKPOINT-2A-BASELINE-README.md",
+      "bytes": 1043,
+      "sha256": "9b34d10a0ef55213fa310a2692efd174943dd58f00aab0f26727bc2bbf4d38c4"
+    },
+    {
+      "path": "CHECKPOINT-2A-FINAL-LOCK-MANIFEST.json",
+      "bytes": 2516,
+      "sha256": "4c5a3af1f435e29211eba1963b36bc00a02d275c3069b1383c3c750648733bb6"
+    },
+    {
+      "path": "README.md",
+      "bytes": 762,
+      "sha256": "389151ae1352f141f37764b44e3e212be5f5a53411794b69f403a51124bd86d9"
+    },
+    {
+      "path": "build-verification.log",
+      "bytes": 1938,
+      "sha256": "b022a416a105e039d99581b3da5431360a6fa42527e20ba69c9b75719f02149e"
+    },
+    {
+      "path": "runtime-verification.json",
+      "bytes": 7037,
+      "sha256": "6c0997bda36c51ede03fb24fd98803fbbd66bd901a4df95a1bd05f7e24d48dbc"
+    },
+    {
+      "path": "screenshots/APPROVAL-home-hero-1440.png",
+      "bytes": 790023,
+      "sha256": "28d356eeda135602963d19a1bc08ef35789fb2b6f22d50be9f1a3ddcc2a37c0b"
+    },
+    {
+      "path": "screenshots/APPROVAL-home-hero-390.png",
+      "bytes": 297245,
+      "sha256": "44683eed8c65f4e32f56744ca601fa9202d7f36fb4adec474410c77c09c2e7d6"
+    },
+    {
+      "path": "source/home-luxe.css",
+      "bytes": 63538,
+      "sha256": "03ba09fefdff885dd521acaaac79039d33164c605f25c5bf3094d4ff305c78ae"
+    },
+    {
+      "path": "source/index.html",
+      "bytes": 8912,
+      "sha256": "be6f38512982cd4781a4ab70a7715c4416b0d038a963de838778d014e9d8e816"
+    },
+    {
+      "path": "source/js/app.js",
+      "bytes": 9768,
+      "sha256": "7e84250da0ccb75db7f01825c16e821ff621327b4f66fd4afa0c687a326bb704"
+    },
+    {
+      "path": "source/js/home-command-scene.js",
+      "bytes": 14353,
+      "sha256": "c27a4b70ca70dcf3cd4b7987c27ce6b1794f99f813148097af864c036f7b4261"
+    },
+    {
+      "path": "source/js/shared.js",
+      "bytes": 16894,
+      "sha256": "a8c30215c5cbcc5a5971df6c47d241d8bebb20980516f799d6f35b70bb8e8130"
+    },
+    {
+      "path": "syntax-verification.json",
+      "bytes": 121,
+      "sha256": "08a50e14b76dcb132a00e4262138d39beb0ef7f84fe20d3cc34ccc627810a98c"
+    }
+  ]
+}
