@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-editorial theme-home-luxe observatory-document">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Infrastructure Observatory — Philip Taiwo</title>
+<meta name="description" content="An interactive, illustrative AWS infrastructure environment by Philip Taiwo.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=DM+Mono:wght@400;500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="stylesheet" href="/site.css"><link rel="stylesheet" href="/observatory-view.css"><link rel="stylesheet" href="/home-luxe.css">
+
+</head>
+<body class="observatory-page">
+<div class="statusbar"><span>INFRASTRUCTURE OBSERVATORY</span><span id="clock">ABUJA · WAT</span></div>
+<nav class="nav" aria-label="Primary navigation"><a class="brand" href="./">P<span>.</span>TAIWO</a><div class="navlinks"><a href="./">Home</a><a href="work.html">Work</a><a aria-current="page" href="lab.html">Lab</a><a href="contact.html">Contact</a></div></nav>
+<main class="observatory-main">
+  <header class="serverless-head wrap">
+    <a class="observatory-back" href="lab.html">← BACK TO LAB</a>
+    <div class="serverless-title"><p class="eyebrow">SERVERLESS / LEARNING ENVIRONMENT</p><h1>SERVERLESS<br><em>ARCHITECTURE STUDY</em></h1><p class="serverless-lead">An interactive exploration of a serverless request lifecycle on AWS.</p><p class="serverless-disclosure">ILLUSTRATIVE SERVERLESS WORKFLOW ON AWS · NOT CONNECTED TO A LIVE ACCOUNT</p></div>
+  </header>
+  <section class="serverless-experience" data-serverless-experience data-scene-state="loading" aria-label="Illustrative serverless request lifecycle">
+    <div class="serverless-instrument"><div class="instrument-status"><span><i></i> SYSTEM CYCLE</span><span data-observatory-status aria-live="polite">INITIALIZING</span></div><p class="instrument-stage" data-lifecycle-stage>RECEIVED</p><p class="instrument-detail" data-lifecycle-detail>Request packet entering API Gateway.</p><div class="lifecycle-rail" role="list" aria-label="Request lifecycle stages"><span data-life-step aria-current="step">RECEIVED</span><span data-life-step>INVOKED</span><span data-life-step>PROCESSING</span><span data-life-step>TELEMETRY</span><span data-life-step>OBSERVED</span><span data-life-step>COMPLETE</span></div></div>
+    <div class="serverless-stage-wrap"><div class="serverless-stage" data-serverless-stage><canvas data-serverless-canvas aria-label="Interactive three-dimensional serverless architecture. Drag to explore. Select a service to inspect." tabindex="0"></canvas><div data-serverless-fallback class="serverless-fallback" hidden><p class="fallback-label">SERVERLESS REQUEST PATH</p><div>USER <i>→</i> API GATEWAY <i>→</i> LAMBDA</div><div class="fallback-branch"><span>↙ DYNAMODB</span><span>↓ S3</span><span>↘ SNS</span></div><div>↓ CLOUDWATCH <i>→</i> RESPONSE</div><p>Illustrative serverless workflow on AWS. The inspection list below remains available.</p></div><div class="serverless-stage-overlay"><span>DRAG TO EXPLORE</span><button type="button" data-reset-view>RESET VIEW <b>↺</b></button><span>SELECT A SERVICE</span></div></div></div>
+    <aside class="serverless-inspector" aria-live="polite"><p class="inspector-label" data-inspect-role>03 · COMPUTE</p><h2 data-inspect-name>LAMBDA</h2><p data-inspect-copy>Runs the application logic without requiring a continuously running server.</p><p class="inspector-lifecycle" data-inspect-life>Executes the function, then selects a service action.</p></aside>
+    <div class="serverless-services" role="group" aria-label="Select a service to inspect"><button type="button" data-select-service="user" aria-pressed="false"><span>01</span>USER</button><button type="button" data-select-service="api" aria-pressed="false"><span>02</span>API GATEWAY</button><button type="button" data-select-service="lambda" aria-pressed="true"><span>03</span>LAMBDA</button><button type="button" data-select-service="dynamodb" aria-pressed="false"><span>04</span>DYNAMODB</button><button type="button" data-select-service="s3" aria-pressed="false"><span>05</span>S3</button><button type="button" data-select-service="sns" aria-pressed="false"><span>06</span>SNS</button><button type="button" data-select-service="cloudwatch" aria-pressed="false"><span>07</span>CLOUDWATCH</button><button type="button" data-select-service="response" aria-pressed="false"><span>08</span>RESPONSE</button><button type="button" data-select-service="iam" aria-pressed="false"><span>09</span>IAM / SECURITY</button><button type="button" data-select-service="workflow" aria-pressed="false"><span>10</span>AUTOMATION WORKFLOW</button></div>
+  </section>
+</main>
+<script type="module" src="/js/serverless-observatory.js"></script>
+</body></html>
