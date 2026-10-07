@@ -76,7 +76,7 @@ if code != 200:
 print("authenticated as:", me.get("login"))
 
 # ---- 1. push changed source to main ----
-SKIP_DIRS = {"node_modules", "dist", ".git", "assets", "review", "snapshots", "source", "public", "screenshots"}
+SKIP_DIRS = {"node_modules", ".git", "review", "snapshots", "source", "public", "screenshots"}
 SKIP_FILES = {"DEPLOY.md", "DEPLOY_GUIDE.md", "PORTFOLIO_PROMPT_AND_FILES.md", "orb-repro.html"}
 SKIP_PREFIX = {"scripts/", ".github/"}
 
