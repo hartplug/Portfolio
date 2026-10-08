@@ -349,13 +349,9 @@ html.theme-home-luxe body .aws-architecture .aws-scene-stage::before{border-radi
   .theme-home-luxe .hero-copy>*:not(.hero-infrastructure){position:relative;z-index:1}
   .theme-home-luxe .command-stage{width:100%;height:min(108vw,500px);min-height:410px;margin-top:0;border:0;background:radial-gradient(ellipse at 50% 48%,rgba(30,33,31,.3),rgba(10,11,12,.12) 63%,transparent 100%)}
   .theme-home-luxe .home-hero{padding-bottom:40px}
-}
-@media(prefers-reduced-motion:reduce){.theme-home-luxe .command-label,.theme-home-luxe .command-service-list button{transition:none}}@media(prefers-reduced-motion:reduce){.theme-home-luxe .command-label,.theme-home-luxe .command-service-list button{transition:none}}
-@media(prefers-reduced-motion:reduce){.theme-home-luxe .command-label,.theme-home-luxe .command-service-list button{transition:none}}
-@media(prefers-reduced-motion:reduce){.theme-home-luxe .command-label,.theme-home-luxe .command-service-list button{transition:none}}
+}@media(prefers-reduced-motion:reduce){.theme-home-luxe .command-label,.theme-home-luxe .command-service-list button{transition:none}}
 
-   name, the navigation, the hero copy and the scene can never overlap, and the
-   typography keeps its size. */
+/* typography keeps its size. */
 @media(max-width:620px){
   .theme-home-luxe .statusbar{position:static;top:auto;z-index:auto;width:100%}
   .theme-home-luxe .nav{position:static;z-index:auto;top:auto;right:auto;left:auto;width:max-content;max-width:calc(100% - 24px);margin:9px 12px clamp(72px,calc(100vw - 318px),102px) auto}
@@ -465,3 +461,98 @@ html.theme-home-luxe body .aws-architecture .aws-scene-stage::before{border-radi
   .theme-home-luxe .home-services-note{margin-top:26px;font-size:8px}
 }
 @media(max-width:400px){.theme-home-luxe .home-services{padding-inline:20px}.theme-home-luxe .home-services-head h2{font-size:clamp(42px,12.4vw,56px)}}
+
+
+/* Tonight Home interaction layer: compact and canvas-contained. */
+.theme-home-luxe .command-stage{touch-action:pan-y}
+.theme-home-luxe .command-stage canvas{touch-action:pan-y;cursor:grab}
+.theme-home-luxe .command-stage canvas.is-dragging{cursor:grabbing;touch-action:none}
+.theme-home-luxe .orbit-controls{position:absolute;z-index:4;left:14px;right:14px;bottom:12px;display:flex;align-items:center;justify-content:space-between;gap:10px;pointer-events:none}
+.theme-home-luxe .orbit-hint,.theme-home-luxe .orbit-controls button{color:rgba(211,189,138,.62);font:6px/1.4 var(--mono);letter-spacing:.12em}
+.theme-home-luxe .orbit-controls button{padding:8px 0 7px;border:0;border-bottom:1px solid rgba(211,189,138,.3);background:transparent;cursor:pointer;pointer-events:auto;touch-action:manipulation}
+.theme-home-luxe .orbit-controls button span{font-size:11px;margin-left:4px}
+.theme-home-luxe .orbit-inspector{position:absolute;z-index:5;right:16px;top:16px;width:min(220px,calc(100% - 32px));padding:12px 28px 12px 14px;border:1px solid rgba(211,189,138,.26);background:rgba(10,11,12,.88);backdrop-filter:blur(8px);pointer-events:auto}
+.theme-home-luxe .orbit-inspector[hidden]{display:none}
+.theme-home-luxe .orbit-inspector-close{position:absolute;right:7px;top:5px;border:0;background:none;color:#aaa49a;font-size:16px;cursor:pointer}
+.theme-home-luxe .orbit-inspector-index,.theme-home-luxe .orbit-inspector-category{display:block;color:#a9956b;font:6px var(--mono);letter-spacing:.13em;text-transform:uppercase}
+.theme-home-luxe .orbit-inspector strong{display:block;margin-top:5px;color:#e8dfcd;font:500 10px var(--mono);letter-spacing:.09em}
+.theme-home-luxe .orbit-inspector p{margin:7px 0 0;color:#bcb5a9;font:10px/1.55 var(--sans)}
+.theme-home-luxe .command-label{pointer-events:none}
+.theme-home-luxe .hero-tagline{transform-style:preserve-3d;text-shadow:0 1px 0 rgba(211,189,138,.22),0 2px 0 rgba(211,189,138,.12);animation:tagline-light-drift 24s ease-in-out infinite alternate}
+@keyframes tagline-light-drift{0%{transform:perspective(900px) rotateX(0deg) translateY(0);text-shadow:0 1px 0 rgba(211,189,138,.2),0 2px 0 rgba(211,189,138,.1)}100%{transform:perspective(900px) rotateX(.35deg) translateY(-1px);text-shadow:0 1px 0 rgba(211,189,138,.3),0 2px 0 rgba(211,189,138,.14)}}
+.theme-home-luxe .home-main{position:relative;isolation:isolate;overflow:hidden}
+.theme-home-luxe .home-main::before{content:"";position:absolute;z-index:0;inset:0;pointer-events:none;opacity:.12;background:radial-gradient(ellipse at 12% 15%,rgba(211,189,138,.12),transparent 31%),radial-gradient(ellipse at 83% 44%,rgba(93,131,134,.1),transparent 34%),repeating-linear-gradient(118deg,transparent 0 154px,rgba(211,189,138,.04) 155px,transparent 156px 322px);background-size:150% 125%,150% 130%,100% 100%;animation:infrastructure-drift 80s ease-in-out infinite alternate}
+.theme-home-luxe .home-main>section{position:relative;z-index:1}
+.theme-home-luxe .home-main>section.home-faq-section{z-index:1}
+.theme-home-luxe .home-about,.theme-home-luxe .home-services,.theme-home-luxe .home-faq-section{background-color:transparent}
+@keyframes infrastructure-drift{0%{background-position:0% 0%,100% 0%,0 0}100%{background-position:18% 30%,78% 24%,32px 18px}}
+@media(max-width:620px){.theme-home-luxe .orbit-controls{left:10px;right:10px;bottom:9px}.theme-home-luxe .orbit-hint,.theme-home-luxe .orbit-controls button{font-size:5px}.theme-home-luxe .orbit-inspector{right:10px;top:10px;width:min(196px,calc(100% - 20px))}}
+@media(prefers-reduced-motion:reduce){.theme-home-luxe .hero-tagline,.theme-home-luxe .home-main::before{animation:none!important;transform:none!important}}
+
+/* Active interactive Orbit sizing; override historic observatory experiments only. */
+.theme-home-luxe .hero-copy .hero-infrastructure{grid-area:globe;position:relative;z-index:2;width:100%;min-width:0;align-self:center;justify-self:stretch;margin-left:-24px;color:#d3bd8a}
+.theme-home-luxe .hero-copy .command-stage{position:relative;width:100%;height:clamp(470px,48vw,650px);min-height:0;overflow:hidden;isolation:isolate;border:0;touch-action:pan-y;background:radial-gradient(ellipse at 50% 48%,rgba(30,33,31,.3),rgba(10,11,12,.12) 63%,transparent 100%)}
+.theme-home-luxe .command-stage::before{content:"";position:absolute;z-index:0;inset:0;pointer-events:none;opacity:.22;background:linear-gradient(90deg,transparent 49.9%,rgba(211,189,138,.06) 50%,transparent 50.1%),linear-gradient(0deg,transparent 49.9%,rgba(211,189,138,.05) 50%,transparent 50.1%);mask-image:radial-gradient(ellipse at center,#000 12%,transparent 84%)}
+.theme-home-luxe .command-stage::after{content:none}
+.theme-home-luxe .command-stage canvas{position:absolute;z-index:1;inset:0;width:100%;height:100%;display:block;touch-action:pan-y}
+.theme-home-luxe .command-overlays{position:absolute;z-index:2;inset:0;pointer-events:none}
+.theme-home-luxe .home-main::before{z-index:0}
+.theme-home-luxe .home-main>section{position:relative;z-index:1}
+.theme-home-luxe .home-main>section.home-faq-section{z-index:1}
+.theme-home-luxe .home-faq-section .home-faq-inner{z-index:2}
+.theme-home-luxe .home-faq-section .home-faq-head .eyebrow{display:block}
+.theme-home-luxe .home-faq-section .home-faq-head .eyebrow::before{content:none}
+.theme-home-luxe .home-faq-section .home-faq-head .eyebrow{font-size:8px;letter-spacing:.18em}
+.theme-home-luxe .home-about,.theme-home-luxe .home-services,.theme-home-luxe .home-faq-section{background-color:transparent}
+@media(min-width:1001px){.theme-home-luxe .hero-copy .command-stage{height:clamp(470px,48vw,650px)}}
+@media(min-width:621px) and (max-width:1000px){.theme-home-luxe .hero-copy .command-stage{height:clamp(490px,62vw,620px)}}
+@media(max-width:620px){.theme-home-luxe .hero-copy .command-stage{height:min(108vw,500px);min-height:395px;margin-top:0;border:0}.theme-home-luxe .hero-copy .hero-infrastructure{margin-top:30px}}
+
+/* Entrypoint-specific cascade repair for the canonical approved composition. */
+.theme-home-luxe .home-main{position:relative;isolation:isolate;overflow:hidden}
+.theme-home-luxe .home-main::before{content:"";position:absolute;z-index:0;inset:0;pointer-events:none;opacity:.12;background:radial-gradient(ellipse at 12% 15%,rgba(211,189,138,.12),transparent 31%),radial-gradient(ellipse at 83% 44%,rgba(93,131,134,.1),transparent 34%),repeating-linear-gradient(118deg,transparent 0 154px,rgba(211,189,138,.04) 155px,transparent 156px 322px);background-size:150% 125%,150% 130%,100% 100%;animation:infrastructure-drift 80s ease-in-out infinite alternate}
+@keyframes infrastructure-drift{0%{background-position:0% 0%,100% 0%,0 0}100%{background-position:18% 30%,78% 24%,32px 18px}}
+.theme-home-luxe .home-main>section{position:relative;z-index:1}
+.theme-home-luxe .home-main>section.home-faq-section{z-index:1}
+.theme-home-luxe .home-faq-section .home-faq-head>.eyebrow{display:block!important;margin:0 0 10px;color:#928a79!important;font:8px var(--mono)!important;letter-spacing:.18em!important;text-transform:uppercase}
+.theme-home-luxe .home-faq-section .home-faq-display{font-size:clamp(48px,6vw,72px);letter-spacing:.16em}
+.theme-home-luxe .home-about,.theme-home-luxe .home-services,.theme-home-luxe .home-faq-section{background:transparent!important}
+.theme-home-luxe .home-about-inner,.theme-home-luxe .home-services-inner,.theme-home-luxe .home-faq-inner{position:relative;z-index:2}
+.theme-home-luxe .hero-tagline{transform-style:preserve-3d;text-shadow:0 1px 0 rgba(211,189,138,.22),0 2px 0 rgba(211,189,138,.12);animation:tagline-light-drift 24s ease-in-out infinite alternate}
+@keyframes tagline-light-drift{0%{transform:perspective(900px) rotateX(0deg) translateY(0)}100%{transform:perspective(900px) rotateX(.35deg) translateY(-1px)}}
+.theme-home-luxe .hero-infrastructure{grid-area:globe;position:relative;z-index:2;width:100%;min-width:0;align-self:center;justify-self:stretch;margin-left:-24px;color:#d3bd8a}
+.theme-home-luxe .command-stage{position:relative;width:100%;height:clamp(470px,48vw,650px);overflow:hidden;isolation:isolate;touch-action:pan-y;border:0;background:radial-gradient(ellipse at 50% 48%,rgba(30,33,31,.3),rgba(10,11,12,.12) 63%,transparent 100%)}
+.theme-home-luxe .command-stage::before{content:"";position:absolute;z-index:0;inset:0;pointer-events:none;opacity:.22;background:linear-gradient(90deg,transparent 49.9%,rgba(211,189,138,.06) 50%,transparent 50.1%),linear-gradient(0deg,transparent 49.9%,rgba(211,189,138,.05) 50%,transparent 50.1%);mask-image:radial-gradient(ellipse at center,#000 12%,transparent 84%)}
+.theme-home-luxe .command-stage::after{content:none}
+.theme-home-luxe .command-stage canvas{position:absolute;z-index:1;inset:0;width:100%;height:100%;display:block;touch-action:pan-y}
+.theme-home-luxe .command-overlays{position:absolute;z-index:2;inset:0;pointer-events:none}
+.theme-home-luxe .orbit-controls{position:absolute;z-index:4;left:14px;right:14px;bottom:12px;display:flex;justify-content:space-between;align-items:center;pointer-events:none}
+.theme-home-luxe .orbit-hint,.theme-home-luxe .orbit-controls button{color:rgba(211,189,138,.68);font:6px var(--mono);letter-spacing:.12em}
+.theme-home-luxe .orbit-controls button{pointer-events:auto;padding:7px 0;border:0;border-bottom:1px solid rgba(211,189,138,.3);background:transparent;cursor:pointer}
+.theme-home-luxe .orbit-inspector{position:absolute;z-index:5;right:16px;top:16px;width:min(220px,calc(100% - 32px));padding:12px 28px 12px 14px;border:1px solid rgba(211,189,138,.26);background:rgba(10,11,12,.9);backdrop-filter:blur(8px);pointer-events:auto}
+.theme-home-luxe .orbit-inspector[hidden]{display:none!important}.theme-home-luxe .orbit-inspector-close{position:absolute;right:7px;top:5px;border:0;background:none;color:#aaa49a;font-size:16px;cursor:pointer}
+.theme-home-luxe .orbit-inspector-index,.theme-home-luxe .orbit-inspector-category{display:block;color:#a9956b;font:6px var(--mono);letter-spacing:.13em;text-transform:uppercase}
+.theme-home-luxe .orbit-inspector strong{display:block;margin-top:5px;color:#e8dfcd;font:500 10px var(--mono);letter-spacing:.09em}
+.theme-home-luxe .orbit-inspector p{margin:7px 0 0;color:#bcb5a9;font:10px/1.55 var(--sans)}
+.theme-home-luxe .command-label{pointer-events:none}
+@media(min-width:1001px){.theme-home-luxe .command-stage{height:clamp(480px,48vw,650px)}}
+@media(min-width:621px) and (max-width:1000px){.theme-home-luxe .hero-copy{grid-template-areas:"identity" "name" "role" "tagline" "services" "lead" "actions" "proof" "globe"}.theme-home-luxe .command-stage{height:clamp(490px,62vw,620px)}.theme-home-luxe .hero-infrastructure{margin:8px auto 0}}
+@media(max-width:620px){.theme-home-luxe .hero-copy{grid-template-areas:"identity" "name" "role" "tagline" "services" "lead" "actions" "proof" "globe"}.theme-home-luxe .hero-infrastructure{grid-column:1;width:calc(100% + 36px);min-width:calc(100% + 36px);margin:30px -18px 0;align-self:start}.theme-home-luxe .command-stage{height:min(108vw,500px);min-height:395px}.theme-home-luxe .orbit-controls{left:10px;right:10px;bottom:8px}.theme-home-luxe .orbit-hint,.theme-home-luxe .orbit-controls button{font-size:5px}.theme-home-luxe .orbit-inspector{right:9px;top:9px;width:min(196px,calc(100% - 18px))}}
+@media(prefers-reduced-motion:reduce){.theme-home-luxe .hero-tagline,.theme-home-luxe .home-main::before{animation:none!important;transform:none!important}}
+
+@media(max-width:620px){.theme-home-luxe .hero-infrastructure{width:100%;min-width:0;margin-left:0;margin-right:0}.theme-home-luxe .hero-copy .hero-infrastructure{width:100%;min-width:0;margin-left:0;margin-right:0}.theme-home-luxe .command-stage,.theme-home-luxe .command-stage canvas{width:100%}}
+
+@media(max-width:620px){.theme-home-luxe .hero-copy .hero-infrastructure{grid-column:1;justify-self:center;width:calc(100% + 36px);min-width:calc(100% + 36px);margin:30px -18px 0}.theme-home-luxe .hero-copy .command-stage{width:100%;height:min(108vw,500px);min-height:395px;margin-top:0}.theme-home-luxe .command-stage canvas{touch-action:pan-y}}
+
+@media(max-width:620px){.theme-home-luxe .hero-copy .hero-infrastructure{width:100%;min-width:0;margin:30px 0 0}.theme-home-luxe .hero-copy .command-stage{width:100%;margin:0 auto;height:min(108vw,500px);min-height:395px}.theme-home-luxe .command-stage canvas{width:100%;height:100%;touch-action:pan-y}}
+
+/* Hand pose only: mirror the right ASCII hand so both reach toward the centre. */
+.theme-home-luxe .ascii-footer .footer-hand-img.right{transform:translate3d(var(--hand-x,5%),var(--hand-y,0),0) scale(var(--hand-scale,1.2)) scaleX(-1)}
+
+@media(max-width:620px){.theme-home-luxe .hero-copy>*:not(.hero-infrastructure){z-index:3}.theme-home-luxe .hero-copy .hero-infrastructure{z-index:4;isolation:auto}.theme-home-luxe .command-stage{z-index:4}.theme-home-luxe .command-stage canvas{position:absolute;z-index:6}.theme-home-luxe .command-overlays{z-index:7}.theme-home-luxe .orbit-controls{z-index:9}.theme-home-luxe .orbit-inspector{z-index:10}}
+
+@media(max-width:620px){.theme-home-luxe .hero-copy .hero-infrastructure{isolation:isolate;z-index:9}.theme-home-luxe .hero-copy .command-stage{isolation:isolate;z-index:9;position:relative}.theme-home-luxe .hero-copy .command-stage canvas{z-index:1;pointer-events:auto}}
+
+
+
+@media(prefers-reduced-motion:reduce){.theme-home-luxe .ascii-footer .footer-hand-img.right{transform:translate3d(0,0,0) scale(1)!important}}
