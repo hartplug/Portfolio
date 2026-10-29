@@ -89,6 +89,19 @@ if (observatory) {
     });
 }
 
+  const awsArchitecture = document.querySelector('[data-aws-architecture]');
+  if (awsArchitecture && !awsArchitecture.closest('main.home-main')) {
+  import('./home-aws-architecture.js')
+    .then(({ mountAwsArchitecture }) => mountAwsArchitecture(awsArchitecture, { reducedMotion: reduced }))
+    .catch(error => {
+      awsArchitecture.dataset.sceneState = 'fallback';
+      awsArchitecture.querySelector('[data-aws-fallback]')?.removeAttribute('hidden');
+      const canvas = awsArchitecture.querySelector('[data-aws-scene]');
+      if (canvas) canvas.hidden = true;
+      console.warn('AWS architecture scene unavailable; showing static fallback:', error);
+    });
+}
+
 const ring = document.querySelector('[data-ring]');
 if (ring && !reduced) {
   import('gsap').then(({ default: gsap }) => import('gsap/ScrollTrigger').then(({ ScrollTrigger }) => {
