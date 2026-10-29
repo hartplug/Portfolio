@@ -171,3 +171,15 @@ Use `MEDIA:/absolute/path` (see the `sending-files-on-telegram` skill).
 - Never send him a localhost or sandbox link.
 - Never tell him to run commands.
 - Zip **source only** (exclude `node_modules/`, `dist/`, `.git/`).
+
+
+## 2026-10-06 — Activity pass (hero, unpublished)
+- **Root cause found:** the camera rendered only three.js layer 0, so the slabs, route wires, cable tubes and packets (all layer 1) were invisible in production. `camera.layers.enable(1)` restored the composition. Any future "invisible object" bug: check `layers.set(1)` vs camera mask first.
+- **Activity system** (`js/home-command-scene.js`): per-route pulse rig (additive glow shell + near-white core octahedron + comet tail oriented to the curve tangent) + progressive `drawRange` on both a thin pulse line and a glowing `TubeGeometry` cable, so the wire itself energises behind the packet. 13 routes = 7-stage lifecycle: USER→API GW→LAMBDA → (staggered) LAMBDA→DynamoDB/S3/SNS → telemetry (DynamoDB/S3/SNS→CloudWatch) → CloudWatch→RESPONSE → return legs LAMBDA→API GW→USER on their own curves.
+- **Colour law:** request `#bfe0f2`, primary active path champagne `#e6cf9c`, events `#8fd39a`; packet core `PACKET_CORE` = near-white tint so the moving element is always the brightest thing on screen.
+- **Activity-only glow:** per-node cloned casing material (`node.casingMaterial`) lights only the active/selected/neighbour housings; one travelling `pulseLight` rides the leading packet. Inactive estate stays at route opacity 0.15 / 0.04. Stage mean luminance ~20/255, bright pixels 0.1–0.55% — dark estate, bright data.
+- **Arrival:** `flashUntil` + expanding halo ring + label `is-hit` (~620–720ms).
+- **Mobile hero spacing fix:** below 621px `.statusbar` and `.nav` are `position:static` (in flow) in `home-luxe.css`, so no fixed bar can ever sit over the name. Verified 390/360/414 × scroll 0/40/90/200/420 → zero collisions; h1 size unchanged. The 12px "overflow" on `.hero-copy` is the intentional full-bleed `.hero-observatory` (page has no horizontal overflow).
+- **Verification:** frame-diff motion desktop 2.2% avg / 5.6% peak, mobile 6.9% / 13.5%; 0 label overlaps; select/reset/orbit/zoom, reduced-motion (`static`, slow stage ticker, no flashes) and WebGL fallback all pass with no console errors.
+- Review artifacts: `/root/portfolio/review/final/` (desktop-hero, desktop-scene-branch, mobile-hero, mobile-scene, lambda-selected, reduced-motion, flow-demo.mp4, video-contact-sheet).
+- Not published — awaiting approval.
