@@ -54,7 +54,7 @@
 .lab-footer-line a:hover{color:#f1e3bf}
 @media(max-width:800px){.lab-feature{grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:25px}.lab-feature-copy h2{font-size:clamp(38px,6vw,52px)}.lab-preview{padding-inline:12px}.lab-notes{gap:25px}.lab-orb-mini{width:112px;height:108px}}
 @media(max-width:620px){.lab-page{padding-top:52px}.lab-intro{padding-top:26px;padding-bottom:27px}.lab-intro h1{font-size:clamp(48px,13vw,64px);line-height:.92;margin:14px 0 12px}.lab-intro .lead{font-size:13px;line-height:1.65}.lab-feature{grid-template-columns:minmax(0,1fr);gap:20px;padding-top:21px;padding-bottom:35px}.lab-feature-copy>.eyebrow{margin-bottom:13px;font-size:7px}.lab-feature-copy h2{font-size:46px;margin-bottom:12px}.lab-feature-copy>p:not(.eyebrow):not(.lab-disclaimer){font-size:12px}.lab-explore{margin-top:17px}.lab-disclaimer{margin-top:11px}.lab-preview{min-height:330px;padding:16px 12px 14px}.architecture-preview{width:100%;max-height:none}.preview-caption,.preview-bottom{font-size:7px;letter-spacing:.08em}.lab-notes{grid-template-columns:1fr;gap:22px;padding-top:19px;padding-bottom:26px}.lab-note{padding-bottom:19px}.lab-note-index{padding-bottom:13px}.lab-note-main h2{font-size:27px}.lab-note-main p{font-size:11px;max-width:36ch}.lab-orb-mini{width:112px;height:102px}.lab-orb-controls{gap:4px;margin-top:13px}.lab-note-serverless{min-height:0}.serverless-sketch{gap:7px;margin-top:22px;font-size:7px}.serverless-sketch span{padding:7px 6px}.lab-footer-line{flex-direction:column;font-size:6px;padding-bottom:20px}}
-@media(prefers-reduced-motion:reduce){.lab-preview,.preview-boundary,.preview-lines,.preview-nodes{transition:none}}
+@media(max-width:800px){.theme-editorial .lab-feature{grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:25px}.theme-editorial .lab-feature-copy h2{font-size:clamp(38px,6vw,52px)}.theme-editorial .lab-preview{padding-inline:12px}.theme-editorial .lab-notes{gap:25px}}
 .theme-editorial .lab-page{position:relative;overflow:hidden;padding:78px 0 0;background:radial-gradient(ellipse at 77% 29%,rgba(211,189,138,.045),transparent 33%),#0a0b0c}
 .theme-editorial .lab-intro{padding-top:42px;padding-bottom:40px}
 .theme-editorial .lab-intro .eyebrow{color:#c9b47d;font:9px var(--mono);letter-spacing:.19em}
@@ -111,7 +111,6 @@
 .theme-editorial .lab-footer-line{display:flex;justify-content:space-between;gap:12px;padding-top:15px;padding-bottom:24px;border-top:1px solid rgba(211,189,138,.13);color:#79766d;font:7px var(--mono);letter-spacing:.1em}
 .theme-editorial .lab-footer-line a{color:#cbb987;text-decoration:none}
 .theme-editorial .lab-footer-line a:hover{color:#f1e3bf}
-@media(max-width:800px){.theme-editorial .lab-feature{grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:25px}.theme-editorial .lab-feature-copy h2{font-size:clamp(38px,6vw,52px)}.theme-editorial .lab-preview{padding-inline:12px}.theme-editorial .lab-notes{gap:25px}}
 /* Orb composition: keep the note and controls in column one, with a centered square canvas in column two. */
 .theme-editorial .lab-note-orb{grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:28px;align-items:center}
 .theme-editorial .lab-note-orb .lab-note-index{grid-column:1/-1;grid-row:1}
