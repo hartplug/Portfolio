@@ -39,12 +39,14 @@ import {
       { color: 0x8a7aa8, emissive: 0x39304f, radius: 0.26, halo: 0.13,
         anchor: [1.50, -1.85, 1.15], drift: [0.40, 0.30], driftSpeed: 0.048, selfSpin: 0.14, phase: 4.2 }
     ],
+    /* Three composed rings — the globe is the hero; rings are atmosphere.
+     * Foreground: one softly lit champagne ellipse passing in front.
+     * Background: two fainter paths at different angles (one muted cyan)
+     * that read through depth and precession, not brightness. */
     rings: [
-      { r: 3.05, tube: 0.0090, color: 0xe6c48a, opacity: 0.75, rot: [76, 10, 0], precess: 0.009 },
-      { r: 3.65, tube: 0.0080, color: 0xd0a468, opacity: 0.55, rot: [-58, 38, 0], precess: -0.006 },
-      { r: 4.25, tube: 0.0065, color: 0xd8b26a, opacity: 0.38, rot: [26, -32, 14], precess: 0.0045 },
-      { r: 4.85, tube: 0.0050, color: 0xa87c4f, opacity: 0.22, rot: [-44, 66, 0], precess: -0.0035 },
-      { r: 5.45, tube: 0.0040, color: 0xb08a5a, opacity: 0.12, rot: [12, 54, -8], precess: 0.0025 }
+      { r: 3.35, tube: 0.0085, color: 0xd4bfa0, opacity: 0.30, rot: [74, 8, 0], precess: 0.008 },
+      { r: 4.35, tube: 0.0045, color: 0x6f93a3, opacity: 0.11, rot: [28, -36, 12], precess: -0.005 },
+      { r: 5.15, tube: 0.0038, color: 0xa08a68, opacity: 0.07, rot: [112, 52, -10], precess: 0.003 }
     ],
     glow: { radius: 2.05, color: 0xc9a35f, base: 0.085, amp: 0.025, period: 8.6 },
     light: { color: 0xd7b46a, intensity: 12, distance: 0, orbitR: 5.2, speed: 0.055, yAmp: 1.9, ySpeed: 0.045 },
