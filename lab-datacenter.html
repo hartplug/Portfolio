@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-editorial">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Infrastructure Lab — Philip Taiwo | Data center environment</title>
+<meta name="description" content="An interactive, simulated 3D data-center environment: racks, storage, event distribution and observability with a full request lifecycle, failure scenarios and simulated cost and performance views. Educational prototype — no real AWS connectivity.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Philip Taiwo">
+<meta property="og:title" content="Infrastructure Lab — Philip Taiwo | Data center environment">
+<meta property="og:description" content="Interactive simulated 3D data-center environment. Learning prototype.">
+<meta property="og:url" content="https://hartplug.github.io/Portfolio/lab-datacenter.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Infrastructure Lab — Philip Taiwo | Data center environment">
+<meta name="twitter:description" content="Interactive simulated 3D data-center environment. Learning prototype.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=DM+Mono:wght@400;500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="/Portfolio/favicon.svg">
+  <script type="module" crossorigin src="/Portfolio/assets/app-DNTjZv8E.js"></script>
+  <link rel="stylesheet" crossorigin href="/Portfolio/assets/app-373Av80c.css">
+  <link rel="stylesheet" crossorigin href="/Portfolio/assets/lab-datacenter.css">
+</head>
+<body>
+<div class="statusbar"><span><i class="dot"></i> LAB // INFRASTRUCTURE LAB</span><span id="clock">ABUJA · WAT</span></div>
+<nav class="nav" aria-label="Primary navigation"><a class="brand" href="./">P<span>.</span>TAIWO</a><div class="navlinks"><a href="./">Home</a><a href="work.html">Work</a><a href="lab.html">Lab</a><a href="contact.html">Contact</a></div></nav>
+<main class="dc-page">
+  <header class="dc-intro wrap">
+    <p class="eyebrow">LAB 05 <span> / </span> INFRASTRUCTURE LAB</p>
+    <h1>Inside the <em>data center.</em></h1>
+    <p class="lead">An immersive, simulated cloud infrastructure command centre — a detailed 3D platform of compute, data and network components where eight AWS services run as logical representations. Watch requests travel the architecture, inspect every component, run failure scenarios and explore cost and performance. Educational prototype — no real infrastructure behind it.</p>
+    <p class="dc-sim-note"><b>EDUCATIONAL PROTOTYPE · ALL TELEMETRY SIMULATED · NO REAL AWS CONNECTIVITY · SERVICE-TO-HARDWARE RELATIONSHIPS ARE ILLUSTRATIVE, NOT AWS'S ACTUAL DEPLOYMENT</b></p>
+  </header>
+  <section class="dc-console wrap" aria-label="Simulated cloud infrastructure command centre">
+    <aside class="dc-modespanel" aria-label="Infrastructure Lab modes">
+      <h2 class="dc-modespanel-title">Infrastructure Lab</h2>
+      <p class="dc-modespanel-sub">Explore the platform, its services and their behaviour — all simulated.</p>
+      <nav class="dc-modes" data-dc-modes role="tablist" aria-label="Exploration modes">
+        <button type="button" class="dc-mode active" data-mode="workflow" role="tab" aria-selected="true">A · SERVERLESS WORKFLOW</button>
+        <button type="button" class="dc-mode" data-mode="arch" role="tab" aria-selected="false">B · ARCHITECTURE</button>
+        <button type="button" class="dc-mode" data-mode="failure" role="tab" aria-selected="false">C · FAILURE SIM</button>
+        <button type="button" class="dc-mode" data-mode="cost" role="tab" aria-selected="false">D · COST &amp; SCALE</button>
+      </nav>
+      <div class="dc-modespanel-body" data-dc-mode-body>
+        <section class="dc-panel" data-panel="workflow" aria-label="Serverless workflow">
+          <nav class="dc-nodes" data-dc-nodes role="list" aria-label="Infrastructure components"></nav>
+          <ol class="dc-trace" data-dc-trace aria-label="Simulated event trace"></ol>
+        </section>
+        <section class="dc-panel" data-panel="arch" hidden aria-label="Architecture explorer">
+          <p class="dc-arch-hint">Select a component — physical or logical — to explore connections and responsibilities.</p>
+          <nav class="dc-nodegrid" data-dc-nodegrid role="list" aria-label="All components"></nav>
+          <div class="dc-arch-detail" data-dc-arch-detail><span class="dc-arch-empty">No component selected.</span></div>
+        </section>
+        <section class="dc-panel" data-panel="failure" hidden aria-label="Failure simulation">
+          <p class="dc-arch-hint">Run a deterministic operational scenario. Events highlight affected components in 3D.</p>
+          <div class="dc-scenarios" data-dc-scenarios></div>
+          <div class="dc-deploybar">
+            <button type="button" class="dc-ctl" data-dc-fail-run>RUN</button>
+            <button type="button" class="dc-ctl" data-dc-fail-step>STEP</button>
+            <button type="button" class="dc-ctl" data-dc-fail-reset>RESET</button>
+          </div>
+          <ol class="dc-trace dc-fail-trace" data-dc-fail-trace aria-label="Simulated failure event timeline"></ol>
+        </section>
+        <section class="dc-panel" data-panel="cost" hidden aria-label="Cost scale and performance">
+          <p class="dc-arch-hint">Simulated throughput, latency, utilization and cost per component. Select a component to inspect its profile.</p>
+          <div class="dc-metrics" data-dc-metrics></div>
+          <div class="dc-costblock" data-dc-costblock></div>
+        </section>
+      </div>
+      <span class="dc-sim-chip" aria-label="All telemetry in this experience is simulated">SIMULATED</span>
+    </aside>
+    <div class="dc-stage" data-dc-stage data-scene-state="loading" aria-label="Three-dimensional cloud infrastructure platform">
+      <canvas class="dc-canvas" data-dc-canvas aria-label="Interactive three-dimensional cloud infrastructure platform. Drag to explore; select components to inspect." tabindex="0"></canvas>
+      <div class="dc-labels" data-dc-labels aria-hidden="true"></div>
+      <div class="dc-controls" aria-hidden="false">
+        <span class="dc-hint">DRAG TO EXPLORE · CLICK TO INSPECT</span>
+        <button type="button" data-dc-reset>RESET VIEW <span aria-hidden="true">⟲</span></button>
+      </div>
+      <div class="dc-fallback" data-dc-fallback hidden>
+        <strong>3D VIEW UNAVAILABLE</strong>
+        <p>The four exploration modes remain fully interactive. All telemetry is simulated.</p>
+      </div>
+      <div class="dc-inspector" data-dc-inspector hidden></div>
+      <div class="dc-stage-meta"><span data-dc-phase-label>LIFECYCLE — IDLE</span><span data-dc-cycle>CYCLE 01</span></div>
+    </div>
+    <aside class="dc-inspector" data-dc-inspector-panel aria-label="Component inspector">
+      <div class="dc-inspector-head">COMPONENT INSPECTOR</div>
+      <div class="dc-inspector-empty" data-dc-insp-empty>No component selected. Click a component in the platform or choose one from the left panel.</div>
+      <div class="dc-inspector-body" data-dc-insp-body hidden>
+        <button class="dc-inspector-close" type="button" data-dc-close aria-label="Close component details">×</button>
+        <span class="dc-inspector-index" data-dc-index></span>
+        <strong data-dc-title></strong>
+        <span class="dc-inspector-category" data-dc-category></span>
+        <p data-dc-copy></p>
+        <p class="dc-insp-disclaimer" data-dc-disclaimer hidden>LOGICAL SERVICE — ILLUSTRATIVE RELATIONSHIP, NOT AWS'S ACTUAL PHYSICAL DEPLOYMENT</p>
+        <div class="dc-insp-metrics" data-dc-insp-metrics></div>
+      </div>
+    </aside>
+  </section>
+  <section class="dc-bottomband wrap" aria-label="Request lifecycle dashboard">
+    <div class="dc-flowbar">
+      <div class="dc-lifecycle" data-dc-lifecycle role="list" aria-label="Request lifecycle stages"></div>
+      <div class="dc-flowctl">
+        <button type="button" class="dc-ctl" data-dc-play aria-pressed="true">PAUSE</button>
+        <button type="button" class="dc-ctl" data-dc-replay>REPLAY</button>
+        <button type="button" class="dc-ctl" data-dc-reset-sim>RESET</button>
+        <label class="dc-scrub-label">T <input type="range" data-dc-scrub min="0" max="7500" value="0" step="10" aria-label="Simulation time"></label>
+        <span class="dc-flowtime" data-dc-flowtime>00:00.0 / 00:07.5</span>
+        <label class="dc-speed-label">SPEED
+          <select data-dc-speed aria-label="Simulation speed"><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option></select>
+        </label>
+      </div>
+    </div>
+    <div class="dc-cards" data-dc-cards aria-label="Simulated operational metrics">
+      <div class="dc-card"><span>THROUGHPUT</span><b data-dc-card="thru">—</b><em data-dc-card-trend="thru"></em></div>
+      <div class="dc-card"><span>LATENCY P99</span><b data-dc-card="lat">—</b><em data-dc-card-trend="lat"></em></div>
+      <div class="dc-card"><span>ERROR RATE</span><b data-dc-card="err">—</b><em data-dc-card-trend="err"></em></div>
+      <div class="dc-card"><span>ACTIVE INVOCATIONS</span><b data-dc-card="inv">—</b><em data-dc-card-trend="inv"></em></div>
+    </div>
+    <div class="dc-topo" data-dc-topo aria-label="Architecture topology overview"></div>
+  </section>
+        <section class="dc-panel" data-panel="arch" hidden aria-label="Architecture explorer">
+          <p class="dc-arch-hint">Select a component in the 3D aisle — or below — to explore its connections and responsibilities.</p>
+          <nav class="dc-nodegrid" data-dc-nodegrid role="list" aria-label="All components"></nav>
+          <div class="dc-arch-detail" data-dc-arch-detail>
+            <span class="dc-arch-empty">No component selected.</span>
+          </div>
+        </section>
+        <section class="dc-panel" data-panel="failure" hidden aria-label="Failure simulation">
+          <p class="dc-arch-hint">Run a deterministic operational scenario. Events highlight the affected components in the 3D aisle.</p>
+          <div class="dc-scenarios" data-dc-scenarios></div>
+          <div class="dc-deploybar">
+            <button type="button" class="dc-ctl" data-dc-fail-run>RUN</button>
+            <button type="button" class="dc-ctl" data-dc-fail-step>STEP</button>
+            <button type="button" class="dc-ctl" data-dc-fail-reset>RESET</button>
+          </div>
+          <ol class="dc-trace dc-fail-trace" data-dc-fail-trace aria-label="Simulated failure event timeline"></ol>
+        </section>
+        <section class="dc-panel" data-panel="cost" hidden aria-label="Cost scale and performance">
+          <p class="dc-arch-hint">Simulated throughput, latency, utilization and cost characteristics per component. Select a component in the aisle to inspect its profile.</p>
+          <div class="dc-metrics" data-dc-metrics></div>
+          <div class="dc-costblock" data-dc-costblock></div>
+        </section>
+      </div>
+    </aside>
+  </section>
+</main>
+<footer class="ascii-footer"><div class="footer-revealer" aria-hidden="true"></div><div class="footer-images" aria-hidden="true"><div class="footer-hand-img left"><canvas class="ascii-hand" aria-hidden="true"></canvas></div><div class="footer-hand-img right"><canvas class="ascii-hand" aria-hidden="true"></canvas></div></div><div class="footer-content"><nav class="footer-links" aria-label="Footer navigation"><a href="work.html">Work</a><a href="project.html">AWS case study</a><a href="lab-serverless.html">Serverless learning</a><a href="observatory.html">Observatory</a><a href="lab.html">Lab</a><a href="contact.html">Contact</a></nav><div class="footer-text"><p>Cloud engineering, intelligent automation and connected systems for business. Abuja, Nigeria.</p></div></div><div class="footer-header" aria-label="I automate what costs you time"><h1><span>I AUTOMATE</span><span>WHAT COSTS YOU TIME</span></h1></div></footer>
+<script type="module">
+  const boot = async () => {
+    const [{ createDataCenterScene }, { createDashboard }] = await Promise.all([
+      import('/Portfolio/assets/lab-datacenter-scene.js'),
+      import('/Portfolio/assets/lab-datacenter-dashboard.js')
+    ]);
+    const scene = createDataCenterScene(document.querySelector('[data-dc-stage]'));
+    createDashboard(document, scene);
+    window.__dcInspect = () => scene.getInspect();
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot, { once: true });
+  else boot();
+</script>
+</body></html>
