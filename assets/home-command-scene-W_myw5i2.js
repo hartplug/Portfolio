@@ -1,1 +1,338 @@
-import{WebGLRenderer as Qe,SRGBColorSpace as $e,Scene as Je,PerspectiveCamera as Ze,Group as oe,HemisphereLight as et,AmbientLight as tt,DirectionalLight as Ge,PointLight as nt,SphereGeometry as Y,CylinderGeometry as ie,CircleGeometry as rt,TorusGeometry as Ne,TubeGeometry as ot,Mesh as Ye,MeshBasicMaterial as it,MeshStandardMaterial as at,DoubleSide as Ue,Vector3 as We,QuadraticBezierCurve3 as st,BoxGeometry as ct,Vector2 as dt,Raycaster as lt,BackSide as ut,MathUtils as ze}from"./three.module-BbDkOMEo.js";const Fe={gold:13876618,hot:15785911},C=[{id:"user",title:"USER",category:"REQUEST ORIGIN",copy:"Begins the request and receives the completed response.",shape:"terminal",p:[-1.48,.5,.36]},{id:"api",title:"API GATEWAY",category:"ENTRY & ROUTING",copy:"Accepts the request and routes it to the application logic.",shape:"gateway",p:[-.94,.02,.82]},{id:"lambda",title:"LAMBDA",category:"COMPUTE & LOGIC",copy:"Runs the application logic when a request invokes it.",shape:"compute",p:[-.12,.06,1.42]},{id:"dynamodb",title:"DYNAMODB",category:"DATA · KEY / VALUE",copy:"Stores and returns application records on demand.",shape:"data",p:[.88,.88,.72]},{id:"s3",title:"S3",category:"OBJECT STORAGE",copy:"Stores files and other durable application objects.",shape:"storage",p:[1.2,.22,.55]},{id:"sns",title:"SNS",category:"EVENT DISTRIBUTION",copy:"Publishes events so subscribed systems can react.",shape:"switch",p:[.77,-.68,.62]},{id:"cloudwatch",title:"CLOUDWATCH",category:"OBSERVABILITY",copy:"Collects logs and metrics from the running request path.",shape:"monitor",p:[-.12,-.92,.52]},{id:"response",title:"RESPONSE",category:"RETURN PATH",copy:"Carries the result back to the person who requested it.",shape:"terminal",p:[-1.4,-.58,.28]}],pt=[["user","api"],["api","lambda"],["lambda","dynamodb"],["lambda","s3"],["lambda","sns"],["lambda","cloudwatch"],["dynamodb","cloudwatch"],["s3","cloudwatch"],["cloudwatch","response"],["response","user"]],mt=[["user","api"],["api","lambda"],["lambda","dynamodb"],["dynamodb","cloudwatch"],["cloudwatch","response"],["response","user"]],ft=r=>new We(...r);function Ve(r,h,n=0){const g=r.clone().add(h).multiplyScalar(.5);return g.z+=n,new st(r,g,h)}function ht(r){const h=[],n=(o,s,I,l,c,M,k=.015)=>{const y=new ct(o,s,I);y.translate(l,c,M),h.push(y)},g=(o,s,I,l,c,M,k=12)=>{const y=new ie(o,s,I,k);y.translate(l,c,M),h.push(y)};if(r==="terminal"&&(n(.23,.13,.12,0,.02,0),n(.12,.035,.09,0,-.07,.01),n(.045,.055,.045,0,-.028,-.01)),r==="gateway"&&(n(.05,.32,.08,-.12,0,0),n(.05,.32,.08,.12,0,0),n(.28,.045,.08,0,.138,0),n(.23,.035,.075,0,-.14,0),n(.06,.055,.045,0,.005,.048)),r==="compute"&&(n(.27,.32,.2,0,0,0,.03),n(.19,.21,.02,0,.015,.112,.02),n(.06,.015,.012,0,.095,.127,.004),n(.035,.035,.016,0,-.035,.126,.004),g(.025,.025,.018,0,-.19,0,10)),r==="data")for(let o=0;o<3;o++)g(.13,.13,.065,0,-.08+o*.085,0,16);if(r==="storage"&&(n(.23,.29,.18,0,0,0,.02),n(.16,.045,.016,0,.055,.1),n(.12,.018,.016,0,-.015,.1),n(.08,.018,.016,0,-.064,.1)),r==="switch"){n(.25,.22,.11,0,0,0,.02);for(let o=0;o<3;o++)n(.07,.035,.024,-.065+o*.065,.015,.068),n(.05,.012,.014,-.065+o*.065,-.055,.07)}return r==="monitor"&&(n(.25,.29,.12,0,.03,0,.02),n(.17,.1,.015,0,.045,.068),n(.035,.06,.015,-.065,.04,.079),n(.035,.085,.015,0,.052,.079),n(.035,.045,.015,.065,.032,.079)),h}function yt(r,{reducedMotion:h=!1}={}){const n=r?.querySelector("[data-command-canvas]"),g=r?.querySelector("[data-command-fallback]"),o=r?.querySelector("[data-orbit-inspector]");if(!r||!n)return{destroy(){}};let s;const I=()=>{r.dataset.sceneState="fallback",n.hidden=!0,g&&(g.hidden=!1),o&&(o.hidden=!0),r.querySelector(".orbit-controls")?.setAttribute("hidden","")};try{s=new Qe({canvas:n,alpha:!0,antialias:innerWidth>760,powerPreference:"low-power"})}catch(e){return I(),{destroy(){},inspect:()=>({fallback:!0,error:String(e)})}}s.setClearColor(526602,0),s.outputColorSpace=$e;const l=new Je,c=new Ze(38,1,.1,40),M=new oe;c.position.set(0,.12,7.2),l.add(M),l.add(new et(13878942,592395,.72),new tt(3352857,.5));const k=new Ge(15982e3,1.35);k.position.set(-3,4,5),l.add(k);const y=new Ge(7902874,.45);y.position.set(4,-1,-4),l.add(y);const ae=new nt(13216109,.45,8);ae.position.set(0,0,4),l.add(ae);const se=[],ce=[],u=e=>{const t=new at(e);return se.push(t),t},p=(e,t,i)=>{ce.push(e);const a=new Ye(e,t);return i.add(a),a},d=new oe;M.add(d),p(new Y(1.92,46,32),u({color:10126164,metalness:.72,roughness:.42,wireframe:!0,transparent:!0,opacity:.31,side:Ue}),d),p(new Y(1.81,22,16),u({color:6115900,wireframe:!0,transparent:!0,opacity:.105,side:Ue}),d).rotation.set(.31,.48,-.22),p(new Y(1.95,28,20),u({color:10849371,transparent:!0,opacity:.025,side:ut,depthWrite:!1}),d);const Xe=u({color:Fe.gold,metalness:.72,roughness:.36,emissive:3747095,emissiveIntensity:.18}),He=p(new ie(.25,.32,.1,40),Xe,d);He.rotation.x=Math.PI/2;const _e=p(new rt(.235,32),u({color:1512979,metalness:.32,roughness:.6}),d);_e.position.z=.057;const de=u({color:13481856,metalness:.78,roughness:.4,emissive:2103561,emissiveIntensity:.12}),le=[];[[2.15,.32,.08],[2.25,-.48,-.15],[2.04,.15,.31]].forEach(([e,t,i],a)=>{const f=p(new Ne(e,.008,5,128),de,d);f.rotation.set(t,i,a*.18),le.push(f)});const O=new Map(C.map(e=>[e.id,ft(e.p)])),ue=new Map,j=new Map,K=[],pe=u({color:11901544,transparent:!0,opacity:.21,depthWrite:!1}),je=u({color:Fe.hot,emissive:4864284,emissiveIntensity:.24,transparent:!0,opacity:.92,depthWrite:!1}),U=[];pt.forEach(([e,t],i)=>{const a=Ve(O.get(e),O.get(t),i%2?.11:-.11),f=p(new ot(a,30,.005,4,!1),pe,d);U.push({a:e,b:t,line:f})}),C.forEach(e=>{const t=new oe;t.position.copy(O.get(e.id)),d.add(t),ue.set(e.id,t);const i=u({color:e.id==="lambda"?3878942:2696992,metalness:.62,roughness:.4,emissive:591878,emissiveIntensity:.2});j.set(e.id,i);for(const _ of ht(e.shape)){_.computeVertexNormals();const De=p(_,i,t);De.userData.service=e.id,K.push(De)}const a=p(new ie(.19,.22,.038,20),u({color:1512979,metalness:.55,roughness:.5}),t);a.position.y=-.205;const f=p(new Ne(.2,.005,4,32),de,t);f.rotation.x=Math.PI/2,f.position.y=-.184;const N=new Ye(new Y(.255,10,8),new it({visible:!1}));N.userData.service=e.id,t.add(N),K.push(N)});const b=p(new Y(.033,10,8),u({color:15852744,emissive:14073226,emissiveIntensity:.42,metalness:.1,roughness:.38}),d),me=mt.map(([e,t],i)=>({curve:Ve(O.get(e),O.get(t),i%2?.11:-.11)})),fe=new Map,he=r.querySelector("[data-command-overlays]");he&&C.forEach(e=>{const t=document.createElement("div");t.className="command-label",t.dataset.service=e.id,t.innerHTML=`${e.title}<small>${e.category}</small>`,t.hidden=!0,he.append(t),fe.set(e.id,t)});let m=null,A=null,B=!1,P=null,Q=!1,ve=0,ge=0,$=0,J=0,w=-.12,E=-.18,x=w,R=E,z=0,F=0,V=0,ye=0,T=0,S=0,Z=0,L=!1,D=!1,q=!1;const be=new lt,we=new dt,W=matchMedia("(prefers-reduced-motion: reduce)");let v=h||W.matches;const Ee=()=>{if(D||q)return;const e=n.getBoundingClientRect();!e.width||!e.height||(s.setPixelRatio(Math.min(devicePixelRatio||1,e.width<620?1.2:1.5)),s.setSize(e.width,e.height,!1),c.aspect=e.width/e.height,c.position.z=e.width<620?7.4:7.2,c.position.y=e.width<620?.06:.12,c.updateProjectionMatrix(),v&&s.render(l,c))},xe=new ResizeObserver(()=>{cancelAnimationFrame(Z),Z=requestAnimationFrame(Ee)});xe.observe(n);const Se=new IntersectionObserver(([e])=>{L=e.isIntersecting,L&&!document.hidden?H():G()},{threshold:.01});Se.observe(r),L=!0;const Le=e=>{const t=n.getBoundingClientRect();return we.set((e.clientX-t.left)/t.width*2-1,-((e.clientY-t.top)/t.height)*2+1),be.setFromCamera(we,c),be.intersectObjects(K,!1)[0]?.object.userData.service||null},ee=e=>fe.forEach((t,i)=>t.hidden=i!==e),te=e=>{if(m=e,A=e,ee(e),!o||(o.hidden=!e,!e))return;const t=C.find(i=>i.id===e);o.querySelector("[data-inspector-index]").textContent=String(C.indexOf(t)+1).padStart(2,"0"),o.querySelector("[data-inspector-title]").textContent=t.title,o.querySelector("[data-inspector-category]").textContent=t.category,o.querySelector("[data-inspector-description]").textContent=t.copy},Ke=()=>{U.forEach(e=>{const t=m==="lambda"?e.a==="api"&&e.b==="lambda"||e.a==="lambda"||e.b==="lambda":m?e.a===m||e.b===m||["user","api","lambda","dynamodb","response"].includes(e.a)&&["user","api","lambda","dynamodb","response"].includes(e.b):!1;e.line.material=t?je:pe,e.line.material.opacity=m?t?.9:.09:.21}),C.forEach(e=>{const t=e.id===m||e.id===A,i=ue.get(e.id);j.get(e.id).emissive.setHex(t?4864284:591878),j.get(e.id).emissiveIntensity=t?1.15:.2;const a=t?1.1:m?.86:1;i.scale.lerp(new We(a,a,a),.15)})},Ce=e=>{if(!(e.button!==void 0&&e.button!==0)){e.pointerType==="touch"&&e.preventDefault(),P=e.pointerId,ve=$=e.clientX,ge=J=e.clientY,Q=!1,B=!0,n.classList.add("is-dragging");try{n.setPointerCapture?.(e.pointerId)}catch{}}},X=e=>{if(B&&e.pointerId===P){e.pointerType==="touch"&&e.preventDefault();const t=e.clientX-$,i=e.clientY-J;Math.hypot(e.clientX-ve,e.clientY-ge)>5&&(Q=!0),R+=t*.006,x=ze.clamp(x+i*.004,-.58,.58),z=t*85e-5,F=i*65e-5,$=e.clientX,J=e.clientY,V=0;return}e.pointerType==="mouse"&&(A=Le(e),ee(A||m))},Ie=e=>{if(e.pointerId!==P)return;const t=Q;B=!1,P=null,n.classList.remove("is-dragging"),t||te(Le(e)||null)},ne=()=>{B=!1,P=null,n.classList.remove("is-dragging")},re=()=>{x=-.12,R=-.18,w=x,E=R,d.rotation.set(w,E,0),z=F=0,V=0,te(null),o&&(o.hidden=!0),ee(null)},Me=r.querySelector("[data-orbit-reset]"),Ae=r.querySelector("[data-inspector-close]"),Re=()=>ne();n.addEventListener("pointerdown",Ce,{passive:!1}),n.addEventListener("pointermove",X,{passive:!1}),r.addEventListener("pointermove",X,{passive:!1}),n.addEventListener("pointerup",Ie),n.addEventListener("pointercancel",ne),n.addEventListener("lostpointercapture",Re),Me?.addEventListener("click",re);const Te=()=>te(null);Ae?.addEventListener("click",Te);const qe=e=>{e.preventDefault(),q=!0,G(),I()};n.addEventListener("webglcontextlost",qe,!1);const ke=()=>{v=h||W.matches,T=0,G(),v?(d.rotation.set(w,E,0),b.visible=!1,s.render(l,c)):H()};W.addEventListener?.("change",ke);const Oe=()=>document.hidden?G():L&&H();document.addEventListener("visibilitychange",Oe);function Be(e){if(S=0,D||q||!L||document.hidden)return;const t=T?Math.min((e-T)/1e3,.04):0;if(T=e,ye+=t,v)d.rotation.set(w,E,0),b.visible=!1;else{B||(V+=t,R+=z,x=ze.clamp(x+F,-.58,.58),z*=.94,F*=.94,V>1.2&&(R+=t*.035)),w+=(x-w)*Math.min(1,t*4),E+=(R-E)*Math.min(1,t*4),d.rotation.set(w,E,0),le.forEach((N,_)=>N.rotation.z+=t*(_%2?.006:-.004));const i=ye%24/24*me.length,a=Math.floor(i),f=i-a;me[a].curve.getPoint(f,b.position),b.visible=!0,b.userData.routeIndex=a,b.userData.routeProgress=f}Ke(),s.render(l,c),r.dataset.frames=String(Number(r.dataset.frames||0)+1),S=requestAnimationFrame(Be)}function H(){!S&&!D&&!q&&L&&!document.hidden&&(T=0,S=requestAnimationFrame(Be))}function G(){S&&cancelAnimationFrame(S),S=0,T=0}Ee(),r.dataset.sceneState=v?"static":"ready",r.dataset.frames="0",b.visible=!v,r.querySelector("[data-command-fallback]")?.setAttribute("hidden",""),r.querySelector(".orbit-controls")?.removeAttribute("hidden"),r.__orbitInspect=()=>({scene:l,camera:c,renderer:s,root:d,services:C,selected:m,hovered:A,packet:b,routeCount:U.length,reducedMotion:v,contextLost:q}),v?s.render(l,c):(L=!0,H());function Pe(){D||(D=!0,G(),cancelAnimationFrame(Z),xe.disconnect(),Se.disconnect(),n.removeEventListener("pointerdown",Ce),n.removeEventListener("pointermove",X),r.removeEventListener("pointermove",X),n.removeEventListener("pointerup",Ie),n.removeEventListener("pointercancel",ne),n.removeEventListener("lostpointercapture",Re),n.removeEventListener("webglcontextlost",qe),Me?.removeEventListener("click",re),Ae?.removeEventListener("click",Te),W.removeEventListener?.("change",ke),document.removeEventListener("visibilitychange",Oe),ce.forEach(e=>e.dispose()),se.forEach(e=>e.dispose()),s.dispose(),delete r.__orbitInspect)}return addEventListener("pagehide",Pe,{once:!0}),{destroy:Pe,reset:re,inspect:()=>({selected:m,hovered:A,reducedMotion:v,contextLost:q,routeCount:U.length})}}export{yt as mountHomeCommandScene};
+/* home-command-scene-W_myw5i2.js — Home hero cinematic globe (redesign).
+ * A large dark metallic digital globe with procedural geographic detail,
+ * champagne-gold orbital rings, electric-cyan data paths, floating glass
+ * tech cards, illuminated particle drift and atmospheric rim lighting —
+ * a full-bleed interactive 3D background behind the Home hero content.
+ * Simulated visualization only. Public contract preserved:
+ *   export mountHomeCommandScene(host) -> { destroy, reset, inspect }
+ *   host.__orbitInspect() -> { scene, camera, renderer, root, reducedMotion, contextLost }
+ */
+import {
+  WebGLRenderer, PerspectiveCamera, Scene, Color, Group, Mesh,
+  MeshStandardMaterial, MeshBasicMaterial, ShaderMaterial, SphereGeometry,
+  TorusGeometry, TubeGeometry, QuadraticBezierCurve3,
+  Vector3, MathUtils, HemisphereLight, DirectionalLight,
+  PointLight, AdditiveBlending, DoubleSide, BackSide,
+  ACESFilmicToneMapping, PMREMGenerator, PlaneGeometry
+} from './three.module-BbDkOMEo.js';
+
+const SAND = 0xc4b596, SAND_MUTED = 0xa89a7a, CYAN = 0x7ab8c8;
+
+export function mountHomeCommandScene(host) {
+  const stage = host.querySelector('.command-stage') || host;
+  const canvas = host.querySelector('[data-command-canvas]');
+  const fallback = host.querySelector('[data-command-fallback]');
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const disposables = { geo: [], mat: [] };
+  const listeners = [];
+  let dead = false, raf = 0, contextLost = false, visible = true, frames = 0;
+
+  if (!canvas) {
+    host.dataset.sceneState = 'fallback';
+    if (fallback) fallback.hidden = false;
+    return { destroy() {}, reset() {}, inspect: () => ({ reducedMotion: reduced, contextLost: false }) };
+  }
+
+  let renderer;
+  try { renderer = new WebGLRenderer({ canvas, antialias: false, alpha: true, powerPreference: 'high-performance' }); }
+  catch (e) { host.dataset.sceneState = 'fallback'; if (fallback) fallback.hidden = false;
+    return { destroy() {}, reset() {}, inspect: () => ({ reducedMotion: reduced, contextLost: true }) }; }
+  renderer.setClearColor(0x000000, 0);
+  renderer.toneMapping = ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.18;
+  renderer.outputColorSpace = 'srgb';
+
+  const scene = new Scene();
+  const camera = new PerspectiveCamera(40, 1, 0.1, 60);
+
+  { /* cool studio env for metal reflections */
+    const pm = new PMREMGenerator(renderer);
+    const env = new Scene();
+    const mk = (w, h, c, i, x, y, z, ry) => {
+      const m = new Mesh(new PlaneGeometry(w, h), new MeshBasicMaterial({ color: c, side: DoubleSide }));
+      m.material.color.multiplyScalar(i); m.position.set(x, y, z); m.rotation.y = ry; env.add(m);
+    };
+    mk(10, 4, new Color(0x232d44), 2.4, 0, 4, -7, 0);
+    mk(9, 3, new Color(0x8fa8c8), 0.9, -5, 3, 2, 1.2);
+    mk(9, 3, new Color(0x14283a), 2.0, 5, 2.5, 2, -1.2);
+    mk(7, 2, new Color(0xffffff), 2.0, 0, 8, 0, Math.PI / 2);
+    scene.environment = pm.fromScene(env, 0.06).texture;
+    env.traverse(o => { if (o.isMesh) { o.geometry.dispose(); o.material.dispose(); } });
+    pm.dispose();
+  }
+
+  const root = new Group(); scene.add(root);
+
+  /* ---------- globe ---------- */
+  const globe = new Group(); root.add(globe);
+  const R = 2.15;
+  const surfaceMat = new MeshStandardMaterial({ color: 0x12100e, metalness: 0.85, roughness: 0.35, envMapIntensity: 1.2 });
+  disposables.mat.push(surfaceMat);
+  const globeMesh = new Mesh(new SphereGeometry(R, 48, 32), surfaceMat);
+  disposables.geo.push(globeMesh.geometry);
+  globeMesh.rotation.y = 0.4; globe.add(globeMesh);
+
+  /* procedural geographic detail: continents + graticule (additive shader shell) */
+  const detailMat = new ShaderMaterial({
+    transparent: true, depthWrite: false, blending: AdditiveBlending,
+    uniforms: { uT: { value: 0 }, uC: { value: new Color(0x181512) }, uHot: { value: new Color(0xa89a7a) } },
+    vertexShader: `
+      varying vec3 vP; varying vec3 vN; varying vec2 vUv;
+      void main(){ vP=position; vN=normalize(normalMatrix*normal); vUv=uv;
+        gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.); }`,
+    fragmentShader: `
+      varying vec3 vP; varying vec3 vN; varying vec2 vUv;
+      uniform float uT; uniform vec3 uC; uniform vec3 uHot;
+      float hash(vec3 p){ return fract(sin(dot(p,vec3(127.1,311.7,74.7)))*43758.5453); }
+      float noise(vec3 p){
+        vec3 i=floor(p), f=fract(p); f=f*f*(3.-2.*f);
+        float n=mix(mix(mix(hash(i),hash(i+vec3(1,0,0)),f.x),mix(hash(i+vec3(0,1,0)),hash(i+vec3(1,1,0)),f.x),f.y),
+                    mix(mix(hash(i+vec3(0,0,1)),hash(i+vec3(1,0,1)),f.x),mix(hash(i+vec3(0,1,1)),hash(i+vec3(1,1,1)),f.x),f.y),f.z);
+        return n; }
+      void main(){
+        float land=noise(vP*1.35)*.6+noise(vP*2.9)*.3+noise(vP*6.1)*.1;
+        float continents=smoothstep(.52,.62,land);
+        float grid=max(abs(fract(vUv.x*24.)-.5),abs(fract(vUv.y*16.)-.5));
+        float lines=smoothstep(.47,.5,grid)*.30;
+        float rim=pow(1.-abs(dot(vN,vec3(0.,0.,1.))),2.)*.26;
+        vec3 col=mix(uC,uHot,continents*.55);
+        float a=continents*.46+lines+rim;
+        gl_FragColor=vec4(col,a*.78); }`
+  });
+  disposables.mat.push(detailMat);
+  const detailMesh = new Mesh(new SphereGeometry(R * 1.003, 48, 32), detailMat);
+  disposables.geo.push(detailMesh.geometry);
+  detailMesh.rotation.y = 0.4; globe.add(detailMesh);
+
+  /* atmosphere rim glow */
+  const atmoMat = new ShaderMaterial({
+    transparent: true, depthWrite: false, side: BackSide, blending: AdditiveBlending,
+    uniforms: { uC: { value: new Color(0xc4b596) } },
+    vertexShader: 'varying vec3 vN;void main(){vN=normalize(normalMatrix*normal);gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}',
+    fragmentShader: 'varying vec3 vN;uniform vec3 uC;void main(){float i=pow(.72-dot(vN,vec3(0.,0.,1.)),3.);gl_FragColor=vec4(uC,i*.68);}'
+  });
+  disposables.mat.push(atmoMat);
+  const atmo = new Mesh(new SphereGeometry(R * 1.16, 32, 24), atmoMat);
+  disposables.geo.push(atmo.geometry); globe.add(atmo);
+
+  /* ---------- champagne-gold orbital rings ---------- */
+  const COPPER = 0xad7050;
+  const ringDefs = [
+    { r: 2.38, tube: 0.004,  tilt: [0.35, 1.15, 0.50], precess: 0.05,  emissive: 0.15, arc: 1.05, col: SAND },
+    { r: 2.58, tube: 0.0035, tilt: [-0.45, -1.25, 1.70], precess: -0.04, emissive: 0.10, arc: 0.85, col: COPPER },
+    { r: 2.80, tube: 0.003,  tilt: [0.20, 1.35, 2.80], precess: 0.03,  emissive: 0.08, arc: 0.70, col: SAND },
+  ];
+  const rings = ringDefs.map(d => {
+    const g = new TorusGeometry(d.r, d.tube, 8, 90, d.arc);
+    disposables.geo.push(g);
+    const m = new MeshStandardMaterial({ color: d.col, metalness: 0.9, roughness: 0.32,
+      emissive: new Color(d.col).multiplyScalar(0.22), emissiveIntensity: d.emissive, envMapIntensity: 1.1 });
+    disposables.mat.push(m);
+    const ring = new Mesh(g, m);
+    ring.rotation.set(d.tilt[0], d.tilt[1], d.tilt[2]);
+    root.add(ring);
+    return { mesh: ring, precess: d.precess, base: d.tilt.slice() };
+  });
+
+  /* ---------- cyan data-path arcs + packets ---------- */
+  const arcMat = () => {
+    const m = new ShaderMaterial({
+      transparent: true, depthWrite: false, blending: AdditiveBlending,
+      uniforms: { uC: { value: new Color(CYAN) }, uPulse: { value: -1 } },
+      vertexShader: 'varying vec2 vU;void main(){vU=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}',
+      fragmentShader: `varying vec2 vU;uniform vec3 uC;uniform float uPulse;
+        void main(){float a=.22;float ends=smoothstep(0.,.06,vU.x)*smoothstep(1.,.94,vU.x);
+        if(uPulse>=0.){a+=exp(-abs(vU.x-uPulse)*16.)*.8;}
+        gl_FragColor=vec4(uC,a*ends);}`
+    });
+    disposables.mat.push(m); return m;
+  };
+  const arcs = [];
+  const sph = (lat, lon, rr) => new Vector3(
+    rr * Math.cos(lat) * Math.cos(lon), rr * Math.sin(lat), rr * Math.cos(lat) * Math.sin(lon));
+  for (let i = 0; i < 5; i++) {
+    const a1 = sph(0.35 + i * 0.28 - 0.5, i * 1.1 + 0.3, R * 1.01);
+    const a2 = sph(0.1 - i * 0.32, i * 1.2 + 2.2, R * 1.01);
+    const mid = a1.clone().add(a2).multiplyScalar(0.5).normalize().multiplyScalar(R * (1.28 + i * 0.06));
+    const curve = new QuadraticBezierCurve3(a1, mid, a2);
+    const g = new TubeGeometry(curve, 40, 0.012, 6, false);
+    disposables.geo.push(g);
+    const mesh = new Mesh(g, arcMat());
+    globe.add(mesh);
+    arcs.push({ mesh, curve, phase: i * 0.19, dur: 3.4 + i * 0.5 });
+  }
+  const arcPktG = new SphereGeometry(0.03, 8, 6); disposables.geo.push(arcPktG);
+  const packets = arcs.map((a, i) => {
+    const m = new MeshBasicMaterial({ color: i % 2 ? 0xe8dfc8 : 0x9fd8f0, transparent: true, opacity: 0.85, blending: AdditiveBlending, depthWrite: false });
+    disposables.mat.push(m);
+    const p = new Mesh(arcPktG, m); globe.add(p);
+    return { arc: a, mesh: p };
+  });
+
+  /* ---------- floating glass tech cards ---------- */
+  const cardMat = new ShaderMaterial({
+    transparent: true, depthWrite: false, side: DoubleSide,
+    uniforms: { uT: { value: 0 }, uC: { value: new Color(0xa89a7a) } },
+    vertexShader: 'varying vec2 vU;void main(){vU=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}',
+    fragmentShader: `varying vec2 vU;uniform float uT;uniform vec3 uC;
+      void main(){
+        float frame=smoothstep(0.,.05,vU.x)*smoothstep(1.,.95,vU.x)*smoothstep(0.,.09,vU.y)*smoothstep(1.,.91,vU.y);
+        float lines=step(.86,fract(vU.y*7.))*.3*step(.12,vU.x)*step(vU.x,.88);
+        float bar=step(vU.y,.5+.3*sin(uT*.8+vU.x*9.))*.28*step(.15,vU.x)*step(vU.x,.85)*step(.2,vU.y)*step(vU.y,.8);
+        float a=frame*.5+lines*.5+bar;
+        gl_FragColor=vec4(uC,a*.6);}`
+  });
+  disposables.mat.push(cardMat);
+  const cardGeo = new PlaneGeometry(0.62, 0.4); disposables.geo.push(cardGeo);
+  const cards = [];
+  [[-2.6, 1.7, 1.6, 0.5], [2.7, 2.1, -0.8, -0.6], [3.0, -0.9, 1.9, -0.35], [-2.9, -1.6, -0.4, 0.45]].forEach((d, i) => {
+    const c = new Mesh(cardGeo, cardMat);
+    c.position.set(d[0], d[1], d[2]); c.rotation.y = d[3];
+    root.add(c); cards.push({ mesh: c, base: [d[0], d[1], d[2]], ph: i * 1.7 });
+  });
+
+  /* ---------- particle drift ---------- */
+  const partGeo = new SphereGeometry(0.014, 6, 5); disposables.geo.push(partGeo);
+  const parts = [];
+  for (let i = 0; i < 22; i++) {
+    const m = new MeshBasicMaterial({ color: i % 4 === 3 ? CYAN : SAND, transparent: true, opacity: 0.6, blending: AdditiveBlending, depthWrite: false });
+    disposables.mat.push(m);
+    const p = new Mesh(partGeo, m);
+    p.userData = { rr: 2.6 + (i % 5) * 0.55, a: i * 0.628, el: 0.5 + Math.sin(i * 2.1) * 0.5, sp: 0.06 + (i % 4) * 0.02 };
+    root.add(p); parts.push(p);
+  }
+
+  /* ---------- lighting ---------- */
+  scene.add(new HemisphereLight(0x181512, 0x0a0907, 1.0));
+  const key = new DirectionalLight(0xc8d8f0, 1.4); key.position.set(-5, 7, 6); scene.add(key);
+  const rimG = new PointLight(SAND, 0.9, 12, 2); rimG.position.set(4.5, 3.5, -4); scene.add(rimG);
+  const rimC = new PointLight(CYAN, 0.35, 12, 2); rimC.position.set(-4, -2.5, 4); scene.add(rimC);
+
+  /* ---------- layout / camera (globe offset right on wide screens) ---------- */
+  function resize() {
+    const r = stage.getBoundingClientRect();
+    if (!r.width || !r.height) return;
+    renderer.setPixelRatio(Math.min(devicePixelRatio || 1, r.width < 620 ? 1.3 : 1.6));
+    renderer.setSize(r.width, r.height, false);
+    camera.aspect = r.width / r.height;
+    const wide = r.width >= 900, tab = r.width >= 620;
+    root.scale.setScalar(wide ? 0.95 : tab ? 0.52 : 0.42);
+    if (wide)     { root.position.set(3.02, -0.10, 0); camera.position.set(0, 0.90, 8.4); }
+    else if (tab) { root.position.set(1.15, -0.95, 0); camera.position.set(0, 0.60, 8.4); }
+    else          { root.position.set(0.00, -0.95, 0); camera.position.set(0, 0.40, 8.4); }
+    camera.lookAt(0, 0.10, 0);
+    camera.updateProjectionMatrix();
+  }
+  const ro = new ResizeObserver(resize); ro.observe(stage); resize();
+
+  /* ---------- pointer parallax ---------- */
+  let px = 0, py = 0, tx = 0, ty = 0;
+  const onPointer = e => {
+    const r = stage.getBoundingClientRect();
+    tx = ((e.clientX - r.left) / r.width - 0.5) * 2;
+    ty = ((e.clientY - r.top) / r.height - 0.5) * 2;
+  };
+  const onLeave = () => { tx = 0; ty = 0; };
+  addEventListener('pointermove', onPointer);
+  stage.addEventListener('pointerleave', onLeave);
+  listeners.push(['pointermove', onPointer, null], ['pointerleave', onLeave, stage]);
+
+  /* ---------- context loss ---------- */
+  const onLost = e => { e.preventDefault(); contextLost = true; host.dataset.sceneState = 'fallback';
+    if (fallback) fallback.hidden = false; };
+  const onRestored = () => { contextLost = false; host.dataset.sceneState = reduced ? 'static' : 'ready';
+    if (fallback) fallback.hidden = true; renderOnce(); };
+  canvas.addEventListener('webglcontextlost', onLost);
+  canvas.addEventListener('webglcontextrestored', onRestored);
+  listeners.push(['webglcontextlost', onLost, canvas], ['webglcontextrestored', onRestored, canvas]);
+
+  host.__orbitInspect = () => ({ scene, camera, renderer, root, services: [], reducedMotion: reduced, contextLost });
+
+  /* ---------- loop ---------- */
+  let t = 0, last = 0, adaptDone = false, adaptN = 0, adaptSum = 0, adaptT0 = 0;
+  function tick(now) {
+    if (dead) return;
+    raf = requestAnimationFrame(tick);
+    if (contextLost || document.hidden || !visible) return;
+    const dt = Math.min((now - last) / 1000 || 0, 0.1); last = now;
+    t += dt;
+    if (!adaptDone && !reduced) {
+      if (!adaptT0) adaptT0 = now;
+      adaptN++; adaptSum += dt;
+      if (now - adaptT0 > 2600 && adaptN >= 12) {
+        if ((adaptSum / adaptN) * 1000 > 58) { renderer.setPixelRatio(1); resize(); }
+        adaptDone = true;
+      }
+    }
+    const sp = reduced ? 0 : dt * 0.06;
+    globe.rotation.y += sp;
+    px += (tx - px) * 0.05; py += (ty - py) * 0.05;
+    root.rotation.y = reduced ? 0 : px * 0.12;
+    root.rotation.x = reduced ? 0 : py * 0.05;
+    rings.forEach(rg => { rg.mesh.rotation.z = rg.base[2] + (reduced ? 0 : t * rg.precess); });
+    arcs.forEach(a => { a.mesh.material.uniforms.uPulse.value = -1; });
+    packets.forEach(p => {
+      const cyc = (t / p.arc.dur + p.arc.phase) % 1;
+      if (!reduced || cyc < 0.5) {
+        p.mesh.position.copy(p.arc.curve.getPoint(cyc));
+        p.arc.mesh.material.uniforms.uPulse.value = cyc;
+        p.mesh.visible = true;
+      } else p.mesh.visible = false;
+    });
+    cards.forEach(c => {
+      c.mesh.position.y = c.base[1] + (reduced ? 0 : Math.sin(t * 0.7 + c.ph) * 0.12);
+      c.mesh.rotation.z = reduced ? 0 : Math.sin(t * 0.4 + c.ph) * 0.05;
+    });
+    if (!reduced) parts.forEach(p => {
+      p.userData.a += dt * p.userData.sp;
+      p.position.set(
+        Math.cos(p.userData.a) * p.userData.rr,
+        p.userData.el + Math.sin(t * 0.5 + p.userData.a) * 0.3,
+        Math.sin(p.userData.a) * p.userData.rr * 0.7);
+    });
+    if (detailMat.uniforms) detailMat.uniforms.uT.value = t;
+    if (cardMat.uniforms) cardMat.uniforms.uT.value = t;
+    renderer.render(scene, camera);
+    frames++;
+  }
+  function renderOnce() { if (!contextLost) renderer.render(scene, camera); }
+
+  const io = new IntersectionObserver(en => { visible = en[0].isIntersecting; }, { threshold: 0.02 });
+  io.observe(host);
+  const onVis = () => { if (!document.hidden && !dead) last = performance.now(); };
+  document.addEventListener('visibilitychange', onVis);
+  listeners.push(['visibilitychange', onVis, document]);
+
+  if (reduced) {
+    packets.forEach(p => { p.mesh.position.copy(p.arc.curve.getPoint(0.35)); p.mesh.visible = true; });
+    parts.forEach(p => {
+      p.position.set(Math.cos(p.userData.a) * p.userData.rr, p.userData.el, Math.sin(p.userData.a) * p.userData.rr * 0.7);
+    });
+    renderOnce();
+    host.dataset.sceneState = 'static';
+  } else {
+    raf = requestAnimationFrame(tick);
+    host.dataset.sceneState = 'ready';
+  }
+
+  function destroy() {
+    if (dead) return; dead = true;
+    cancelAnimationFrame(raf); ro.disconnect(); io.disconnect();
+    listeners.forEach(([type, fn, el]) => {
+      if (el === null) removeEventListener(type, fn);
+      else if (el) el.removeEventListener(type, fn);
+    });
+    scene.traverse(o => { if (o.isMesh) { o.geometry?.dispose?.(); o.material?.dispose?.(); } });
+    disposables.mat.forEach(m => m.dispose());
+    disposables.geo.forEach(g => g.dispose());
+    renderer.dispose();
+    delete host.__orbitInspect;
+  }
+  addEventListener('pagehide', destroy, { once: true });
+
+  return {
+    destroy,
+    reset: () => { px = py = tx = ty = 0; globe.rotation.y = 0; if (reduced) renderOnce(); },
+    inspect: () => ({ selected: null, hovered: null, reducedMotion: reduced, contextLost, routeCount: arcs.length, frames })
+  };
+}
